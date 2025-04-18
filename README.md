@@ -1,59 +1,57 @@
-# AlloMovieFront
+# PROJET ALLO-MOVIE
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+### _Faisait partie des sujets proposés à l'incubateur, je vais modifier la demande pour un projet plus poussé. Pas d'API pré-existante, je vais la faire moi même._
+### _Je vais ajouté une option commentaires et réponses façon forum ainsi que la possibilité de mettre une note aux films en plus des favoris_
 
-## Development server
+## Description :
 
-To start a local development server, run:
+### Application à la Allociné.
 
-```bash
-ng serve
-```
+Il s’agit de créer une application de découverte et recherche de films, avec
+laquelle on pourra enregistrer des films en favoris.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Caractéristiques :
+Les films seront récupérés via une API.
+Les favoris ne seront pas enregistrés via l’API, mais pourront être *enregistrés dans
+le local Storage ou sur Firebase 
+### (*à voir, je réfléchi à d'autres possiblités)
 
-## Code scaffolding
+## Besoin :
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### • Page d’accueil : 
 
-```bash
-ng generate component component-name
-```
+Films à découvrir
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+o On doit pouvoir voir de petite carte Film avec les informations
+principal des films, et deux boutons :
 
-```bash
-ng generate --help
-```
+  ▪ Add / Remove : pour ajouter ou enlever le film des favoris
+  
+  ▪ Details : pour rediriger vers la page de détails du film
+  
+o Minimum 20
 
-## Building
+o Optionnel : pagination pour afficher 20 films à la fois (les 20 premiers,
+puis 20 suivants, etc…)
 
-To build the project run:
+### • Page détails :
 
-```bash
-ng build
-```
+Permettant de voir les détails d’un film, avec également la gestion de favoris dans cette page.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### • Page Favoris : 
 
-## Running unit tests
+Permettant de voir la liste des films enregistrés en favoris
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### • Dans toutes les pages on doit avoir :
 
-```bash
-ng test
-```
+o NavBar : permettant de naviguer vers l’accueil et les favoris
 
-## Running end-to-end tests
+o Champs de recherche : permettant de rechercher des films via l’API
+themoviedb
 
-For end-to-end (e2e) testing, run:
+## Aide :
 
-```bash
-ng e2e
-```
+### • Requêtes :
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+o Découverte de films: “/discover/movie”
+o Recherche de films: “/search/movie” + query
