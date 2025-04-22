@@ -10,6 +10,12 @@
 Il s’agit de créer une application de découverte et recherche de films, avec
 laquelle on pourra enregistrer des films en favoris.
 
+### Exemple proposé dans le sujet : 
+
+![Capture d'écran 2025-04-22 105240](https://github.com/user-attachments/assets/288b4731-dd41-4cb5-b290-ef37833f1866)
+
+Je compte aller plus loin qu'une simple page d'accueil et des films tirés d'une API existante, pages admin, profil User, favoris par users et commentaires etc...
+
 ## Caractéristiques :
 Les films seront récupérés via une API.
 Les favoris ne seront pas enregistrés via l’API, mais pourront être *enregistrés dans
