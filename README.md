@@ -7,8 +7,8 @@
 
 ### Application à la Allociné.
 
-Il s’agit de créer une application de découverte et recherche de films, avec
-laquelle on pourra enregistrer des films en favoris.
+#### Créer une application de découverte et recherche de films : 
+<p align="justify">Le sujet m'avait été proposé durant l'incubateur, mon groupe et moi en avions choisi un autre. L'idée ici est de s'éloigner de l'option principale et de l'utilisation de l'API themoviedb en créant moi même une API mais aussi et surtout d'aller plus loin dans la création de l'application. L'ajout des films en favoris ne suffit pas, on pourra laisser des commentaires sur les films, les noter, voir les films les plus populaires, les plus attendus, les plus récents, les plus vus, les plus commentés, les mieux notés, etc. On pourra aussi voir les films de l'année en cours, de l'année précédente, de l'année d'avant, etc. On pourra aussi voir les films d'un acteur, d'une actrice, d'un réalisateur et bien d'autre chose encore. L'application se veut la plus complète possible. </p>
 
 ### Exemple proposé dans le sujet : 
 
