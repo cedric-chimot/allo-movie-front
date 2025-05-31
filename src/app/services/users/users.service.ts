@@ -16,6 +16,11 @@ export class UsersService {
     return this.http.post<Users>(`${this.apiUrl}/create`, user);
   }
 
+  // Authentifier un utilisateur (login)
+  login(email: string, mdp: string): Observable<Users> {
+    return this.http.post<Users>(`${this.apiUrl}/login`, { email, mdp });
+  }
+
   // Afficher la liste de tous les utilisateurs
   getAllUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.apiUrl}/all`);
