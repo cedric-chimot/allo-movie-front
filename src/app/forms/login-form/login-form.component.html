@@ -1,0 +1,48 @@
+<h2>Connexion</h2>
+
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+  <label for="email">Email :</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    [(ngModel)]="email"
+    required
+    email
+  />
+
+  @if (loginForm.submitted && !email) {
+    <div style="color:red;">
+      L'email est requis.
+    </div>
+  }
+
+  <br />
+
+  <label for="mdp">Mot de passe :</label>
+  <input
+    type="password"
+    id="mdp"
+    name="mdp"
+    [(ngModel)]="mdp"
+    required
+  />
+  
+  @if (loginForm.submitted && !mdp) {
+    <div style="color:red;">
+      Le mot de passe est requis.
+    </div>
+  }
+
+  <br />
+
+  <button type="submit">Se connecter</button>
+
+</form>
+
+@if (message) {
+  <div [style.color]="messageColor" style="margin-top:10px;">
+    {{ message }}
+  </div>
+}
