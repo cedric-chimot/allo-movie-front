@@ -6,7 +6,7 @@ export class Users {
     public pseudo: string,
     public email: string,
     public mdp: string,
-    public role: Role,
+    public role: Role | null,
     public avertissements: number,
     public dateBan: number,
     public estBanni: boolean

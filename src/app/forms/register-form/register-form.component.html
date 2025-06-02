@@ -1,20 +1,49 @@
 <div class="form-container">
   <h2>Inscription</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
     <div>
       <label for="pseudo">Pseudo :</label>
       <input type="text" id="pseudo" name="pseudo" [(ngModel)]="user.pseudo" required>
     </div>
+
+    @if (registerForm.submitted && !user.pseudo) {
+      <div style="color:red;">
+        Le pseudo est requis.
+      </div>
+    }
 
     <div>
       <label for="email">Email :</label>
       <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
     </div>
 
+    @if (registerForm.submitted && !user.email) {
+      <div style="color:red;">
+        L'email est requis.
+      </div>
+    }
+
     <div>
       <label for="mdp">Mot de passe :</label>
       <input type="password" id="mdp" name="mdp" [(ngModel)]="user.mdp" required>
     </div>
+
+    @if (registerForm.submitted && !user.mdp) {
+      <div style="color:red;">
+        Le mot de passe est requis.
+      </div>
+    }
+
+    <div>
+      <label for="confirmMdp">Confirmez le mot de passe :</label>
+      <input type="password" id="confirmMdp" name="confirmMdp" [(ngModel)]="confirmMdp" required>
+    </div>
+
+    @if (registerForm.submitted && user.mdp !== confirmMdp) {
+      <div style="color:red;">
+        Les mots de passe ne correspondent pas.
+      </div>
+    }
 
     <div class="button-group">
       <button class="button" type="submit">S'inscrire</button>

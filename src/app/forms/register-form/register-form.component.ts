@@ -4,7 +4,6 @@ import { Users } from '../../models/tables/Users';
 import { UsersService } from '../../services/users/users.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Role } from '../../models/tables/Role';
 
 @Component({
   selector: 'app-register-form',
@@ -14,27 +13,67 @@ import { Role } from '../../models/tables/Role';
 })
 export class RegisterFormComponent {
   user: Users = {
-    id: 0, // L'ID sera géré par la base de données
+    id: 0,
     pseudo: '',
     email: '',
     mdp: '',
-    role: new Role(2, 'USER'), // Rôle par défaut pour un nouvel utilisateur
+    role: null,
     avertissements: 0,
     dateBan: 0,
     estBanni: false
   };
-  
-  constructor(private userService: UsersService, private router: Router) {}
 
+  confirmMdp: string = '';
+
+  constructor(private userService: UsersService, private router: Router) {}
+  
   onSubmit(): void {
-    this.userService.createUser(this.user).subscribe({
-      next: (data) => {
-        console.log('Inscription réussie :', data);
-        this.router.navigate(['/login']); // redirige vers login après succès
-      },
-      error: (err) => {
-        console.error('Erreur lors de l\'inscription :', err);
+    if (this.user.pseudo && this.user.email && this.user.mdp && this.confirmMdp) {
+      if (this.user.mdp !== this.confirmMdp) {
+        alert("Les mots de passe ne correspondent pas !");
+        return;
       }
-    });
+
+      const newUser = {
+        id: 0,
+        pseudo: this.user.pseudo,
+        email: this.user.email,
+        mdp: this.user.mdp,
+        role: null,
+        avertissements: 0,
+        dateBan: 0,
+        estBanni: false
+      };
+
+      this.userService.createUser(newUser).subscribe({
+        next: (data) => {
+          console.log('Inscription réussie :', data);
+          alert('Inscription réussie !');
+          this.router.navigate(['/login']);
+          this.resetForm();
+        },
+        error: (err) => {
+          console.error('Erreur lors de l\'inscription :', err);
+          alert('Erreur lors de l’inscription : ' + err.message);
+        }
+      });
+    } else {
+      alert('Veuillez remplir tous les champs');
+    }
+  }
+
+  resetForm(): void {
+    this.user = {
+      id: 0,
+      pseudo: '',
+      email: '',
+      mdp: '',
+      role: null,
+      avertissements: 0,
+      dateBan: 0,
+      estBanni: false
+    };
+    this.confirmMdp = '';
   }
 }
+
