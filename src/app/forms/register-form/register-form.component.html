@@ -1,1 +1,28 @@
-<p>register-form works!</p>
+<div class="form-container">
+  <h2>Inscription</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="pseudo">Pseudo :</label>
+      <input type="text" id="pseudo" name="pseudo" [(ngModel)]="user.pseudo" required>
+    </div>
+
+    <div>
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+
+    <div>
+      <label for="mdp">Mot de passe :</label>
+      <input type="password" id="mdp" name="mdp" [(ngModel)]="user.mdp" required>
+    </div>
+
+    <div class="button-group">
+      <button class="button" type="submit">S'inscrire</button>
+      <div class="login-container">
+        <p>Déjà inscrit ?</p>
+        <a class="button login-button" href="/login">Connectez-vous !</a>
+      </div>
+    </div>
+
+  </form>
+</div>
