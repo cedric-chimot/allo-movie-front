@@ -59,7 +59,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _La connexion :_
 
-![Capture d'écran 2025-06-01 132545](https://github.com/user-attachments/assets/c038eb54-0a75-40d4-8d15-392dcfa3eaba)
+![Capture d'écran 2025-06-03 003231](https://github.com/user-attachments/assets/84f5377a-b2f8-42a3-8e11-4e3a39344ae6)
 
 #### _L'inscription :_
 
