@@ -55,6 +55,13 @@ o NavBar : permettant de naviguer vers l’accueil et les favoris
 o Champs de recherche : permettant de rechercher des films via l’API
 #### *themoviedb (*pas d'API existante, à créer moi même)
 
+## Premier rendu des pages : 
+
+#### _La connexion :_
+
+![Capture d'écran 2025-06-01 132545](https://github.com/user-attachments/assets/c038eb54-0a75-40d4-8d15-392dcfa3eaba)
+
+
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository GitHub contenant le code backend.
