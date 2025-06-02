@@ -46,7 +46,6 @@ select {
   margin-top: 1rem;
 }
 
-/* On garde ton style des boutons : */
 form button,
 .inscription-button {
   display: block;
@@ -68,7 +67,7 @@ form button:hover {
 }
 
 .inscription-button {
-  background-color: #0439bf; /* vert pour 'S'inscrire' */
+  background-color: #0439bf;
   text-decoration: none;
 }
 
@@ -84,10 +83,10 @@ form button:hover {
 }
 
 .inscription-container p {
-  font-size: 1rem;       /* Taille un peu plus grande si tu veux */
-  font-weight: bold;     /* Gras */
-  font-style: italic;    /* Italique */
-  color: #333;           /* Couleur du texte */
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #0439bf;
 }
 
 /* Style pour le titre */
