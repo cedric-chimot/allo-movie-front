@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
-import { NavbarComponent } from "./components/commons/navbar/navbar.component";
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, RouterModule, NavbarComponent, NgbCollapseModule],
+  imports: [RouterOutlet, CommonModule, RouterModule, NgbCollapseModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
