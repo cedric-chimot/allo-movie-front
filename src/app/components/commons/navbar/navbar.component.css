@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #0f52ba;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #e6ebf6;
+}
+
+.navbar-brand {
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Aligne verticalement les éléments */
+  gap: 10px; /* Ajoute un espace entre l'image et le texte */
+}
+
+.logo-container {
+  height: 60px; /* Hauteur de la navbar */
+  overflow: hidden; /* Cache ce qui dépasse */
+}
+
+.logo {
+  height: 110px;
+  width: auto;
+  margin-top: -20px; /* Décale un peu le logo vers le haut pour le centrer */
+}
