@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { NavbarComponent } from "./components/commons/navbar/navbar.component";
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, RouterModule, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, RouterModule, NavbarComponent, NgbCollapseModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'allo-movie';
