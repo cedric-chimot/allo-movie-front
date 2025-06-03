@@ -59,7 +59,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _La connexion :_
 
-![Capture d'écran 2025-06-03 003231](https://github.com/user-attachments/assets/84f5377a-b2f8-42a3-8e11-4e3a39344ae6)
+![allomovie-login](https://github.com/user-attachments/assets/710762e9-544a-4df8-a351-4b591e851892)
 
 #### _L'inscription :_
 
