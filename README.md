@@ -59,11 +59,11 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _La connexion :_
 
-![allomovie-login](https://github.com/user-attachments/assets/710762e9-544a-4df8-a351-4b591e851892)
+![allomovie-login](https://github.com/user-attachments/assets/dd1217ed-09e3-408b-8580-d77766874280)
 
 #### _L'inscription :_
 
-![allomovie-register](https://github.com/user-attachments/assets/fc31a6e1-2e69-4054-b8b4-ecaf0c40dba3)
+![allomovie-register](https://github.com/user-attachments/assets/b083f926-8e3b-4eea-b8cd-83d4e6c2658c)
 
 ### 🔗 Liens
 
