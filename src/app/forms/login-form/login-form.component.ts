@@ -31,6 +31,8 @@ export class LoginFormComponent {
       next: (user) => {
         this.message = `Bienvenue ${user.pseudo} !`;
         this.messageColor = 'green';
+        localStorage.setItem('user', JSON.stringify(user)); // Stocker l’utilisateur
+        window.location.href = '/'; // Rediriger vers la page d’accueil
       },
       error: (err) => {
         this.message = "Échec de la connexion : email ou mot de passe incorrect.";
@@ -38,4 +40,5 @@ export class LoginFormComponent {
       }
     });
   }
+
 }

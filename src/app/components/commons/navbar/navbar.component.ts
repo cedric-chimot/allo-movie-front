@@ -21,16 +21,19 @@ export class NavbarComponent {
   ngOnInit() {
     this.router.events.subscribe(() => {
       this.toggleNavbar = true;
+      this.isLoggedIn = !!localStorage.getItem('user'); // Vérifier si connecté
     });
+  }
+
+  logout() {
+    console.log('Déconnexion...');
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    window.location.href = '/login'; // Rediriger vers login
   }
 
   toggleNav() {
     this.toggleNavbar = !this.toggleNavbar;
   }
 
-  logout() {
-    console.log('Déconnexion...');
-    this.isLoggedIn = false;
-  }
-  
 }
