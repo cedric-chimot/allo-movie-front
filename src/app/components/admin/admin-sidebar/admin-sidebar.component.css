@@ -4,7 +4,7 @@
   height: 100vh;
   padding: 0;
   position: fixed;
-  top: 60px;
+  top: 80px;
   left: 0;
   z-index: 1000; /* S'assurer que la sidebar est au-dessus des autres éléments */
 }

@@ -16,10 +16,10 @@
 }
 
 .logo {
-  height: 40px; /* Ajuste la taille à ton besoin */
+  height: 70px; /* Ajuste la taille à ton besoin */
 }
 
 .logo-container span {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
