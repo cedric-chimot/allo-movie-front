@@ -4,10 +4,12 @@ import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/rout
 import { filter } from 'rxjs';
 import { NavbarComponent } from "./components/commons/navbar/navbar.component";
 import { FooterComponent } from "./components/commons/footer/footer.component";
+import { AdminNavbarComponent } from "./components/admin/admin-navbar/admin-navbar.component";
+import { AdminSidebarComponent } from "./components/admin/admin-sidebar/admin-sidebar.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, FooterComponent, AdminNavbarComponent, AdminSidebarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
