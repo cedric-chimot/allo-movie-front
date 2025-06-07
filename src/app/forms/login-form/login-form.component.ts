@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router'; // Ajout du Router ici
 import { FormsModule } from '@angular/forms';
 import { UsersService } from '../../services/users/users.service';
 
@@ -18,7 +18,7 @@ export class LoginFormComponent {
   message: string = '';
   messageColor: string = 'red';
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {} // Injection du Router ici
 
   onSubmit(): void {
     if (!this.email || !this.mdp) {
@@ -32,7 +32,13 @@ export class LoginFormComponent {
         this.message = `Bienvenue ${user.pseudo} !`;
         this.messageColor = 'green';
         localStorage.setItem('user', JSON.stringify(user)); // Stocker l’utilisateur
-        window.location.href = '/'; // Rediriger vers la page d’accueil
+
+        // Redirection selon le rôle
+        if (user.role && user.role.role && user.role.role.toUpperCase() === 'ADMIN') {
+          this.router.navigate(['/admin-home']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error: (err) => {
         this.message = "Échec de la connexion : email ou mot de passe incorrect.";
