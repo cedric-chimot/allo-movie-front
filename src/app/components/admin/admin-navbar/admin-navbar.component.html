@@ -1,1 +1,20 @@
-<p>admin-navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" routerLink="/admin-home">
+      <div class="logo-container d-flex align-items-center">
+        <img src="logo2.png" alt="Logo" class="logo me-2">
+        <span>Bienvenue, {{ pseudo }}</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" (click)="toggleNav()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngbCollapse]="toggleNavbar">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white me-3" routerLink="/home" routerLinkActive="active">Application</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

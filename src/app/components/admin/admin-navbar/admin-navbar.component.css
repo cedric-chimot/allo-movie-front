@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #0f52ba;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Aligne verticalement les éléments */
+  gap: 10px; /* Ajoute un espace entre l'image et le texte */
+  text-transform: uppercase;
+}
+
+.logo {
+  height: 40px; /* Ajuste la taille à ton besoin */
+}
+
+.logo-container span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
