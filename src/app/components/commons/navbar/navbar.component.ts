@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,27 +9,48 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   toggleNavbar = true;
-
-  // Variable à mettre à jour selon l’état de connexion (ex: via un service Auth)
   isLoggedIn = false;
+  isAdmin = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
-      this.toggleNavbar = true;
-      this.isLoggedIn = !!localStorage.getItem('user'); // Vérifier si connecté
+    this.checkUser(); // appel initial
+
+    // écoute les changements de route pour réévaluer
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.checkUser();
+      }
     });
+  }
+
+  checkUser() {
+    const userString = localStorage.getItem('user');
+    this.isLoggedIn = !!userString;
+
+    if (this.isLoggedIn && userString) {
+      try {
+        const user = JSON.parse(userString);
+        // 🛠️ Ajout de la vérification nested role
+        this.isAdmin = user.role?.role?.toLowerCase() === 'admin';
+      } catch (e) {
+        this.isAdmin = false;
+      }
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   logout() {
     console.log('Déconnexion...');
     localStorage.removeItem('user');
     this.isLoggedIn = false;
-    window.location.href = '/login'; // Rediriger vers login
+    this.isAdmin = false;
+    window.location.href = '/login';
   }
 
   toggleNav() {

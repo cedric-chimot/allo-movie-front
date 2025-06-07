@@ -32,3 +32,9 @@
   width: auto;
   margin-top: -20px; /* Décale un peu le logo vers le haut pour le centrer */
 }
+
+.btn-logout {
+  background-color: #e6ebf6;
+  text-decoration: none;
+  text-transform: uppercase;
+}

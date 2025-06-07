@@ -16,27 +16,36 @@
     </button>
     <div class="collapse navbar-collapse" [ngbCollapse]="toggleNavbar">
       <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item">
-          <a class="nav-link text-white me-1" routerLink="/home" routerLinkActive="active">Home</a>
-        </li>
         @if (!isLoggedIn) {
+          <li class="nav-item">
+            <a class="nav-link text-white me-1" routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link text-white me-1" routerLink="/login" routerLinkActive="active">Connexion</a>
           </li>
-        }
-        @if (!isLoggedIn) {
           <li class="nav-item">
             <span class="text-white mx-1">/</span>
           </li>
-        }
-        @if (!isLoggedIn) {
           <li class="nav-item">
             <a class="nav-link text-white ms-1" routerLink="/register" routerLinkActive="active">Inscription</a>
           </li>
         }
         @if (isLoggedIn) {
+          @if (isAdmin) {
+            <li class="nav-item me-3">
+              <a class="nav-link text-white" routerLink="/dashboard" title="Dashboard Admin">
+                <i class="fas fa-shield-alt"></i> Dashboard
+              </a>
+            </li>
+          } @else {
+            <li class="nav-item me-3">
+              <a class="nav-link text-white" routerLink="/profile" title="Mon profil">
+                <i class="fas fa-user"></i> Mon profil
+              </a>
+            </li>
+          }
           <li class="nav-item">
-            <button class="btn btn-outline-light" (click)="logout()">Déconnexion</button>
+            <button class="btn btn-logout" (click)="logout()">Déconnexion</button>
           </li>
         }
       </ul>
