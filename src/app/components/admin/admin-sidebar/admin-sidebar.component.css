@@ -1,10 +1,10 @@
 .sidebar {
   width: 220px;
-  background-color: #0f52ba;
+  background-color: #2C3E50;
   height: 100vh;
   padding: 0;
   position: fixed;
-  top: 80px;
+  top: 96px;
   left: 0;
   z-index: 1000; /* S'assurer que la sidebar est au-dessus des autres éléments */
 }
@@ -22,14 +22,16 @@ li:first-child {
 li {
   margin: 5px 10px; /* Un espace minimal autour de chaque li */
   padding: 5px;
-  color: #e6ebf6;
+  color: #F1C40F;
   cursor: pointer;
   border: #e6ebf6 solid 1px;
   transition: width 0.3s ease, background-color 0.3s;
 }
 
 li.selected {
-  background-color: #047ebf;
+  background-color: #ffffff;
+  color: #2C3E50;
+  border: #2C3E50 solid 1px;
   width: 240px; /* Augmenter la largeur pour l'élément sélectionné */
 }
 

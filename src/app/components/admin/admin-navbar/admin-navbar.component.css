@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #0f52ba;
+  background-color: #2C3E50;
 }
 
 .nav-link {
@@ -16,10 +16,16 @@
 }
 
 .logo {
-  height: 70px; /* Ajuste la taille à ton besoin */
+  height: 70px;
 }
 
 .logo-container span {
   font-weight: bold;
   font-size: 1rem;
+}
+
+.btn-logout {
+  background-color: #F1C40F;
+  text-decoration: none;
+  text-transform: uppercase;
 }

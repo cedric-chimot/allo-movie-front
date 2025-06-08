@@ -16,7 +16,7 @@ export class AdminSidebarComponent {
   // Définir les éléments avec leurs icônes
   items = [
     { name: 'Dashboard', route: '/admin-home', icon: 'fa-solid fa-tachometer-alt' },
-    { name: 'Stats', route: '/admin-stats', icon: 'fa-solid fa-book' },
+    { name: 'Stats', route: '/admin-stats', icon: 'fas fa-chart-line' },
   ];
 
   constructor(private router: Router, private sidebarService: SidebarService) {}

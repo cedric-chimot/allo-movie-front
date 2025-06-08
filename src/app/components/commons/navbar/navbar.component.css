@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #0f52ba;
+  background-color: #2C3E50;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
 }
@@ -13,7 +13,7 @@
 .nav-link.active {
   text-decoration: underline;
   font-weight: bold;
-  color: #e6ebf6;
+  color: #F1C40F !important;
 }
 
 .navbar-brand {
@@ -34,7 +34,7 @@
 }
 
 .btn-logout {
-  background-color: #e6ebf6;
+  background-color: #F1C40F;
   text-decoration: none;
   text-transform: uppercase;
 }

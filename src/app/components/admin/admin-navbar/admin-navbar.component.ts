@@ -13,6 +13,8 @@ export class AdminNavbarComponent implements OnInit {
 
   toggleNavbar = true;
   pseudo: string = '';
+  isLoggedIn = false;
+  isAdmin = false;
 
   constructor(private router: Router) { }
 
@@ -30,6 +32,14 @@ export class AdminNavbarComponent implements OnInit {
         this.pseudo = '';
       }
     }
+  }
+
+  logout() {
+    console.log('Déconnexion...');
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    this.isAdmin = false;
+    window.location.href = '/login';
   }
 
   toggleNav() {
