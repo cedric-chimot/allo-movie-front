@@ -16,7 +16,12 @@ export class AdminSidebarComponent {
   // Définir les éléments avec leurs icônes
   items = [
     { name: 'Dashboard', route: '/admin-home', icon: 'fa-solid fa-tachometer-alt' },
+    { name: 'Films', route: '/admin-films', icon: 'fa-solid fa-film' },
+    { name: 'Utilisateurs', route: '/admin-users', icon: 'fa-solid fa-users' },
+    { name: 'Alertes', route: '/admin-users', icon: 'fa-solid fa-triangle-exclamation' },
+    { name: 'Messages', route: '/admin-messages', icon: 'fa-solid fa-envelope' },
     { name: 'Stats', route: '/admin-stats', icon: 'fas fa-chart-line' },
+    { name: 'Admins', route: '/admin-admins', icon: 'fa-solid fa-user-shield' },
   ];
 
   constructor(private router: Router, private sidebarService: SidebarService) {}
