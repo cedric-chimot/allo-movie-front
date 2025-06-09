@@ -67,7 +67,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Page d'accueil une fois connecté :_
 
-![allomovie-home](https://github.com/user-attachments/assets/c95e090b-630d-47e8-8f10-c1b26c6f6888)
+![allomovie-home](https://github.com/user-attachments/assets/d21d305c-aee8-4591-81b5-a30bb7ed9abf)
 
 #### _Dashboard Admin avec admin connecté :_
 
