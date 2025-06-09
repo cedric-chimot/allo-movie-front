@@ -53,6 +53,7 @@ Permettant de voir la liste des films enregistrés en favoris
 o NavBar : permettant de naviguer vers l’accueil et les favoris
 
 o Champs de recherche : permettant de rechercher des films via l’API
+
 #### *themoviedb (*pas d'API existante, à créer moi même)
 
 ## Premier rendu des pages : 
@@ -71,7 +72,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Dashboard Admin avec admin connecté :_
 
-![allomovie-dashboard](https://github.com/user-attachments/assets/fdaa3fc4-5ac4-4c1b-883a-9eca912f9a1e)
+![allomovie-dashboard](https://github.com/user-attachments/assets/56666352-eded-4734-87d5-1d9524cbd9f3)
 
 ### 🔗 Liens
 
