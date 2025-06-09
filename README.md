@@ -72,7 +72,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Dashboard Admin avec admin connecté :_
 
-![allomovie-dashboard](https://github.com/user-attachments/assets/56666352-eded-4734-87d5-1d9524cbd9f3)
+![allomovie-dashboard](https://github.com/user-attachments/assets/9857a623-8158-40c5-9390-80323b1247c8)
 
 ### 🔗 Liens
 
