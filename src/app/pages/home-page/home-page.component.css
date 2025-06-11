@@ -1,0 +1,116 @@
+.information {
+  background-color: #2C3E50;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.home {
+  align-items: center; /* Aligne verticalement tous les éléments */
+  justify-content: center; /* Centre horizontalement les éléments */
+  color: #2C3E50 !important;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.logo-allomovie {
+  height: 120px;
+  width: auto;
+}
+
+.projet h1 {
+  text-align: center;
+  color: #ffffff !important;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux cartes de s'empiler */
+  justify-content: center; /* Centre les cartes horizontalement */
+  gap: 20px; /* Ajoute un espace entre les cartes */
+}
+
+.cards-container {
+  gap: 20px; /* Ajoute un espacement de base entre les cartes */
+}
+
+.card {
+  width: 18rem;
+  margin: 0 auto; /* Centre les cartes */
+  border-color: #2C3E50;
+}
+
+.card-body {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: #2C3E50;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+p.presentation {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+p.presentation span {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+p {
+  margin-top: 40px;
+  font-size: 3rem;
+  color: #2C3E50;
+}
+
+span {
+  font-style: italic;
+  color: #2C3E50;
+}
+
+button.btn {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  background-color: #2C3E50;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  /* Grands écrans */
+  .cards-container {
+    gap: 40px; /* Augmente l'espacement sur les grands écrans */
+  }
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column; /* Affiche les cartes en colonne */
+    align-items: center; /* Centre les cartes en colonne */
+    gap: 30px; /* Augmente l'espacement entre les cartes */
+  }
+
+  .card {
+    width: 90%; /* Prend presque toute la largeur de l'écran */
+  }
+}

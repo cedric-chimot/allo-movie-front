@@ -1,1 +1,58 @@
-<p>home-page works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mb-4">
+      <div class="information shadow border m-1 px-3">
+        <div class="projet text-center">
+          <h1 class="home d-flex align-items-center justify-content-center">
+            Projet
+            <img
+              src="logo2.png"
+              alt="Logo"
+              class="logo-allomovie"
+            />
+          </h1>
+          <p class="presentation">
+            <span
+              >Créer une application de découverte et recherche de films :
+            </span>
+            Le sujet m'avait été proposé durant l'incubateur, mon groupe et moi en avions choisi un autre.
+            L'idée ici est de s'éloigner de l'option principale et de l'utilisation de l'API themoviedb en
+            créant moi même une API mais aussi et surtout d'aller plus loin dans la création de l'application.
+            L'ajout des films en favoris ne suffit pas, on pourra laisser des commentaires sur les films, les noter,
+            voir les films les plus populaires, les plus attendus, les plus récents, les plus vus, les plus commentés,
+            les mieux notés, etc. On pourra aussi voir les films de l'année en cours, de l'année précédente, de l'année
+            d'avant, etc. On pourra aussi voir les films d'un acteur, d'une actrice, d'un réalisateur et bien d'autre chose encore.
+            L'application se veut la plus complète possible.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex cards-container flex-wrap justify-content-center">
+      <div class="card">
+        <h5 class="card-header">Films</h5>
+        <div class="card-body d-flex flex-column align-items-center text-white">
+          <span>(Nb Films)</span>
+          <div>
+            <p>{{ 0 }}</p>
+          </div>
+          <button class="btn btn-pokedex m-4" routerLink="/pokedex-national">
+            Films
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <h5 class="card-header">Utilisateurs</h5>
+        <div class="card-body d-flex flex-column align-items-center text-white">
+          <span>(Nb Inscrits)</span>
+          <div>
+            <p>{{ 0 }}</p>
+          </div>
+          <button class="btn btn-shiny m-4" routerLink="/pokedex-shiny">
+            Utilisateurs
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
