@@ -7,7 +7,7 @@
 
 .col-lg-6,
 .col-md-6 {
-  width: 48%; /* Réduit légèrement la largeur pour éviter qu'ils ne se chevauchent */
+  width: 45%; /* Réduit légèrement la largeur pour éviter qu'ils ne se chevauchent */
   padding: 10px;
 }
 
@@ -25,13 +25,13 @@
   font-size: 2.2rem;
   text-align: center;
   text-transform: uppercase;
-  color: #008080;
+  color: #2C3E50;
 }
 
 h2.graph {
   text-align: center;
   margin-top: 50px;
-  color: #008080;
+  color: #2C3E50;
   text-transform: uppercase;
 }
 
@@ -44,23 +44,25 @@ app-graph {
 }
 
 .cards-container {
-  gap: 25px; /* Ajoute un espacement de base entre les cartes */
+  gap: 35px; /* Ajoute un espacement de base entre les cartes */
 }
 
 .card {
-  width: 18rem;
+  width: 22rem;
   margin: 0 auto; /* Centre les cartes */
+  border-color: #2C3E50;
 }
 
 .card-body {
   text-align: center;
-  background-color: #008080;
+  background-color: #2C3E50;
+  color: #ffffff;
   padding: 10px;
 }
 
 .card-header {
-  background-color: #04adbf;
-  color: #e5f2f2;
+  background-color: #ffffff;
+  color: #2C3E50;
   font-size: 1.5rem;
   text-transform: uppercase;
   text-align: center;
