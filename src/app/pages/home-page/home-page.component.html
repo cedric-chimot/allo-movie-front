@@ -1,58 +1,97 @@
 <div class="container">
   <div class="row">
+    <!-- Section projet -->
     <div class="col-lg-12 mb-4">
       <div class="information shadow border m-1 px-3">
         <div class="projet text-center">
           <h1 class="home d-flex align-items-center justify-content-center">
             Projet
-            <img
-              src="logo2.png"
-              alt="Logo"
-              class="logo-allomovie"
-            />
+            <img src="logo2.png" alt="Logo" class="logo-allomovie" />
           </h1>
           <p class="presentation">
-            <span
-              >Créer une application de découverte et recherche de films :
-            </span>
-            Le sujet m'avait été proposé durant l'incubateur, mon groupe et moi en avions choisi un autre.
-            L'idée ici est de s'éloigner de l'option principale et de l'utilisation de l'API themoviedb en
-            créant moi même une API mais aussi et surtout d'aller plus loin dans la création de l'application.
-            L'ajout des films en favoris ne suffit pas, on pourra laisser des commentaires sur les films, les noter,
-            voir les films les plus populaires, les plus attendus, les plus récents, les plus vus, les plus commentés,
-            les mieux notés, etc. On pourra aussi voir les films de l'année en cours, de l'année précédente, de l'année
-            d'avant, etc. On pourra aussi voir les films d'un acteur, d'une actrice, d'un réalisateur et bien d'autre chose encore.
-            L'application se veut la plus complète possible.
+            <span>Créer une application de découverte et recherche de films :</span>
+            Ce projet a pour but de créer une application complète, allant bien au-delà de la simple consultation
+            d’un film. Recherches avancées, commentaires, notations, statistiques et plus encore sont au programme.
           </p>
         </div>
       </div>
     </div>
-    <div class="d-flex cards-container flex-wrap justify-content-center">
-      <div class="card">
-        <h5 class="card-header">Films</h5>
-        <div class="card-body d-flex flex-column align-items-center text-white">
-          <span>(Nb Films)</span>
-          <div>
-            <p>{{ 0 }}</p>
-          </div>
-          <button class="btn btn-pokedex m-4" routerLink="/pokedex-national">
-            Films
-          </button>
+
+    <!-- Search Bar qui s'étale sur toute la largeur -->
+    <div class="col-12 mb-4">
+      <div class="card shadow w-100">
+        <div class="card-header">Recherche de films</div>
+        <div class="card-body py-3">
+          <form class="container-fluid">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label class="form-label">Titre</label>
+                <input type="text" class="form-control" placeholder="Titre" />
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Année</label>
+                <input type="number" class="form-control" placeholder="Année" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Réalisateur</label>
+                <input type="text" class="form-control" placeholder="Réalisateur" />
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Acteur</label>
+                <input type="text" class="form-control" placeholder="Acteur" />
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Genre</label>
+                <input type="text" class="form-control" placeholder="Genre" />
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="card">
-        <h5 class="card-header">Utilisateurs</h5>
-        <div class="card-body d-flex flex-column align-items-center text-white">
-          <span>(Nb Inscrits)</span>
-          <div>
-            <p>{{ 0 }}</p>
+    </div>
+
+    <!-- Liste de films -->
+    <div class="col-12">
+      <div class="d-flex cards-container">
+        <!-- Film 1 -->
+        <div class="card">
+          <div class="card-header">Inception</div>
+          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Inception" />
+          <div class="card-body">
+            <p><strong>Année :</strong> 2010</p>
+            <p><strong>Réalisateur :</strong> Christopher Nolan</p>
+            <p><strong>Acteurs :</strong> Leonardo DiCaprio</p>
+            <p><strong>Genre :</strong> Science-fiction</p>
+            <button class="btn">Détails</button>
           </div>
-          <button class="btn btn-shiny m-4" routerLink="/pokedex-shiny">
-            Utilisateurs
-          </button>
+        </div>
+
+        <!-- Film 2 -->
+        <div class="card">
+          <div class="card-header">Parasite</div>
+          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Parasite" />
+          <div class="card-body">
+            <p><strong>Année :</strong> 2019</p>
+            <p><strong>Réalisateur :</strong> Bong Joon-ho</p>
+            <p><strong>Acteurs :</strong> Song Kang-ho</p>
+            <p><strong>Genre :</strong> Thriller / Drame</p>
+            <button class="btn">Détails</button>
+          </div>
+        </div>
+
+        <!-- Film 3 -->
+        <div class="card">
+          <div class="card-header">Amélie Poulain</div>
+          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Amélie Poulain" />
+          <div class="card-body">
+            <p><strong>Année :</strong> 2001</p>
+            <p><strong>Réalisateur :</strong> Jean-Pierre Jeunet</p>
+            <p><strong>Acteurs :</strong> Audrey Tautou</p>
+            <p><strong>Genre :</strong> Comédie romantique</p>
+            <button class="btn">Détails</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

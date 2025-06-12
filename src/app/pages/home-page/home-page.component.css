@@ -36,8 +36,8 @@
 }
 
 .card {
-  width: 18rem;
-  margin: 0 auto; /* Centre les cartes */
+  width: 22rem;
+  margin: 0 auto;
   border-color: #2C3E50;
 }
 
@@ -45,6 +45,18 @@
   text-align: center;
   background-color: #ffffff;
   padding: 10px;
+}
+
+.card-body p {
+  margin: 5px 0;
+  font-size: 1rem; /* Plus lisible et moins haut */
+  color: #2C3E50;
+}
+
+p {
+  margin-top: 20px; /* Réduction du margin global */
+  font-size: 1.2rem;
+  color: #2C3E50;
 }
 
 .card-header {
@@ -58,6 +70,14 @@
 .card-title {
   font-size: 1.5rem;
   text-transform: uppercase;
+}
+
+.card.shadow.w-100 {
+  width: 100% !important;
+}
+
+.card-body form input {
+  width: 100%;
 }
 
 p.presentation {
