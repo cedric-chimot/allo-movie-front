@@ -37,7 +37,7 @@ export class LoginFormComponent {
         if (user.role && user.role.role && user.role.role.toUpperCase() === 'ADMIN') {
           this.router.navigate(['/admin-home']);
         } else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/user-profile']);
         }
       },
       error: (err) => {
