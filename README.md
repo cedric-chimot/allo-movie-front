@@ -70,6 +70,8 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 ![allomovie-home](https://github.com/user-attachments/assets/e813e3cd-131c-4844-8bf3-c5e5ef4b4ceb)
 
+_En cliquant sur le coeur, on ajoute le film en favori._
+
 #### _Dashboard Admin avec admin connecté :_
 
 ![allomovie-dashboard](https://github.com/user-attachments/assets/e71d49eb-9b19-49b5-b802-59cef1616157)
