@@ -18,6 +18,8 @@ export class RegisterFormComponent {
     email: '',
     mdp: '',
     role: null,
+    presentation: '',
+    dateInscrit: 0,
     avertissements: 0,
     dateBan: 0,
     estBanni: false
@@ -26,7 +28,7 @@ export class RegisterFormComponent {
   confirmMdp: string = '';
 
   constructor(private userService: UsersService, private router: Router) {}
-  
+
   onSubmit(): void {
     if (this.user.pseudo && this.user.email && this.user.mdp && this.confirmMdp) {
       if (this.user.mdp !== this.confirmMdp) {
@@ -34,12 +36,14 @@ export class RegisterFormComponent {
         return;
       }
 
-      const newUser = {
+      const newUser: Users = {
         id: 0,
         pseudo: this.user.pseudo,
         email: this.user.email,
         mdp: this.user.mdp,
         role: null,
+        presentation: '',             // champ vide au moment de l'inscription
+        dateInscrit: 0,               // pas nécessaire d'envoyer une date exacte, le back gère
         avertissements: 0,
         dateBan: 0,
         estBanni: false
@@ -69,11 +73,14 @@ export class RegisterFormComponent {
       email: '',
       mdp: '',
       role: null,
+      presentation: '',
+      dateInscrit: 0,
       avertissements: 0,
       dateBan: 0,
       estBanni: false
     };
     this.confirmMdp = '';
   }
+
 }
 
