@@ -51,44 +51,28 @@
     </div>
 
     <!-- Liste de films -->
-    <div class="col-12">
-      <div class="d-flex cards-container">
-        <!-- Film 1 -->
-        <div class="card">
-          <div class="card-header">Inception</div>
-          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Inception" />
-          <div class="card-body">
-            <p><strong>Année :</strong> 2010</p>
-            <p><strong>Réalisateur :</strong> Christopher Nolan</p>
-            <p><strong>Acteurs :</strong> Leonardo DiCaprio</p>
-            <p><strong>Genre :</strong> Science-fiction</p>
-            <button class="btn">Détails</button>
-          </div>
-        </div>
-
-        <!-- Film 2 -->
-        <div class="card">
-          <div class="card-header">Parasite</div>
-          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Parasite" />
-          <div class="card-body">
-            <p><strong>Année :</strong> 2019</p>
-            <p><strong>Réalisateur :</strong> Bong Joon-ho</p>
-            <p><strong>Acteurs :</strong> Song Kang-ho</p>
-            <p><strong>Genre :</strong> Thriller / Drame</p>
-            <button class="btn">Détails</button>
-          </div>
-        </div>
-
-        <!-- Film 3 -->
-        <div class="card">
-          <div class="card-header">Amélie Poulain</div>
-          <img src="https://via.placeholder.com/286x160" class="card-img-top" alt="Affiche Amélie Poulain" />
-          <div class="card-body">
-            <p><strong>Année :</strong> 2001</p>
-            <p><strong>Réalisateur :</strong> Jean-Pierre Jeunet</p>
-            <p><strong>Acteurs :</strong> Audrey Tautou</p>
-            <p><strong>Genre :</strong> Comédie romantique</p>
-            <button class="btn">Détails</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex flex-wrap gap-3 justify-content-start">
+            <div class="card" *ngFor="let film of films" style="width: 18rem;">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <span>{{ film.title }}</span>
+                <button class="btn btn-sm p-0 border-0 bg-transparent text-white"
+                    (click)="toggleFavorite(film.title)"
+                    [innerHTML]="isFavorite(film.title) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris">
+                </button>
+              </div>
+              <img [src]="film.image" class="card-img-top" [alt]="'Affiche ' + film.title" />
+              <div class="card-body">
+                <p><strong>Année :</strong> {{ film.year }}</p>
+                <p><strong>Réalisateur :</strong> {{ film.director }}</p>
+                <p><strong>Acteurs :</strong> {{ film.actor }}</p>
+                <p><strong>Genre :</strong> {{ film.genre }}</p>
+                <button class="btn btn-primary">Détails</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
