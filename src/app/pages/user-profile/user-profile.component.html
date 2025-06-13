@@ -1,4 +1,5 @@
 <div class="container mt-4">
+  <h2>Mon profil</h2>
   <div class="row">
     <!-- Colonne gauche - Infos utilisateur -->
     <div class="col-md-4">
@@ -7,12 +8,12 @@
         <div class="card-body">
           <h4 class="text-center">{{ user?.pseudo }}</h4>
           <p class="text-muted text-center">
-            Utilisateur inscrit depuis le {{ user?.dateBan | date: 'dd/MM/yyyy' }}
+            Utilisateur inscrit depuis le {{ user?.dateInscrit | date: 'dd/MM/yyyy' }}
           </p>
 
           <hr />
           <h5>Présentation :</h5>
-          <p>{{ user?.pseudo || 'Aucune présentation pour le moment.' }}</p>
+          <p>{{ user?.presentation || 'Aucune présentation pour le moment.' }}</p>
 
           <div class="text-center mt-3">
             <a routerLink="/profil/modifier" class="btn btn-primary">Modifier le profil</a>

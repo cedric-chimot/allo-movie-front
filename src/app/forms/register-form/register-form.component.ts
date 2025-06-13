@@ -36,20 +36,18 @@ export class RegisterFormComponent {
         return;
       }
 
-      const newUser: Users = {
-        id: 0,
+      // On crée un objet sans dateInscrit ni role car c'est géré côté backend
+      const newUser = {
         pseudo: this.user.pseudo,
         email: this.user.email,
         mdp: this.user.mdp,
-        role: null,
-        presentation: '',             // champ vide au moment de l'inscription
-        dateInscrit: 0,               // pas nécessaire d'envoyer une date exacte, le back gère
+        presentation: '',  // vide à l'inscription
         avertissements: 0,
         dateBan: 0,
         estBanni: false
       };
 
-      this.userService.createUser(newUser).subscribe({
+      this.userService.createUser(newUser as Users).subscribe({
         next: (data) => {
           console.log('Inscription réussie :', data);
           alert('Inscription réussie !');
