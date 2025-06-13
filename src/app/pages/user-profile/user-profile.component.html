@@ -1,1 +1,60 @@
-<p>user-profile works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Colonne gauche - Infos utilisateur -->
+    <div class="col-md-4">
+      <div class="card profil-left shadow border">
+        <div class="card-header text-center">Profil de {{ user?.pseudo }}</div>
+        <div class="card-body">
+          <h4 class="text-center">{{ user?.pseudo }}</h4>
+          <p class="text-muted text-center">
+            Utilisateur inscrit depuis le {{ user?.dateBan | date: 'dd/MM/yyyy' }}
+          </p>
+
+          <hr />
+          <h5>Présentation :</h5>
+          <p>{{ user?.pseudo || 'Aucune présentation pour le moment.' }}</p>
+
+          <div class="text-center mt-3">
+            <a routerLink="/profil/modifier" class="btn btn-primary">Modifier le profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonne droite - Activités récentes -->
+    <div class="col-md-8">
+      <!-- Derniers favoris -->
+      <div class="card shadow border mb-4">
+        <div class="card-header">Derniers favoris ajoutés</div>
+        <div class="card-body">
+          <ul>
+            <li>Inception (ajouté le 03/06/2025)</li>
+            <li>Interstellar (ajouté le 01/06/2025)</li>
+            <li>The Dark Knight (ajouté le 28/05/2025)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dernières notes -->
+      <div class="card shadow border mb-4">
+        <div class="card-header">Dernières notes</div>
+        <div class="card-body">
+          <ul>
+            <li>Inception - 5/5 (le 03/06/2025)</li>
+            <li>Fight Club - 4/5 (le 30/05/2025)</li>
+            <li>Matrix - 4.5/5 (le 27/05/2025)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dernier commentaire -->
+      <div class="card shadow border">
+        <div class="card-header">Dernier commentaire</div>
+        <div class="card-body">
+          <p><strong>Gladiator</strong> (le 02/06/2025)</p>
+          <p>Un film puissant avec une bande-son inoubliable. À voir absolument !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
