@@ -76,7 +76,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
-![allomovie-userProfile](https://github.com/user-attachments/assets/47e07c4c-7c8b-4203-b1ad-f749058b0b61)
+![allomovie-userProfile](https://github.com/user-attachments/assets/f5a1763b-fdfb-4109-a361-51e6f5478cf6)
 
 ### 🔗 Liens
 
