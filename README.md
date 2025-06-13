@@ -64,7 +64,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _L'inscription :_
 
-![allomovie-register](https://github.com/user-attachments/assets/37406c58-0ecf-4c6e-ba5d-4e115c160d1a)
+![allomovie-register](https://github.com/user-attachments/assets/8bed1268-0445-4a83-bbd8-77092c821d40)
 
 #### _Page d'accueil(provisoire) une fois connecté :_
 
