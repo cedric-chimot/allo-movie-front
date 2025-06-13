@@ -13,22 +13,32 @@ import { RouterModule } from '@angular/router';
 export class UserProfileComponent {
   user: Users | null = null;
 
-  constructor(userService: UsersService) {}
+  constructor(private userService: UsersService) {}
 
   ngOnInit(): void {
-    this.getUser();
-    if (!this.user) {
-      console.error('Aucun utilisateur trouvé dans le stockage local.');
-    }
+    this.loadUserProfile();
   }
 
-  getUser(): void {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      this.user = JSON.parse(userData);
+  loadUserProfile(): void {
+    // Supposons que tu stockes l'id utilisateur connecté dans le localStorage, ex:
+    const userStorage = localStorage.getItem('user');
+    if (userStorage) {
+      const userParsed = JSON.parse(userStorage);
+      const userId = userParsed.id;
+      if (userId) {
+        this.userService.getUserById(userId).subscribe({
+          next: (userData) => {
+            this.user = userData;
+          },
+          error: (err) => {
+            console.error('Erreur lors du chargement du profil:', err);
+          }
+        });
+      } else {
+        console.error('ID utilisateur non trouvé dans le localStorage');
+      }
     } else {
-      this.user = null;
+      console.error('Aucun utilisateur trouvé dans le localStorage');
     }
   }
-
 }

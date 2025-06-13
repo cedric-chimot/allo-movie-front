@@ -4,9 +4,8 @@
     <!-- Colonne gauche - Infos utilisateur -->
     <div class="col-md-4">
       <div class="card profil-left shadow border">
-        <div class="card-header text-center">Profil de {{ user?.pseudo }}</div>
+        <h4 class="card-header text-center">Profil de {{ user?.pseudo }}</h4>
         <div class="card-body">
-          <h4 class="text-center">{{ user?.pseudo }}</h4>
           <p class="text-muted text-center">
             Utilisateur inscrit depuis le {{ user?.dateInscrit | date: 'dd/MM/yyyy' }}
           </p>
@@ -15,7 +14,7 @@
           <h5>Présentation :</h5>
           <p>{{ user?.presentation || 'Aucune présentation pour le moment.' }}</p>
 
-          <div class="text-center mt-3">
+          <div class="text-center mt-4">
             <a routerLink="/profil/modifier" class="btn btn-primary">Modifier le profil</a>
           </div>
         </div>

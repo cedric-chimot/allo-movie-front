@@ -1,16 +1,28 @@
+h2 {
+  color: #2C3E50;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
 .profil-left {
-  background-color: #2C3E50;
-  color: white;
+  background-color: #ffffff;
+  color: #2C3E50;
   padding: 20px;
 }
 
-.profil-left h4,
-.profil-left h5 {
+.profil-left h4 {
   color: #ffffff;
 }
 
+.profil-left h5 {
+  color: #2C3E50;
+  font-weight: bold;
+}
+
 .profil-left p {
-  color: #dddddd;
+  color: #2C3E50;
 }
 
 .card-header {
@@ -18,9 +30,13 @@
   color: #ffffff;
   font-size: 1.2rem;
   text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
 }
 
 .btn-primary {
   background-color: #2C3E50;
-  border: none;
+  border: #2C3E50;
+  color: #ffffff;
 }
