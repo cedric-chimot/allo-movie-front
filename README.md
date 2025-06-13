@@ -60,7 +60,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _La connexion :_
 
-![allomovie-login](https://github.com/user-attachments/assets/878000cd-0c19-4e81-8af4-54138bf2b6e6)
+![allomovie-login](https://github.com/user-attachments/assets/1670ebfd-0cc7-40a6-8359-1d097d0e2fea)
 
 #### _L'inscription :_
 
