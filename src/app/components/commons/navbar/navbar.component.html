@@ -14,32 +14,48 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" [ngbCollapse]="toggleNavbar">
+      <!-- Bloc CENTRE -->
+      <ul class="navbar-nav mx-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link text-white me-1" routerLink="/home" routerLinkActive="active">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white me-1" routerLink="/films" routerLinkActive="active">Films</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white me-1" routerLink="/films" routerLinkActive="active">Recherche</a>
+        </li>
+        @if (isLoggedIn && !isAdmin) {
+          <li class="nav-item">
+            <a class="nav-link text-white me-1" routerLink="/message" routerLinkActive="active">Contact</a>
+          </li>
+        }
+      </ul>
+
+      <!-- Bloc DROITE -->
       <ul class="navbar-nav ms-auto align-items-center">
         @if (!isLoggedIn) {
           <li class="nav-item">
-            <a class="nav-link text-white me-1" routerLink="/home" routerLinkActive="active">Home</a>
+            <a class="nav-link text-white" routerLink="/login" routerLinkActive="active">Connexion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white me-1" routerLink="/login" routerLinkActive="active">Connexion</a>
+            <span class="text-white">/</span>
           </li>
           <li class="nav-item">
-            <span class="text-white mx-1">/</span>
+            <a class="nav-link text-white" routerLink="/register" routerLinkActive="active">Inscription</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white ms-1" routerLink="/register" routerLinkActive="active">Inscription</a>
-          </li>
-        }
-        @if (isLoggedIn) {
+        } @else {
           @if (isAdmin) {
-            <li class="nav-item me-3">
-              <a class="nav-link text-white" routerLink="/admin-home" title="Dashboard Admin">
+            <li class="nav-item me-2">
+              <a class="nav-link text-white" routerLink="/admin-home" routerLinkActive="active">
                 <i class="fas fa-user-shield"></i> Dashboard
               </a>
             </li>
           } @else {
-            <li class="nav-item me-3">
-              <a class="nav-link text-white" routerLink="/user-profile" title="Mon profil">
+            <li class="nav-item me-2">
+              <a class="nav-link text-white" routerLink="/user-profile" routerLinkActive="active">
                 <i class="fas fa-user"></i> Mon profil
               </a>
             </li>
@@ -47,7 +63,7 @@
           <li class="nav-item">
             <button class="btn btn-logout" (click)="logout()">Déconnexion</button>
           </li>
-        }
+        } <!-- <<< cette accolade manquait -->
       </ul>
     </div>
   </div>

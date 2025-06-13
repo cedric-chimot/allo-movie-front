@@ -33,8 +33,26 @@
   margin-top: -20px; /* Décale un peu le logo vers le haut pour le centrer */
 }
 
+.navbar-nav.mx-auto {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar-nav.ms-auto {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .btn-logout {
   background-color: #F1C40F;
-  text-decoration: none;
   text-transform: uppercase;
+  margin-left: 1rem;
 }
+
+/* Espacement général entre les éléments */
+.nav-item {
+  margin: 0 0.5rem;
+}
+
