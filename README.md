@@ -74,6 +74,10 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 ![allomovie-dashboard](https://github.com/user-attachments/assets/e71d49eb-9b19-49b5-b802-59cef1616157)
 
+#### _Page de profil d'un utilisateur(présentation provisoire)_
+
+![allomovie-userProfile](https://github.com/user-attachments/assets/47e07c4c-7c8b-4203-b1ad-f749058b0b61)
+
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository GitHub contenant le code backend.
