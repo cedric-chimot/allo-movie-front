@@ -85,6 +85,7 @@ _En cliquant sur le coeur, on ajoute le film en favori._
 
 ![allomovie-userProfile](https://github.com/user-attachments/assets/f5a1763b-fdfb-4109-a361-51e6f5478cf6)
 
+
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository GitHub contenant le code backend.
