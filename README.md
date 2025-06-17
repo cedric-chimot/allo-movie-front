@@ -76,11 +76,9 @@ _En cliquant sur le coeur, on ajoute le film en favori._
 
 ![allomovie-dashboard](https://github.com/user-attachments/assets/e71d49eb-9b19-49b5-b802-59cef1616157)
 
-
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
 ![allomovie-userProfile](https://github.com/user-attachments/assets/f5a1763b-fdfb-4109-a361-51e6f5478cf6)
-
 
 ### 🔗 Liens
 
