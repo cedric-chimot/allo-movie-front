@@ -16,7 +16,6 @@
 
 Je compte aller plus loin qu'une simple page d'accueil et des films tirés d'une API existante, pages admin, profil User, favoris par users et commentaires etc...
 
-
 ## Caractéristiques :
 Les films seront récupérés via une API.
 Les favoris ne seront pas enregistrés via l’API, mais pourront être *enregistrés dans
