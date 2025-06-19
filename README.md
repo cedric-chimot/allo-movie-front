@@ -83,4 +83,3 @@ _En cliquant sur le coeur, on ajoute le film en favori._
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository GitHub contenant le code backend.
-
