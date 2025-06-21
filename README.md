@@ -62,6 +62,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 ![allomovie-login](https://github.com/user-attachments/assets/1670ebfd-0cc7-40a6-8359-1d097d0e2fea)
 
+
 #### _L'inscription :_
 
 ![allomovie-register](https://github.com/user-attachments/assets/8bed1268-0445-4a83-bbd8-77092c821d40)
@@ -69,6 +70,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 #### _Page d'accueil(provisoire) une fois connecté :_
 
 ![allomovie-home](https://github.com/user-attachments/assets/e813e3cd-131c-4844-8bf3-c5e5ef4b4ceb)
+
 
 _En cliquant sur le coeur, on ajoute le film en favori._
 
