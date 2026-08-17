@@ -1,1 +1,392 @@
-<p>films-page works!</p>
+<div class="container py-4">
+
+  <!-- TITRE -->
+  <div class="text-center mb-5">
+    <h1>Films</h1>
+
+    <p class="text-muted">
+      Découvrez les films à l'affiche, les sorties récentes
+      et les prochaines sorties.
+    </p>
+  </div>
+
+
+  <!-- RECHERCHE -->
+  <div class="card shadow-sm mb-5">
+
+    <div class="card-header">
+      <strong>Rechercher un film</strong>
+    </div>
+
+    <div class="card-body">
+
+      <div class="row g-3">
+
+        <div class="col-md-10">
+
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Rechercher un film..."
+            [(ngModel)]="searchTerm"
+            (keyup.enter)="rechercher()"
+          >
+
+        </div>
+
+        <div class="col-md-2">
+
+          <button
+            class="btn btn-primary w-100"
+            (click)="rechercher()"
+          >
+            Rechercher
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================= -->
+  <!-- À L'AFFICHE -->
+  <!-- ========================= -->
+
+  <section class="mb-5">
+
+    <div class="section-header">
+      <h2>🎬 À l'affiche</h2>
+    </div>
+
+    <div class="row g-4">
+
+      @for (film of filmsAlaffiche; track film.id) {
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg">
+
+          <div class="film-card card h-100 shadow-sm">
+
+            <img
+              [src]="film.image"
+              [alt]="'Affiche de ' + film.titre"
+              class="card-img-top film-image"
+            >
+
+            <div class="card-body">
+
+              <div class="film-title">
+
+                <h5>
+                  {{ film.titre }}
+                </h5>
+
+                <button
+                  class="favorite-button"
+                  (click)="toggleFavori(film.id)"
+                  [innerHTML]="estFavori(film.id) ? '❤️' : '🤍'"
+                  title="Ajouter aux favoris"
+                ></button>
+
+              </div>
+
+              <p class="film-info">
+                ⭐ {{ film.noteMoyenne }}
+                · {{ film.dateSortie | date:'yyyy' }}
+              </p>
+
+              <a
+                [routerLink]="['/films', film.id]"
+                class="btn btn-primary btn-sm"
+              >
+                Détails
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- SORTIES RÉCENTES -->
+  <!-- ========================= -->
+
+  <section class="mb-5">
+
+    <div class="section-header">
+      <h2>🆕 Sorties récentes</h2>
+    </div>
+
+    <div class="row g-4">
+
+      @for (film of sortiesRecentes; track film.id) {
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg">
+
+          <div class="film-card card h-100 shadow-sm">
+
+            <img
+              [src]="film.image"
+              [alt]="'Affiche de ' + film.titre"
+              class="card-img-top film-image"
+            >
+
+            <div class="card-body">
+
+              <div class="film-title">
+
+                <h5>
+                  {{ film.titre }}
+                </h5>
+
+                <button
+                  class="favorite-button"
+                  (click)="toggleFavori(film.id)"
+                  [innerHTML]="estFavori(film.id) ? '❤️' : '🤍'"
+                  title="Ajouter aux favoris"
+                ></button>
+
+              </div>
+
+              <p class="film-info">
+                ⭐ {{ film.noteMoyenne }}
+                · {{ film.dateSortie | date:'dd/MM/yyyy' }}
+              </p>
+
+              <a
+                [routerLink]="['/films', film.id]"
+                class="btn btn-primary btn-sm"
+              >
+                Détails
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PROCHAINEMENT -->
+  <!-- ========================= -->
+
+  <section class="mb-5">
+
+    <div class="section-header">
+      <h2>🔜 Prochainement</h2>
+    </div>
+
+    <div class="row g-4">
+
+      @for (film of filmsAVenir; track film.id) {
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg">
+
+          <div class="film-card card h-100 shadow-sm">
+
+            <img
+              [src]="film.image"
+              [alt]="'Affiche de ' + film.titre"
+              class="card-img-top film-image"
+            >
+
+            <div class="card-body">
+
+              <div class="film-title">
+
+                <h5>
+                  {{ film.titre }}
+                </h5>
+
+                <button
+                  class="favorite-button"
+                  (click)="toggleFavori(film.id)"
+                  [innerHTML]="estFavori(film.id) ? '❤️' : '🤍'"
+                  title="Ajouter aux favoris"
+                ></button>
+
+              </div>
+
+              <p class="film-info">
+                Sortie :
+                {{ film.dateSortie | date:'dd/MM/yyyy' }}
+              </p>
+
+              <a
+                [routerLink]="['/films', film.id]"
+                class="btn btn-primary btn-sm"
+              >
+                Détails
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- TOUS LES FILMS -->
+  <!-- ========================= -->
+
+  <section>
+
+    <div class="section-header mb-4">
+      <h2>🎞️ Tous les films</h2>
+    </div>
+
+
+    @if (filmsFiltres.length === 0) {
+
+      <div class="alert alert-info">
+        Aucun film ne correspond à votre recherche.
+      </div>
+
+    } @else {
+
+      <div class="row g-4">
+
+        @for (film of filmsPagines; track film.id) {
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="film-card card h-100 shadow-sm">
+
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
+
+              <div class="card-body">
+
+                <div class="film-title">
+
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
+
+                  <button
+                    class="favorite-button"
+                    (click)="toggleFavori(film.id)"
+                    [innerHTML]="estFavori(film.id) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  ></button>
+
+                </div>
+
+                <p class="film-info">
+                  ⭐ {{ film.noteMoyenne }}
+                  · {{ film.dateSortie | date:'yyyy' }}
+                </p>
+
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn btn-primary btn-sm"
+                >
+                  Détails
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+
+      <!-- PAGINATION -->
+
+      @if (nombrePages > 1) {
+
+        <nav class="mt-5">
+
+          <ul class="pagination justify-content-center">
+
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === 1"
+            >
+
+              <button
+                class="page-link"
+                (click)="changerPage(currentPage - 1)"
+              >
+                Précédent
+              </button>
+
+            </li>
+
+
+            @for (page of [].constructor(nombrePages); track $index) {
+
+              <li
+                class="page-item"
+                [class.active]="currentPage === $index + 1"
+              >
+
+                <button
+                  class="page-link"
+                  (click)="changerPage($index + 1)"
+                >
+                  {{ $index + 1 }}
+                </button>
+
+              </li>
+
+            }
+
+
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === nombrePages"
+            >
+
+              <button
+                class="page-link"
+                (click)="changerPage(currentPage + 1)"
+              >
+                Suivant
+              </button>
+
+            </li>
+
+          </ul>
+
+        </nav>
+
+      }
+
+    }
+
+  </section>
+
+</div>

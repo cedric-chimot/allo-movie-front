@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from "../../components/commons/footer/footer.component";
 
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FooterComponent],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
@@ -28,5 +29,5 @@ export class HomePageComponent {
   isFavorite(title: string): boolean {
     return this.favorites.has(title);
   }
-  
+
 }
