@@ -5,7 +5,7 @@
 
 ## Description :
 
-### Application à la Allociné.
+### Application à la Allo-ciné.
 
 #### Créer une application de découverte et recherche de films : 
 <p align="justify">Le sujet m'avait été proposé durant l'incubateur, mon groupe et moi en avions choisi un autre. L'idée ici est de s'éloigner de l'option principale et de l'utilisation de l'API themoviedb en créant moi même une API mais aussi et surtout d'aller plus loin dans la création de l'application. L'ajout des films en favoris ne suffit pas, on pourra laisser des commentaires sur les films, les noter, voir les films les plus populaires, les plus attendus, les plus récents, les plus vus, les plus commentés, les mieux notés, etc. On pourra aussi voir les films de l'année en cours, de l'année précédente, de l'année d'avant, etc. On pourra aussi voir les films d'un acteur, d'une actrice, d'un réalisateur et bien d'autre chose encore. L'application se veut la plus complète possible. </p>
@@ -20,7 +20,7 @@ Je compte aller plus loin qu'une simple page d'accueil et des films tirés d'une
 Les films seront récupérés via une API.
 Les favoris ne seront pas enregistrés via l’API, mais pourront être *enregistrés dans
 le local Storage ou sur Firebase 
-### (*à voir, je réfléchi à d'autres possiblités)
+### (*à voir, je réfléchi à d'autres possibilités)
 
 ## Besoin :
 
@@ -33,8 +33,8 @@ principal des films, et deux boutons :
 
   ▪ Add / Remove : pour ajouter ou enlever le film des favoris
   
-  ▪ Details : pour rediriger vers la page de détails du film
-  
+  ▪ Détails : pour rediriger vers la page de détails du film
+
 o Minimum 20
 
 o Optionnel : pagination pour afficher 20 films à la fois (les 20 premiers,
@@ -70,7 +70,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 ![allomovie-home](https://github.com/user-attachments/assets/e813e3cd-131c-4844-8bf3-c5e5ef4b4ceb)
 
-_En cliquant sur le coeur, on ajoute le film en favori._
+_En cliquant sur le cœur, on ajoute le film en favori._
 
 #### _Dashboard Admin avec admin connecté :_
 
@@ -80,7 +80,6 @@ _En cliquant sur le coeur, on ajoute le film en favori._
 
 ![allomovie-userProfile](https://github.com/user-attachments/assets/f5a1763b-fdfb-4109-a361-51e6f5478cf6)
 
-
 ### 🔗 Liens
 
-**[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository GitHub contenant le code backend.
+**[Backend Repository](https://github.com/cedric-chimot/allo-movie-back)** : Le lien vers le repository Git Hub contenant le code backend.
