@@ -145,6 +145,14 @@
   transform: translateY(-2px);
 }
 
+.film-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.film-card .btn {
+  margin-top: auto;
+}
 
 /* =========================
    RECHERCHE
