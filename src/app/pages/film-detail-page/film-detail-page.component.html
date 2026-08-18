@@ -1,1 +1,335 @@
-<p>film-detail-page works!</p>
+<div class="container py-4">
+
+  @if (film) {
+
+    <!-- ========================= -->
+    <!-- EN-TÊTE DU FILM -->
+    <!-- ========================= -->
+
+    <div class="film-detail card shadow mb-5">
+
+      <div class="row g-0">
+
+        <!-- AFFICHE -->
+
+        <div class="col-md-4">
+
+          <img
+            [src]="film.image"
+            [alt]="'Affiche de ' + film.titre"
+            class="film-poster"
+          >
+
+        </div>
+
+
+        <!-- INFORMATIONS -->
+
+        <div class="col-md-8">
+
+          <div class="film-content">
+
+            <div class="film-header">
+
+              <div>
+
+                <h1>
+                  {{ film.titre }}
+                </h1>
+
+                <p class="film-year">
+                  {{ film.dateSortie | date:'yyyy' }}
+                </p>
+
+              </div>
+
+              <button
+                class="favorite-button"
+                title="Ajouter aux favoris"
+              >
+                🤍
+              </button>
+
+            </div>
+
+
+            <!-- NOTE -->
+
+            <div class="film-rating">
+
+              <span class="star">⭐</span>
+
+              <strong>
+                {{ film.noteMoyenne }}
+              </strong>
+
+              <span>
+                / 10
+              </span>
+
+            </div>
+
+
+            <!-- SYNOPSIS -->
+
+            <div class="film-synopsis">
+
+              <h2>Synopsis</h2>
+
+              <p>
+                {{ film.synopsis }}
+              </p>
+
+            </div>
+
+
+            <!-- INFORMATIONS -->
+
+            <div class="film-information">
+
+              <div>
+                <strong>Date de sortie :</strong>
+                {{ film.dateSortie | date:'dd/MM/yyyy' }}
+              </div>
+
+              <div>
+                <strong>Note moyenne :</strong>
+                ⭐ {{ film.noteMoyenne }} / 10
+              </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="film-actions">
+
+              <button class="btn btn-primary">
+                ❤️ Ajouter aux favoris
+              </button>
+
+              <a
+                routerLink="/films"
+                class="btn btn-secondary"
+              >
+                Retour aux films
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- DÉTAILS -->
+    <!-- ========================= -->
+
+    <section class="detail-section">
+
+      <h2>Informations sur le film</h2>
+
+      <div class="row g-4">
+
+        <!-- RÉALISATEUR -->
+
+        <div class="col-md-4">
+
+          <div class="information-card">
+
+            <h3>🎬 Réalisateur</h3>
+
+            @if (realisateur) {
+
+              <p>
+                {{ realisateur }}
+              </p>
+
+            } @else {
+
+              <p>
+                Information indisponible
+              </p>
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <!-- ACTEURS -->
+
+        <div class="col-md-4">
+
+          <div class="information-card">
+
+            <h3>🎭 Acteurs</h3>
+
+            @if (acteurs.length > 0) {
+
+              @for (acteur of acteurs; track acteur) {
+
+                <p>
+                  {{ acteur }}
+                </p>
+
+              }
+
+            } @else {
+
+              <p>
+                Information indisponible
+              </p>
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <!-- GENRES -->
+
+        <div class="col-md-4">
+
+          <div class="information-card">
+
+            <h3>🎞️ Genres</h3>
+
+            @if (categories.length > 0) {
+
+              @for (categorie of categories; track categorie) {
+
+                <span class="genre">
+                  {{ categorie }}
+                </span>
+
+              }
+
+            } @else {
+
+              <p>
+                Information indisponible
+              </p>
+
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SYNOPSIS DÉTAILLÉ -->
+    <!-- ========================= -->
+
+    <section class="detail-section">
+
+      <h2>Résumé</h2>
+
+      <div class="synopsis-full">
+
+        <p>
+          {{ film.synopsis }}
+        </p>
+
+        <p>
+          Cette section pourra accueillir plus tard un résumé
+          beaucoup plus détaillé provenant de la base de données.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- NOTE -->
+    <!-- ========================= -->
+
+    <section class="detail-section">
+
+      <h2>Votre avis</h2>
+
+      <div class="rating-box">
+
+        <p>
+          Quelle note donneriez-vous à ce film ?
+        </p>
+
+        <div class="stars">
+
+          <button>☆</button>
+          <button>☆</button>
+          <button>☆</button>
+          <button>☆</button>
+          <button>☆</button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- COMMENTAIRES -->
+    <!-- ========================= -->
+
+    <section class="detail-section">
+
+      <h2>Commentaires</h2>
+
+      <div class="comment-box">
+
+        <textarea
+          class="form-control"
+          rows="4"
+          placeholder="Donnez votre avis sur ce film..."
+        ></textarea>
+
+        <button class="btn btn-primary mt-3">
+          Publier le commentaire
+        </button>
+
+      </div>
+
+    </section>
+
+
+  } @else {
+
+    <!-- ========================= -->
+    <!-- FILM INTROUVABLE -->
+    <!-- ========================= -->
+
+    <div class="alert alert-danger text-center">
+
+      <h2>Film introuvable</h2>
+
+      <p>
+        Le film demandé n'existe pas.
+      </p>
+
+      <a
+        routerLink="/films"
+        class="btn btn-primary"
+      >
+        Retour aux films
+      </a>
+
+    </div>
+
+  }
+
+</div>

@@ -1,0 +1,309 @@
+/* =========================
+   CARTE PRINCIPALE
+   ========================= */
+
+.film-detail {
+  border-color: #2C3E50;
+  overflow: hidden;
+}
+
+
+/* =========================
+   AFFICHE
+   ========================= */
+
+.film-poster {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  object-fit: cover;
+}
+
+
+/* =========================
+   CONTENU
+   ========================= */
+
+.film-content {
+  padding: 35px;
+  height: 100%;
+}
+
+
+/* =========================
+   TITRE
+   ========================= */
+
+.film-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.film-header h1 {
+  color: #2C3E50;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.film-year {
+  color: #2C3E50;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+
+/* =========================
+   NOTE
+   ========================= */
+
+.film-rating {
+  margin: 25px 0;
+  font-size: 1.3rem;
+  color: #2C3E50;
+}
+
+.star {
+  font-size: 1.5rem;
+}
+
+
+/* =========================
+   SYNOPSIS
+   ========================= */
+
+.film-synopsis h2,
+.detail-section h2 {
+  color: #2C3E50;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #2C3E50;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.film-synopsis p {
+  color: #2C3E50;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+/* =========================
+   INFORMATIONS
+   ========================= */
+
+.film-information {
+  margin-top: 25px;
+  color: #2C3E50;
+  font-size: 1rem;
+}
+
+.film-information div {
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   BOUTONS
+   ========================= */
+
+.film-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.film-actions .btn {
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.film-actions .btn:hover {
+  background-color: #1f2d3a;
+  border-color: #1f2d3a;
+}
+
+
+/* =========================
+   FAVORIS
+   ========================= */
+
+.favorite-button {
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.favorite-button:hover {
+  transform: scale(1.15);
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.detail-section {
+  margin-bottom: 50px;
+}
+
+
+/* =========================
+   CARTES INFORMATIONS
+   ========================= */
+
+.information-card {
+  height: 100%;
+  padding: 25px;
+
+  border: 1px solid #2C3E50;
+  border-radius: 5px;
+
+  text-align: center;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.information-card h3 {
+  color: #2C3E50;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.information-card p {
+  color: #2C3E50;
+  margin: 5px 0;
+}
+
+
+/* =========================
+   GENRES
+   ========================= */
+
+.genre {
+  display: inline-block;
+
+  background-color: #2C3E50;
+  color: #ffffff;
+
+  padding: 7px 12px;
+  margin: 5px;
+
+  border-radius: 4px;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   RÉSUMÉ
+   ========================= */
+
+.synopsis-full {
+  padding: 25px;
+
+  border-left: 5px solid #2C3E50;
+
+  background-color: #f8f9fa;
+}
+
+.synopsis-full p {
+  color: #2C3E50;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+
+/* =========================
+   NOTATION
+   ========================= */
+
+.rating-box {
+  padding: 30px;
+  text-align: center;
+
+  border: 1px solid #2C3E50;
+}
+
+.rating-box p {
+  color: #2C3E50;
+  font-size: 1.1rem;
+}
+
+.stars button {
+  border: none;
+  background: transparent;
+
+  color: #2C3E50;
+
+  font-size: 2.5rem;
+
+  cursor: pointer;
+}
+
+.stars button:hover {
+  transform: scale(1.15);
+}
+
+
+/* =========================
+   COMMENTAIRES
+   ========================= */
+
+.comment-box {
+  padding: 25px;
+
+  border: 1px solid #2C3E50;
+}
+
+.comment-box textarea {
+  border-color: #2C3E50;
+}
+
+.comment-box textarea:focus {
+  border-color: #2C3E50;
+
+  box-shadow:
+    0 0 0 0.2rem rgba(44, 62, 80, 0.2);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .film-poster {
+    min-height: 450px;
+  }
+
+  .film-content {
+    padding: 20px;
+  }
+
+  .film-header h1 {
+    font-size: 2rem;
+  }
+
+  .film-actions {
+    flex-direction: column;
+  }
+
+  .film-actions .btn {
+    width: 100%;
+  }
+
+}
