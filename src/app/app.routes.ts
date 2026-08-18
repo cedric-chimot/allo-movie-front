@@ -5,6 +5,7 @@ import { RegisterFormComponent } from './forms/register-form/register-form.compo
 import { AdminHomeComponent } from './pages/admin-pages/admin-home/admin-home.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { FilmsPageComponent } from './pages/films-page/films-page.component';
+import { FilmDetailPageComponent } from './pages/film-detail-page/film-detail-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterFormComponent },
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'user-profile', component: UserProfileComponent },
-  { path: 'films', component: FilmsPageComponent }
+  { path: 'films', component: FilmsPageComponent },
+  { path: 'films/:id', component: FilmDetailPageComponent }
 ];
