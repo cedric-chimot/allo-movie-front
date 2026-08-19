@@ -53,24 +53,44 @@
             </div>
 
 
+            <!-- ========================= -->
             <!-- NOTE -->
+            <!-- ========================= -->
 
-            <div class="film-rating">
+            @if (film.noteMoyenne > 0) {
 
-              <span class="star">⭐</span>
+              <div class="film-rating">
 
-              <strong>
-                {{ film.noteMoyenne }}
-              </strong>
+                <span class="star">⭐</span>
 
-              <span>
-                / 10
-              </span>
+                <strong>
+                  {{ film.noteMoyenne }}
+                </strong>
 
-            </div>
+                <span>
+                  / 10
+                </span>
+
+              </div>
+
+            } @else {
+
+              <div class="film-rating no-rating">
+
+                <span class="star">⭐</span>
+
+                <span>
+                  Ce film n'a pas encore reçu d'avis.
+                </span>
+
+              </div>
+
+            }
 
 
+            <!-- ========================= -->
             <!-- SYNOPSIS -->
+            <!-- ========================= -->
 
             <div class="film-synopsis">
 
@@ -83,24 +103,42 @@
             </div>
 
 
+            <!-- ========================= -->
             <!-- INFORMATIONS -->
+            <!-- ========================= -->
 
             <div class="film-information">
 
               <div>
+
                 <strong>Date de sortie :</strong>
+
                 {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
               </div>
 
               <div>
+
                 <strong>Note moyenne :</strong>
-                ⭐ {{ film.noteMoyenne }} / 10
+
+                @if (film.noteMoyenne > 0) {
+
+                  ⭐ {{ film.noteMoyenne }} / 10
+
+                } @else {
+
+                  Aucun avis pour le moment
+
+                }
+
               </div>
 
             </div>
 
 
+            <!-- ========================= -->
             <!-- ACTIONS -->
+            <!-- ========================= -->
 
             <div class="film-actions">
 
@@ -127,106 +165,148 @@
 
 
     <!-- ========================= -->
-    <!-- DÉTAILS -->
+    <!-- FICHE EN CONSTRUCTION -->
     <!-- ========================= -->
 
-    <section class="detail-section">
+    @if (ficheEnConstruction) {
 
-      <h2>Informations sur le film</h2>
+      <section class="detail-section">
 
-      <div class="row g-4">
+        <div class="construction-card text-center">
 
-        <!-- RÉALISATEUR -->
-
-        <div class="col-md-4">
-
-          <div class="information-card">
-
-            <h3>🎬 Réalisateur</h3>
-
-            @if (realisateur) {
-
-              <p>
-                {{ realisateur }}
-              </p>
-
-            } @else {
-
-              <p>
-                Information indisponible
-              </p>
-
-            }
-
+          <div class="construction-icon">
+            🚧
           </div>
+
+          <h2>
+            Fiche en cours de construction
+          </h2>
+
+          <p>
+            Les informations détaillées de ce film sont
+            actuellement en cours de préparation.
+          </p>
+
+          <p>
+            Le réalisateur, le casting, les catégories et
+            d'autres informations seront bientôt disponibles.
+          </p>
 
         </div>
 
+      </section>
 
-        <!-- ACTEURS -->
+    } @else {
 
-        <div class="col-md-4">
+      <!-- ========================= -->
+      <!-- DÉTAILS -->
+      <!-- ========================= -->
 
-          <div class="information-card">
+      <section class="detail-section">
 
-            <h3>🎭 Acteurs</h3>
+        <h2>Informations sur le film</h2>
 
-            @if (acteurs.length > 0) {
+        <div class="row g-4">
 
-              @for (acteur of acteurs; track acteur) {
+          <!-- ========================= -->
+          <!-- RÉALISATEUR -->
+          <!-- ========================= -->
+
+          <div class="col-md-4">
+
+            <div class="information-card">
+
+              <h3>🎬 Réalisateur</h3>
+
+              @if (realisateur) {
 
                 <p>
-                  {{ acteur }}
+                  {{ realisateur }}
+                </p>
+
+              } @else {
+
+                <p>
+                  Information en cours de construction
                 </p>
 
               }
 
-            } @else {
-
-              <p>
-                Information indisponible
-              </p>
-
-            }
+            </div>
 
           </div>
 
-        </div>
 
+          <!-- ========================= -->
+          <!-- ACTEURS -->
+          <!-- ========================= -->
 
-        <!-- GENRES -->
+          <div class="col-md-4">
 
-        <div class="col-md-4">
+            <div class="information-card">
 
-          <div class="information-card">
+              <h3>🎭 Acteurs</h3>
 
-            <h3>🎞️ Genres</h3>
+              @if (acteurs.length > 0) {
 
-            @if (categories.length > 0) {
+                @for (acteur of acteurs; track acteur) {
 
-              @for (categorie of categories; track categorie) {
+                  <p>
+                    {{ acteur }}
+                  </p>
 
-                <span class="genre">
-                  {{ categorie }}
-                </span>
+                }
+
+              } @else {
+
+                <p>
+                  Information en cours de construction
+                </p>
 
               }
 
-            } @else {
+            </div>
 
-              <p>
-                Information indisponible
-              </p>
+          </div>
 
-            }
+
+          <!-- ========================= -->
+          <!-- GENRES -->
+          <!-- ========================= -->
+
+          <div class="col-md-4">
+
+            <div class="information-card">
+
+              <h3>🎞️ Genres</h3>
+
+              @if (categories.length > 0) {
+
+                @for (categorie of categories; track categorie) {
+
+                  <span class="genre">
+                    {{ categorie }}
+                  </span>
+
+                }
+
+              } @else {
+
+                <p>
+                  Information en cours de construction
+                </p>
+
+              }
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
+      </section>
 
-    </section>
+    }
 
 
     <!-- ========================= -->
@@ -243,10 +323,21 @@
           {{ film.synopsis }}
         </p>
 
-        <p>
-          Cette section pourra accueillir plus tard un résumé
-          beaucoup plus détaillé provenant de la base de données.
-        </p>
+        @if (ficheEnConstruction) {
+
+          <p class="construction-message">
+            🚧 Les informations complémentaires concernant ce film
+            sont encore en cours de construction.
+          </p>
+
+        } @else {
+
+          <p>
+            Cette section pourra accueillir plus tard un résumé
+            beaucoup plus détaillé provenant de la base de données.
+          </p>
+
+        }
 
       </div>
 
@@ -254,7 +345,7 @@
 
 
     <!-- ========================= -->
-    <!-- NOTE -->
+    <!-- NOTE / AVIS -->
     <!-- ========================= -->
 
     <section class="detail-section">
@@ -263,9 +354,28 @@
 
       <div class="rating-box">
 
-        <p>
-          Quelle note donneriez-vous à ce film ?
-        </p>
+        @if (film.noteMoyenne > 0) {
+
+          <p>
+            Quelle note donneriez-vous à ce film ?
+          </p>
+
+        } @else {
+
+          <p>
+            ⭐ Ce film n'a pas encore reçu d'avis.
+          </p>
+
+          <p>
+            <strong>
+              Soyez le premier à donner votre note !
+            </strong>
+          </p>
+
+        }
+
+
+        <!-- ÉTOILES -->
 
         <div class="stars">
 
@@ -315,7 +425,9 @@
 
     <div class="alert alert-danger text-center">
 
-      <h2>Film introuvable</h2>
+      <h2>
+        Film introuvable
+      </h2>
 
       <p>
         Le film demandé n'existe pas.

@@ -18,6 +18,8 @@ export class FilmDetailPageComponent {
   acteurs: string[] = [];
   categories: string[] = [];
 
+  ficheEnConstruction = false;
+
   films: Films[] = [
     new Films(
       1,
@@ -62,9 +64,71 @@ export class FilmDetailPageComponent {
       'Batman doit affronter le Joker, un criminel imprévisible qui plonge Gotham City dans le chaos et pousse ses habitants et ses héros dans leurs derniers retranchements.',
       'https://via.placeholder.com/500x750',
       9.0
+    ),
+
+    new Films(
+      6,
+      'Parasite',
+      new Date('2019-05-30'),
+      'Une famille modeste s’immisce progressivement dans la vie d’une famille beaucoup plus aisée.',
+      'https://via.placeholder.com/500x750',
+      8.5
+    ),
+
+    new Films(
+      7,
+      'Avatar',
+      new Date('2009-12-16'),
+      'Un ancien marine découvre la culture d’un peuple extraterrestre sur la planète Pandora.',
+      'https://via.placeholder.com/500x750',
+      8.1
+    ),
+
+    new Films(
+      8,
+      'Le Seigneur des Anneaux',
+      new Date('2001-12-19'),
+      'Un jeune Hobbit entreprend un voyage dangereux afin de détruire un anneau aux pouvoirs considérables.',
+      'https://via.placeholder.com/500x750',
+      8.9
+    ),
+
+    new Films(
+      9,
+      'Joker',
+      new Date('2019-10-02'),
+      'Arthur Fleck sombre progressivement dans une spirale qui le transforme en une figure criminelle.',
+      'https://via.placeholder.com/500x750',
+      8.4
+    ),
+
+    new Films(
+      10,
+      'Spider-Man: No Way Home',
+      new Date('2021-12-15'),
+      'Peter Parker demande de l’aide pour faire oublier son identité secrète, mais les conséquences sont inattendues.',
+      'https://via.placeholder.com/500x750',
+      8.0
+    ),
+
+    new Films(
+      11,
+      'Film à venir 1',
+      new Date('2026-10-15'),
+      'Un nouveau film bientôt disponible dans les salles.',
+      'https://via.placeholder.com/500x750',
+      0
+    ),
+
+    new Films(
+      12,
+      'Film à venir 2',
+      new Date('2026-12-10'),
+      'Une nouvelle aventure cinématographique prochainement disponible.',
+      'https://via.placeholder.com/500x750',
+      0
     )
   ];
-
   /**
    * Données temporaires représentant les relations
    * entre les films, les réalisateurs, les acteurs et les catégories.
@@ -163,13 +227,16 @@ export class FilmDetailPageComponent {
       film => film.id === id
     );
 
+    // L'ID ne correspond à aucun film
     if (!this.film) {
       return;
     }
 
     const relations = this.relationsFilms[this.film.id];
 
+    // Le film existe mais sa fiche n'est pas encore complète
     if (!relations) {
+      this.ficheEnConstruction = true;
       return;
     }
 
