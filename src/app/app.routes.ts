@@ -6,6 +6,7 @@ import { AdminHomeComponent } from './pages/admin-pages/admin-home/admin-home.co
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { FilmsPageComponent } from './pages/films-page/films-page.component';
 import { FilmDetailPageComponent } from './pages/film-detail-page/film-detail-page.component';
+import { FilmsAdminPageComponent } from './pages/admin-pages/film-admin-page/film-admin-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'register', component: RegisterFormComponent },
   { path: 'admin-home', component: AdminHomeComponent },
+  { path: 'admin-films', component: FilmsAdminPageComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'films', component: FilmsPageComponent },
   { path: 'films/:id', component: FilmDetailPageComponent }

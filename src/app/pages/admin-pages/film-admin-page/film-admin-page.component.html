@@ -1,1 +1,155 @@
-<p>film-admin-page works!</p>
+<div class="container py-4">
+
+  <div class="page-header">
+
+    <h1>
+      Gestion des films
+    </h1>
+
+    <button
+      class="btn btn-primary"
+      type="button"
+    >
+      Ajouter un film
+    </button>
+
+  </div>
+
+
+  <!-- ========================= -->
+  <!-- TABLEAU DES FILMS -->
+  <!-- ========================= -->
+
+  @if (films.length > 0) {
+
+    <div class="card shadow">
+
+      <div class="card-header">
+        Liste des films
+      </div>
+
+      <div class="card-body">
+
+        <div class="table-responsive">
+
+          <table class="table table-striped table-hover align-middle">
+
+            <thead>
+
+              <tr>
+
+                <th>ID</th>
+
+                <th>Affiche</th>
+
+                <th>Titre</th>
+
+                <th>Date de sortie</th>
+
+                <th>Note</th>
+
+                <th>Actions</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              @for (film of films; track film.id) {
+
+                <tr>
+
+                  <td>
+                    {{ film.id }}
+                  </td>
+
+
+                  <td>
+
+                    <img
+                      [src]="film.image"
+                      [alt]="'Affiche de ' + film.titre"
+                      class="film-image"
+                    >
+
+                  </td>
+
+
+                  <td>
+
+                    <strong>
+                      {{ film.titre }}
+                    </strong>
+
+                  </td>
+
+
+                  <td>
+
+                    {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
+                  </td>
+
+
+                  <td>
+
+                    @if (film.noteMoyenne > 0) {
+
+                      ⭐ {{ film.noteMoyenne }} / 10
+
+                    } @else {
+
+                      <span class="no-rating">
+                        Pas encore noté
+                      </span>
+
+                    }
+
+                  </td>
+
+
+                  <td>
+
+                    <button
+                      class="btn btn-warning btn-sm"
+                      type="button"
+                    >
+                      Modifier
+                    </button>
+
+                    <button
+                      class="btn btn-danger btn-sm"
+                      type="button"
+                    >
+                      Supprimer
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="alert alert-info text-center">
+
+      Aucun film n'est actuellement enregistré en base de données.
+
+    </div>
+
+  }
+
+</div>

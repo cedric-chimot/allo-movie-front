@@ -1,0 +1,49 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: #2C3E50;
+  text-transform: uppercase;
+  font-size: 2.3rem;
+  margin: 0;
+}
+
+.card {
+  border-color: #2C3E50;
+}
+
+.card-header {
+  background-color: #2C3E50;
+  color: #ffffff;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  color: #2C3E50;
+  text-transform: uppercase;
+}
+
+.film-image {
+  width: 60px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.no-rating {
+  color: #777777;
+  font-style: italic;
+}
+
+.btn {
+  margin-right: 8px;
+}
