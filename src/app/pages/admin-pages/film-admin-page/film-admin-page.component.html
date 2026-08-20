@@ -17,6 +17,7 @@
   @if (films.length > 0) {
 
     <div class="card shadow">
+
       <div class="card-header">
         Liste des films
       </div>
@@ -69,15 +70,11 @@
                   <td>
 
                     @if (film.noteMoyenne > 0) {
-
                       ⭐ {{ film.noteMoyenne }} / 10
-
                     } @else {
-
                       <span class="no-rating">
                         Pas encore noté
                       </span>
-
                     }
 
                   </td>
@@ -125,25 +122,17 @@
 </div>
 
 
-<!-- ========================= -->
-<!-- MODAL AJOUT FILM -->
-<!-- ========================= -->
-
 @if (isAddModalOpen) {
 
-  <div class="modal">
+  <div class="modal-overlay">
 
-    <div class="modal-overlay">
+    <div class="modal-content">
 
-      <div class="modal-content">
-
-        <app-film-form
-          (close)="closeModal()"
-          (filmCreated)="filmAjoute()"
-        >
-        </app-film-form>
-
-      </div>
+      <app-film-form
+        (close)="closeModal()"
+        (filmCreated)="filmAjoute()"
+      >
+      </app-film-form>
 
     </div>
 
