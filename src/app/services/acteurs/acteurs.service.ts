@@ -7,7 +7,7 @@ import { Acteurs } from '../../models/tables/Acteurs';
   providedIn: 'root'
 })
 export class ActeursService {
-  private apiUrl = 'http://localhost:8080/api/acteurs';
+  private apiUrl = 'http://localhost:8081/api/acteurs';
 
   constructor(private http: HttpClient) { }
 

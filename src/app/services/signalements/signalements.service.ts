@@ -7,7 +7,7 @@ import { Signalements } from '../../models/tables/Signalements';
   providedIn: 'root'
 })
 export class SignalementsService {
-  private apiUrl = 'http://localhost:8080/api/signalements';
+  private apiUrl = 'http://localhost:8081/api/signalements';
 
   constructor(private http: HttpClient) { }
 

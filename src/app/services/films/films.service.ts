@@ -7,7 +7,7 @@ import { Films } from '../../models/tables/Films';
   providedIn: 'root'
 })
 export class FilmsService {
-  private apiUrl = 'http://localhost:8080/api/films';
+  private apiUrl = 'http://localhost:8081/api/films';
 
   constructor(private http: HttpClient) { }
 
