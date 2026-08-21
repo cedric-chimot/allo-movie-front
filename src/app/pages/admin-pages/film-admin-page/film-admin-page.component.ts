@@ -19,8 +19,11 @@ import { FilmFormComponent } from '../../../forms/film-form/film-form.component'
 export class FilmsAdminPageComponent implements OnInit {
 
   films: Films[] = [];
-
   isAddModalOpen = false;
+
+  // Pagination
+  currentPage = 1;
+  filmsParPage = 5;
 
   constructor(
     private filmsService: FilmsService
@@ -44,6 +47,23 @@ export class FilmsAdminPageComponent implements OnInit {
     });
   }
 
+  get filmsPagines(): Films[] {
+    const debut = (this.currentPage - 1) * this.filmsParPage;
+    const fin = debut + this.filmsParPage;
+
+    return this.films.slice(debut, fin);
+  }
+
+  get nombrePages(): number {
+    return Math.ceil(this.films.length / this.filmsParPage);
+  }
+
+  changerPage(page: number): void {
+    if (page >= 1 && page <= this.nombrePages) {
+      this.currentPage = page;
+    }
+  }
+
   openAddModal(): void {
     this.isAddModalOpen = true;
   }
@@ -54,6 +74,7 @@ export class FilmsAdminPageComponent implements OnInit {
 
   filmAjoute(): void {
     this.closeModal();
+    this.currentPage = 1;
     this.chargerFilms();
   }
 }
