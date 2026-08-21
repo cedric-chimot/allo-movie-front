@@ -1,9 +1,12 @@
 export class Films {
+
   constructor(
-    public id: number,
+    public id: number |null,
     public titre: string,
-    public dateSortie: Date,
+    public dateSortie: number,
     public synopsis: string,
     public image: string,
-    public noteMoyenne: number) {}
+    public noteMoyenne: number
+  ) {}
+
 }

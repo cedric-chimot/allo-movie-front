@@ -13,10 +13,11 @@ import { RouterModule } from '@angular/router';
 export class FilmsPageComponent {
 
   films: Films[] = [
+
     new Films(
       1,
       'Dune : Deuxième Partie',
-      new Date('2024-02-28'),
+      new Date('2024-02-28').getTime(),
       'Paul Atréides s’unit à Chani et aux Fremen tout en préparant sa vengeance contre ceux qui ont détruit sa famille.',
       'https://via.placeholder.com/300x450',
       8.7
@@ -25,7 +26,7 @@ export class FilmsPageComponent {
     new Films(
       2,
       'Oppenheimer',
-      new Date('2023-07-19'),
+      new Date('2023-07-19').getTime(),
       'L’histoire du physicien J. Robert Oppenheimer et de son rôle dans le développement de la première bombe atomique.',
       'https://via.placeholder.com/300x450',
       8.6
@@ -34,7 +35,7 @@ export class FilmsPageComponent {
     new Films(
       3,
       'Interstellar',
-      new Date('2014-11-07'),
+      new Date('2014-11-07').getTime(),
       'Un groupe d’explorateurs traverse un trou de ver afin de trouver une nouvelle planète capable d’accueillir l’humanité.',
       'https://via.placeholder.com/300x450',
       8.8
@@ -43,7 +44,7 @@ export class FilmsPageComponent {
     new Films(
       4,
       'Inception',
-      new Date('2010-07-16'),
+      new Date('2010-07-16').getTime(),
       'Un spécialiste de l’extraction de secrets à travers les rêves doit accomplir une mission particulièrement complexe.',
       'https://via.placeholder.com/300x450',
       8.7
@@ -52,7 +53,7 @@ export class FilmsPageComponent {
     new Films(
       5,
       'The Dark Knight',
-      new Date('2008-07-16'),
+      new Date('2008-07-16').getTime(),
       'Batman doit affronter le Joker, un criminel qui plonge Gotham dans le chaos.',
       'https://via.placeholder.com/300x450',
       9.0
@@ -61,7 +62,7 @@ export class FilmsPageComponent {
     new Films(
       6,
       'Parasite',
-      new Date('2019-05-30'),
+      new Date('2019-05-30').getTime(),
       'Une famille modeste s’immisce progressivement dans la vie d’une famille beaucoup plus aisée.',
       'https://via.placeholder.com/300x450',
       8.5
@@ -70,7 +71,7 @@ export class FilmsPageComponent {
     new Films(
       7,
       'Avatar',
-      new Date('2009-12-16'),
+      new Date('2009-12-16').getTime(),
       'Un ancien marine découvre la culture d’un peuple extraterrestre sur la planète Pandora.',
       'https://via.placeholder.com/300x450',
       8.1
@@ -79,7 +80,7 @@ export class FilmsPageComponent {
     new Films(
       8,
       'Le Seigneur des Anneaux',
-      new Date('2001-12-19'),
+      new Date('2001-12-19').getTime(),
       'Un jeune Hobbit entreprend un voyage dangereux afin de détruire un anneau aux pouvoirs considérables.',
       'https://via.placeholder.com/300x450',
       8.9
@@ -88,7 +89,7 @@ export class FilmsPageComponent {
     new Films(
       9,
       'Joker',
-      new Date('2019-10-02'),
+      new Date('2019-10-02').getTime(),
       'Arthur Fleck sombre progressivement dans une spirale qui le transforme en une figure criminelle.',
       'https://via.placeholder.com/300x450',
       8.4
@@ -97,7 +98,7 @@ export class FilmsPageComponent {
     new Films(
       10,
       'Spider-Man: No Way Home',
-      new Date('2021-12-15'),
+      new Date('2021-12-15').getTime(),
       'Peter Parker demande de l’aide pour faire oublier son identité secrète, mais les conséquences sont inattendues.',
       'https://via.placeholder.com/300x450',
       8.0
@@ -106,7 +107,7 @@ export class FilmsPageComponent {
     new Films(
       11,
       'Film à venir 1',
-      new Date('2026-10-15'),
+      new Date('2026-10-15').getTime(),
       'Un nouveau film bientôt disponible dans les salles.',
       'https://via.placeholder.com/300x450',
       0
@@ -115,7 +116,7 @@ export class FilmsPageComponent {
     new Films(
       12,
       'Film à venir 2',
-      new Date('2026-12-10'),
+      new Date('2026-12-10').getTime(),
       'Une nouvelle aventure cinématographique prochainement disponible.',
       'https://via.placeholder.com/300x450',
       0
@@ -123,10 +124,8 @@ export class FilmsPageComponent {
   ];
 
   searchTerm = '';
-
   currentPage = 1;
   filmsParPage = 8;
-
   favoris: Set<number> = new Set();
 
 
@@ -135,6 +134,7 @@ export class FilmsPageComponent {
   // =========================
 
   get filmsFiltres(): Films[] {
+
     const recherche = this.searchTerm.trim().toLowerCase();
 
     if (!recherche) {
@@ -152,7 +152,8 @@ export class FilmsPageComponent {
   // =========================
 
   get filmsAlaffiche(): Films[] {
-    const aujourdHui = new Date();
+
+    const aujourdHui = Date.now();
 
     return this.films
       .filter(film => film.dateSortie <= aujourdHui)
@@ -160,24 +161,30 @@ export class FilmsPageComponent {
       .slice(0, 5);
   }
 
+
   get sortiesRecentes(): Films[] {
+
+    const aujourdHui = Date.now();
+
     return [...this.films]
-      .filter(film => film.dateSortie <= new Date())
+      .filter(film => film.dateSortie <= aujourdHui)
       .sort(
         (a, b) =>
-          b.dateSortie.getTime() - a.dateSortie.getTime()
+          b.dateSortie - a.dateSortie
       )
       .slice(0, 5);
   }
 
+
   get filmsAVenir(): Films[] {
-    const aujourdHui = new Date();
+
+    const aujourdHui = Date.now();
 
     return [...this.films]
       .filter(film => film.dateSortie > aujourdHui)
       .sort(
         (a, b) =>
-          a.dateSortie.getTime() - b.dateSortie.getTime()
+          a.dateSortie - b.dateSortie
       )
       .slice(0, 5);
   }
@@ -188,7 +195,9 @@ export class FilmsPageComponent {
   // =========================
 
   get filmsPagines(): Films[] {
-    const debut = (this.currentPage - 1) * this.filmsParPage;
+
+    const debut =
+      (this.currentPage - 1) * this.filmsParPage;
 
     return this.filmsFiltres.slice(
       debut,
@@ -196,19 +205,24 @@ export class FilmsPageComponent {
     );
   }
 
+
   get nombrePages(): number {
+
     return Math.ceil(
       this.filmsFiltres.length / this.filmsParPage
     );
   }
 
+
   changerPage(page: number): void {
+
     if (page < 1 || page > this.nombrePages) {
       return;
     }
 
     this.currentPage = page;
   }
+
 
   rechercher(): void {
     this.currentPage = 1;
@@ -220,6 +234,7 @@ export class FilmsPageComponent {
   // =========================
 
   toggleFavori(id: number): void {
+
     if (this.favoris.has(id)) {
       this.favoris.delete(id);
     } else {
@@ -227,7 +242,9 @@ export class FilmsPageComponent {
     }
   }
 
+
   estFavori(id: number): boolean {
     return this.favoris.has(id);
   }
+
 }

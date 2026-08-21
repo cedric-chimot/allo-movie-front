@@ -24,7 +24,7 @@ export class FilmDetailPageComponent {
     new Films(
       1,
       'Dune : Deuxième Partie',
-      new Date('2024-02-28'),
+      new Date('2024-02-28').getTime(),
       'Paul Atréides s’unit à Chani et aux Fremen pour tenter de reprendre le contrôle d’Arrakis et se venger de ceux qui ont détruit sa famille.',
       'https://via.placeholder.com/500x750',
       8.7
@@ -33,7 +33,7 @@ export class FilmDetailPageComponent {
     new Films(
       2,
       'Oppenheimer',
-      new Date('2023-07-19'),
+      new Date('2023-07-19').getTime(),
       'L’histoire de J. Robert Oppenheimer, physicien américain dont les travaux ont joué un rôle majeur dans la création de la première bombe atomique.',
       'https://via.placeholder.com/500x750',
       8.6
@@ -42,7 +42,7 @@ export class FilmDetailPageComponent {
     new Films(
       3,
       'Interstellar',
-      new Date('2014-11-07'),
+      new Date('2014-11-07').getTime(),
       'Dans un futur où la Terre devient progressivement inhabitable, un groupe d’explorateurs voyage à travers un trou de ver afin de trouver une nouvelle planète capable d’accueillir l’humanité.',
       'https://via.placeholder.com/500x750',
       8.8
@@ -51,7 +51,7 @@ export class FilmDetailPageComponent {
     new Films(
       4,
       'Inception',
-      new Date('2010-07-16'),
+      new Date('2010-07-16').getTime(),
       'Dom Cobb est un spécialiste de l’extraction : il pénètre dans les rêves des autres afin de voler leurs secrets. Une dernière mission lui est proposée : implanter une idée dans l’esprit d’une cible.',
       'https://via.placeholder.com/500x750',
       8.7
@@ -60,7 +60,7 @@ export class FilmDetailPageComponent {
     new Films(
       5,
       'The Dark Knight',
-      new Date('2008-07-16'),
+      new Date('2008-07-16').getTime(),
       'Batman doit affronter le Joker, un criminel imprévisible qui plonge Gotham City dans le chaos et pousse ses habitants et ses héros dans leurs derniers retranchements.',
       'https://via.placeholder.com/500x750',
       9.0
@@ -69,7 +69,7 @@ export class FilmDetailPageComponent {
     new Films(
       6,
       'Parasite',
-      new Date('2019-05-30'),
+      new Date('2019-05-30').getTime(),
       'Une famille modeste s’immisce progressivement dans la vie d’une famille beaucoup plus aisée.',
       'https://via.placeholder.com/500x750',
       8.5
@@ -78,7 +78,7 @@ export class FilmDetailPageComponent {
     new Films(
       7,
       'Avatar',
-      new Date('2009-12-16'),
+      new Date('2009-12-16').getTime(),
       'Un ancien marine découvre la culture d’un peuple extraterrestre sur la planète Pandora.',
       'https://via.placeholder.com/500x750',
       8.1
@@ -87,7 +87,7 @@ export class FilmDetailPageComponent {
     new Films(
       8,
       'Le Seigneur des Anneaux',
-      new Date('2001-12-19'),
+      new Date('2001-12-19').getTime(),
       'Un jeune Hobbit entreprend un voyage dangereux afin de détruire un anneau aux pouvoirs considérables.',
       'https://via.placeholder.com/500x750',
       8.9
@@ -96,7 +96,7 @@ export class FilmDetailPageComponent {
     new Films(
       9,
       'Joker',
-      new Date('2019-10-02'),
+      new Date('2019-10-02').getTime(),
       'Arthur Fleck sombre progressivement dans une spirale qui le transforme en une figure criminelle.',
       'https://via.placeholder.com/500x750',
       8.4
@@ -105,7 +105,7 @@ export class FilmDetailPageComponent {
     new Films(
       10,
       'Spider-Man: No Way Home',
-      new Date('2021-12-15'),
+      new Date('2021-12-15').getTime(),
       'Peter Parker demande de l’aide pour faire oublier son identité secrète, mais les conséquences sont inattendues.',
       'https://via.placeholder.com/500x750',
       8.0
@@ -114,7 +114,7 @@ export class FilmDetailPageComponent {
     new Films(
       11,
       'Film à venir 1',
-      new Date('2026-10-15'),
+      new Date('2026-10-15').getTime(),
       'Un nouveau film bientôt disponible dans les salles.',
       'https://via.placeholder.com/500x750',
       0
@@ -123,7 +123,7 @@ export class FilmDetailPageComponent {
     new Films(
       12,
       'Film à venir 2',
-      new Date('2026-12-10'),
+      new Date('2026-12-10').getTime(),
       'Une nouvelle aventure cinématographique prochainement disponible.',
       'https://via.placeholder.com/500x750',
       0
@@ -218,7 +218,6 @@ export class FilmDetailPageComponent {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-
     const id = Number(
       this.route.snapshot.paramMap.get('id')
     );
@@ -228,7 +227,7 @@ export class FilmDetailPageComponent {
     );
 
     // L'ID ne correspond à aucun film
-    if (!this.film) {
+    if (!this.film || this.film.id === null) {
       return;
     }
 
