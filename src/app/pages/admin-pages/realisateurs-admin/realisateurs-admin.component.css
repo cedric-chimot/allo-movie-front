@@ -29,10 +29,10 @@
 
 
 /* ========================= */
-/* BOUTON AJOUTER UN FILM */
+/* BOUTON AJOUTER UN REALISATEUR */
 /* ========================= */
 
-.btn-add-film {
+.btn-add-realisateur {
   background-color: #2C3E50;
   color: #ffffff;
 
@@ -53,14 +53,14 @@
   margin-right: 0;
 }
 
-.btn-add-film:hover {
+.btn-add-realisateur:hover {
   background-color: #34495E;
   transform: translateY(-2px);
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-add-film:active {
+.btn-add-realisateur:active {
   transform: translateY(0);
 }
 
@@ -87,18 +87,6 @@
 .table th {
   color: #2C3E50;
   text-transform: uppercase;
-}
-
-.film-image {
-  width: 60px;
-  height: 85px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.no-rating {
-  color: #777777;
-  font-style: italic;
 }
 
 .btn {
@@ -141,15 +129,4 @@
   max-width: 500px;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ========================= */
-/* REGLAGE IMAGE */
-/* ========================= */
-
-.film-image {
-  width: 45px;
-  height: 65px;
-  object-fit: cover;
-  border-radius: 4px;
 }
