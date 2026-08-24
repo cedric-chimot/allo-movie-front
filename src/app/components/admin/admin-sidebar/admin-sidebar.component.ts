@@ -17,6 +17,9 @@ export class AdminSidebarComponent {
   items = [
     { name: 'Dashboard', route: '/admin-home', icon: 'fa-solid fa-tachometer-alt' },
     { name: 'Films', route: '/admin-films', icon: 'fa-solid fa-film' },
+    { name: 'Réalisateurs', route: '/admin-directors', icon: 'fa-solid fa-video' },
+    { name: 'Acteurs', route: '/admin-actors', icon: 'fa-solid fa-masks-theater' },
+    { name: 'Catégories', route: '/admin-categories', icon: 'fa-solid fa-layer-group' },
     { name: 'Utilisateurs', route: '/admin-users', icon: 'fa-solid fa-users' },
     { name: 'Alertes', route: '/admin-users', icon: 'fa-solid fa-triangle-exclamation' },
     { name: 'Messages', route: '/admin-messages', icon: 'fa-solid fa-envelope' },
