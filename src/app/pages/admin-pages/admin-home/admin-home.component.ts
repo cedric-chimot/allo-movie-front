@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { FilmsService } from '../../../services/films/films.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -10,15 +11,21 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  nombreFilms = 0;
+
+  constructor(
+    private router: Router,
+    private filmsService: FilmsService
+  ) {}
 
   ngOnInit(): void {
     this.checkAccess();
-    // Ici tu pourras ajouter d’autres initialisations plus tard.
+    this.chargerNombreFilms();
   }
 
   private checkAccess(): void {
     const userString = localStorage.getItem('user');
+
     if (!userString) {
       this.router.navigate(['/login']);
       return;
@@ -26,13 +33,26 @@ export class AdminHomeComponent implements OnInit {
 
     try {
       const user = JSON.parse(userString);
+
       if (!user.role || user.role.role.toUpperCase() !== 'ADMIN') {
         this.router.navigate(['/']);
       }
     } catch (e) {
-      // En cas de JSON invalide
       this.router.navigate(['/login']);
     }
   }
 
+  private chargerNombreFilms(): void {
+    this.filmsService.getAllFilms().subscribe({
+      next: (films) => {
+        this.nombreFilms = films.length;
+      },
+      error: (erreur) => {
+        console.error(
+          'Erreur lors du chargement du nombre de films :',
+          erreur
+        );
+      }
+    });
+  }
 }
