@@ -30,7 +30,7 @@
 
             <thead>
               <tr>
-                <th>ID</th>
+                <th>N°</th>
                 <th>Affiche</th>
                 <th>Titre</th>
                 <th>Date de sortie</th>
@@ -46,9 +46,9 @@
                 <tr>
 
                   <td>
-                    {{ film.id }}
+                    {{ (currentPage - 1) * filmsParPage + $index + 1 }}
                   </td>
-
+                  
                   <td>
                     <img
                       [src]="film.image"
