@@ -1,1 +1,164 @@
-<p>realisateurs-admin works!</p>
+<div class="admin-container">
+
+  <div class="page-header">
+    <h1 class="title">
+      Gestion des réalisateurs
+    </h1>
+
+    <button
+      class="btn-add-film"
+      type="button"
+      (click)="openAddModal()"
+    >
+      Ajouter un réalisateur
+    </button>
+  </div>
+
+  @if (realisateurs.length > 0) {
+
+    <div class="card shadow">
+
+      <div class="card-header">
+        Liste des réalisateurs
+      </div>
+
+      <div class="card-body">
+
+        <div class="table-responsive">
+
+          <table class="table table-striped table-hover align-middle">
+
+            <thead>
+              <tr>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              @for (realisateur of realisateursPagines; track realisateur.id) {
+
+                <tr>
+
+                  <td>
+                    {{ (currentPage - 1) * realisateursParPage + $index + 1 }}
+                  </td>
+
+                  <td>
+                    {{ realisateur.nom }}
+                  </td>
+
+                  <td>
+                    {{ realisateur.prenom }}
+                  </td>
+
+                  <td>
+
+                    <button
+                      class="btn update btn-sm"
+                      type="button"
+                    >
+                      <i class="fa-solid fa-pen-nib"></i>
+                    </button>
+
+                    <button
+                      class="btn btn-danger btn-sm"
+                      type="button"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              }
+
+            </tbody>
+
+          </table>
+
+          @if (nombrePages > 1) {
+            <nav class="mt-3">
+              <ul class="pagination justify-content-center">
+
+                <li
+                  class="page-item"
+                  [class.disabled]="currentPage === 1"
+                >
+                  <button
+                    class="page-link"
+                    type="button"
+                    (click)="changerPage(currentPage - 1)"
+                  >
+                    Précédent
+                  </button>
+                </li>
+
+                @for (page of [].constructor(nombrePages); track $index) {
+                  <li
+                    class="page-item"
+                    [class.active]="currentPage === $index + 1"
+                  >
+                    <button
+                      class="page-link"
+                      type="button"
+                      (click)="changerPage($index + 1)"
+                    >
+                      {{ $index + 1 }}
+                    </button>
+                  </li>
+                }
+
+                <li
+                  class="page-item"
+                  [class.disabled]="currentPage === nombrePages"
+                >
+                  <button
+                    class="page-link"
+                    type="button"
+                    (click)="changerPage(currentPage + 1)"
+                  >
+                    Suivant
+                  </button>
+                </li>
+
+              </ul>
+            </nav>
+          }
+        </div>
+
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="alert alert-info text-center">
+      Aucun réalisateur n'est actuellement enregistré en base de données.
+    </div>
+
+  }
+
+</div>
+
+<!-- @if (isAddModalOpen) {
+
+  <div class="modal-overlay">
+
+    <div class="modal-content">
+
+      <app-film-form
+        (close)="closeModal()"
+        (filmCreated)="filmAjoute()"
+      >
+      </app-film-form>
+
+    </div>
+
+  </div>
+
+}-->
