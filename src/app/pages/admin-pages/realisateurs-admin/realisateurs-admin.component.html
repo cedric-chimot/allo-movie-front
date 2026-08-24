@@ -48,7 +48,7 @@
                   </td>
 
                   <td>
-                    {{ realisateur.nom }}
+                    <strong>{{ realisateur.nom }}</strong>
                   </td>
 
                   <td>
@@ -145,20 +145,20 @@
 
 </div>
 
-<!-- @if (isAddModalOpen) {
+@if (isAddModalOpen) {
 
   <div class="modal-overlay">
 
     <div class="modal-content">
 
-      <app-film-form
+      <app-realisateur-form
         (close)="closeModal()"
-        (filmCreated)="filmAjoute()"
+        (realisateurCreated)="realisateurAjoute()"
       >
-      </app-film-form>
+      </app-realisateur-form>
 
     </div>
 
   </div>
 
-}-->
+}

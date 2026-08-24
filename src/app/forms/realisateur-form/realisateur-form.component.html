@@ -1,0 +1,65 @@
+<div class="form-container">
+
+  <h2 class="form-title">
+    Ajouter un réalisateur
+  </h2>
+
+  <form (ngSubmit)="ajouterRealisateur()" #filmForm="ngForm">
+
+    <div class="form-group">
+
+      <label for="titre">
+        Nom
+      </label>
+
+      <input
+        type="text"
+        id="nom"
+        name="nom"
+        [(ngModel)]="realisateur.nom"
+        required
+        placeholder="Nom du réalisateur"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="dateSortie">
+        Prénom
+      </label>
+
+      <input
+        type="text"
+        id="prenom"
+        name="prenom"
+        [(ngModel)]="realisateur.prenom"
+        required
+        placeholder="Prénom du réalisateur"
+      >
+    </div>
+
+    <div class="form-actions">
+
+      <button
+        type="submit"
+        class="btn-submit"
+        [disabled]="filmForm.invalid"
+      >
+        Ajouter le réalisateur
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="fermer()"
+      >
+        Annuler
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

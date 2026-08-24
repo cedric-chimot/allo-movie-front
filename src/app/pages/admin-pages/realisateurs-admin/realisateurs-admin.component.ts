@@ -4,13 +4,15 @@ import { RouterModule } from '@angular/router';
 
 import { RealisateursService } from '../../../services/realisateurs/realisateurs.service';
 import { Realisateurs } from '../../../models/tables/Realisateurs';
+import { RealisateurFormComponent } from "../../../forms/realisateur-form/realisateur-form.component";
 
 @Component({
   selector: 'app-realisateurs-admin',
   imports: [
     CommonModule,
     RouterModule,
-  ],
+    RealisateurFormComponent
+],
   templateUrl: './realisateurs-admin.component.html',
   styleUrls: ['./realisateurs-admin.component.css']
 })
@@ -21,7 +23,7 @@ export class RealisateursAdminComponent implements OnInit {
 
   // Pagination
   currentPage = 1;
-  realisateursParPage = 5;
+  realisateursParPage = 6;
 
   constructor(
     private realisateursService: RealisateursService
@@ -70,7 +72,7 @@ export class RealisateursAdminComponent implements OnInit {
     this.isAddModalOpen = false;
   }
 
-  filmAjoute(): void {
+  realisateurAjoute(): void {
     this.closeModal();
     this.currentPage = 1;
     this.chargerRealisateurs();
