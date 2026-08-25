@@ -1,1 +1,65 @@
-<p>acteur-form works!</p>
+<div class="form-container">
+
+  <h2 class="form-title">
+    Ajouter un acteur
+  </h2>
+
+  <form (ngSubmit)="ajouterActeur()" #filmForm="ngForm">
+
+    <div class="form-group">
+
+      <label for="titre">
+        Nom
+      </label>
+
+      <input
+        type="text"
+        id="nom"
+        name="nom"
+        [(ngModel)]="acteur.nom"
+        required
+        placeholder="Nom de l'acteur"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="dateSortie">
+        Prénom
+      </label>
+
+      <input
+        type="text"
+        id="prenom"
+        name="prenom"
+        [(ngModel)]="acteur.prenom"
+        required
+        placeholder="Prénom de l'acteur"
+      >
+    </div>
+
+    <div class="form-actions">
+
+      <button
+        type="submit"
+        class="btn-submit"
+        [disabled]="filmForm.invalid"
+      >
+        Ajouter l'acteur
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="fermer()"
+      >
+        Annuler
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
