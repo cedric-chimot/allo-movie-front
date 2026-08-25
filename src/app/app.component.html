@@ -9,4 +9,8 @@
 
 <div class="container-fluid mt-4">
   <router-outlet></router-outlet>
+
+  @if (!isAdminRoute) {
+    <app-footer></app-footer>
+  }
 </div>

@@ -1,32 +1,43 @@
+:host {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+}
+
 .footer {
+  width: calc(100% + 24px);
+  margin-left: -12px;
+
   background-color: #2C3E50;
   color: #F1C40F;
+
   padding: 15px 0;
+
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0; /* Empêche le décalage blanc à gauche */
-  width: 100%;
+
   border-top: 1px solid #e6ebf6;
-  box-sizing: border-box; /* Pour inclure les bordures dans la largeur */
+  box-sizing: border-box;
 }
 
 .footer p {
   display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
+  justify-content: center;
+  align-items: center;
+
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
-  margin: 0; /* Évite des marges par défaut du paragraphe */
+
+  margin: 0;
 }
 
 .footer span {
-  padding: 0 15px; /* Ajoute de l'espace autour des séparateurs */
+  padding: 0 15px;
 }
 
-i {
-  margin-right: 2px; /* Espace entre l'icône et le texte */
-  color: #F1C40F; /* Assure la bonne couleur */
-  vertical-align: middle; /* Aligne l'icône avec le texte */
+.footer i {
+  margin-right: 2px;
+  color: #F1C40F;
+  vertical-align: middle;
 }
+

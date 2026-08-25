@@ -1,84 +1,240 @@
 <div class="container">
+
   <div class="row">
-    <!-- Section projet -->
+
+    <!-- ========================= -->
+    <!-- SECTION PROJET -->
+    <!-- ========================= -->
+
     <div class="col-lg-12 mb-4">
+
       <div class="information shadow border m-1 px-3">
+
         <div class="projet text-center">
+
           <h1 class="home d-flex align-items-center justify-content-center">
+
             Projet
-            <img src="logo2.png" alt="Logo" class="logo-allomovie" />
+
+            <img
+              src="logo2.png"
+              alt="Logo"
+              class="logo-allomovie"
+            >
+
           </h1>
+
           <p class="presentation">
-            <span>Créer une application de découverte et recherche de films :</span>
-            Ce projet a pour but de créer une application complète, allant bien au-delà de la simple consultation
-            d’un film. Recherches avancées, commentaires, notations, statistiques et plus encore sont au programme.
+
+            <span>
+              Créer une application de découverte et recherche de films :
+            </span>
+
+            Ce projet a pour but de créer une application complète,
+            allant bien au-delà de la simple consultation d’un film.
+            Recherches avancées, commentaires, notations, statistiques
+            et plus encore sont au programme.
+
           </p>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Search Bar qui s'étale sur toute la largeur -->
+
+    <!-- ========================= -->
+    <!-- RECHERCHE -->
+    <!-- ========================= -->
+
     <div class="col-12 mb-4">
+
       <div class="card shadow w-100">
-        <div class="card-header">Recherche de films</div>
-        <div class="card-body py-3">
-          <form class="container-fluid">
-            <div class="row g-3">
-              <div class="col-md-3">
-                <label class="form-label">Titre</label>
-                <input type="text" class="form-control" placeholder="Titre" />
-              </div>
-              <div class="col-md-2">
-                <label class="form-label">Année</label>
-                <input type="number" class="form-control" placeholder="Année" />
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">Réalisateur</label>
-                <input type="text" class="form-control" placeholder="Réalisateur" />
-              </div>
-              <div class="col-md-2">
-                <label class="form-label">Acteur</label>
-                <input type="text" class="form-control" placeholder="Acteur" />
-              </div>
-              <div class="col-md-2">
-                <label class="form-label">Genre</label>
-                <input type="text" class="form-control" placeholder="Genre" />
-              </div>
-            </div>
-          </form>
+
+        <div class="card-header">
+          Recherche de films
         </div>
+
+        <div class="card-body py-3">
+
+          <form class="container-fluid">
+
+            <div class="row g-3">
+
+              <div class="col-md-3">
+
+                <label class="form-label">
+                  Titre
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Titre"
+                >
+
+              </div>
+
+
+              <div class="col-md-2">
+
+                <label class="form-label">
+                  Année
+                </label>
+
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Année"
+                >
+
+              </div>
+
+
+              <div class="col-md-3">
+
+                <label class="form-label">
+                  Réalisateur
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Réalisateur"
+                >
+
+              </div>
+
+
+              <div class="col-md-2">
+
+                <label class="form-label">
+                  Acteur
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Acteur"
+                >
+
+              </div>
+
+
+              <div class="col-md-2">
+
+                <label class="form-label">
+                  Genre
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Genre"
+                >
+
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
       </div>
+
     </div>
 
-    <!-- Liste de films -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex flex-wrap gap-3 justify-content-start">
-            @for (film of films; track $index) {
-              <div class="card"style="width: 18rem;">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                  <span>{{ film.title }}</span>
-                  <button class="btn btn-sm p-0 border-0 bg-transparent text-white"
-                      (click)="toggleFavorite(film.title)"
-                      [innerHTML]="isFavorite(film.title) ? '❤️' : '🤍'"
-                      title="Ajouter aux favoris">
-                  </button>
-                </div>
-                <img [src]="film.image" class="card-img-top" [alt]="'Affiche ' + film.title" />
-                <div class="card-body">
-                  <p><strong>Année :</strong> {{ film.year }}</p>
-                  <p><strong>Réalisateur :</strong> {{ film.director }}</p>
-                  <p><strong>Acteurs :</strong> {{ film.actor }}</p>
-                  <p><strong>Genre :</strong> {{ film.genre }}</p>
-                  <button class="btn btn-primary">Détails</button>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
+
+    <!-- ========================= -->
+    <!-- FILMS RÉCENTS -->
+    <!-- ========================= -->
+
+    <div class="col-12">
+
+      <div class="section-header mb-4">
+
+        <h2>
+          🎬 Films récents
+        </h2>
+
       </div>
+
+
+      <div class="col-12">
+
+      <div class="film-list">
+
+        @for (film of films; track film.id) {
+
+          <div class="film-card card">
+
+            <div class="card-header d-flex justify-content-between align-items-center">
+
+              <span>
+                {{ film.titre }}
+              </span>
+
+              <button
+                class="btn btn-sm p-0 border-0 bg-transparent text-white"
+                (click)="toggleFavorite(film.id!)"
+                [innerHTML]="isFavorite(film.id!) ? '❤️' : '🤍'"
+                title="Ajouter aux favoris"
+              >
+              </button>
+
+            </div>
+
+            <img
+              [src]="film.image"
+              class="card-img-top film-image"
+              [alt]="'Affiche ' + film.titre"
+            >
+
+            <div class="card-body">
+
+              <div class="film-info">
+
+                <p>
+                  <strong>Année :</strong>
+                  {{ film.dateSortie | date:'yyyy' }}
+                </p>
+
+                <p>
+                  <strong>Note :</strong>
+
+                  @if (film.noteMoyenne > 0) {
+                    ⭐ {{ film.noteMoyenne }} / 10
+                  } @else {
+                    <span class="no-rating">
+                      Pas encore noté
+                    </span>
+                  }
+
+                </p>
+
+              </div>
+
+              <a
+                [routerLink]="['/films', film.id]"
+                class="btn btn-primary film-details"
+              >
+                Détails
+              </a>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
     </div>
+
+    </div>
+
   </div>
+
 </div>
-<app-footer></app-footer>

@@ -5,10 +5,11 @@ import { filter } from 'rxjs';
 import { NavbarComponent } from "./components/commons/navbar/navbar.component";
 import { AdminNavbarComponent } from "./components/admin/admin-navbar/admin-navbar.component";
 import { AdminSidebarComponent } from "./components/admin/admin-sidebar/admin-sidebar.component";
+import { FooterComponent } from "./components/commons/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, AdminNavbarComponent, AdminSidebarComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, AdminNavbarComponent, AdminSidebarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
