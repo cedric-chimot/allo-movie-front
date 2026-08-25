@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
 
   chargerFilms(): void {
 
-    this.filmsService.getAllFilms().subscribe({
+    this.filmsService.getLatestFilms().subscribe({
 
       next: (films) => {
         this.films = films;

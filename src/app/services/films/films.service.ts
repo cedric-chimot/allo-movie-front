@@ -26,6 +26,11 @@ export class FilmsService {
     return this.http.get<Films>(`${this.apiUrl}/${id}`);
   }
 
+  // Afficher les 4 films les plus récemment sortis
+  getLatestFilms(): Observable<Films[]> {
+    return this.http.get<Films[]>(`${this.apiUrl}/latest`);
+  }
+
   // Mettre à jour un film
   updateFilms(film: Films): Observable<Films> {
     return this.http.put<Films>(`${this.apiUrl}/update`, film);
