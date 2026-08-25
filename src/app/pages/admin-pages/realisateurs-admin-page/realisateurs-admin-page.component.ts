@@ -11,12 +11,12 @@ import { RealisateurFormComponent } from "../../../forms/realisateur-form/realis
   imports: [
     CommonModule,
     RouterModule,
-    RealisateurFormComponent
+    RealisateurFormComponent  
 ],
-  templateUrl: './realisateurs-admin.component.html',
-  styleUrls: ['./realisateurs-admin.component.css']
+  templateUrl: './realisateurs-admin-page.component.html',
+  styleUrls: ['./realisateurs-admin-page.component.css']
 })
-export class RealisateursAdminComponent implements OnInit {
+export class RealisateursAdminPageComponent implements OnInit {
 
   realisateurs: Realisateurs[] = [];
   isAddModalOpen = false;
