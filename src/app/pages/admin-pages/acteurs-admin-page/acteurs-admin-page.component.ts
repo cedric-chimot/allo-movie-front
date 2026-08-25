@@ -12,7 +12,7 @@ import { ActeurFormComponent } from "../../../forms/acteur-form/acteur-form.comp
     CommonModule,
     RouterModule,
     ActeurFormComponent
-],
+  ],
   templateUrl: './acteurs-admin-page.component.html',
   styleUrls: ['./acteurs-admin-page.component.css']
 })

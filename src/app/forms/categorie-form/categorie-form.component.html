@@ -1,1 +1,48 @@
-<p>categorie-form works!</p>
+<div class="form-container">
+
+  <h2 class="form-title">
+    Ajouter une catégorie
+  </h2>
+
+  <form (ngSubmit)="ajouterCategorie()" #filmForm="ngForm">
+
+    <div class="form-group">
+
+      <label for="titre">
+        Catégorie
+      </label>
+
+      <input
+        type="text"
+        id="nom"
+        name="nom"
+        [(ngModel)]="categorie.categorie"
+        required
+        placeholder="Nom de la catégorie"
+      >
+
+    </div>
+
+    <div class="form-actions">
+
+      <button
+        type="submit"
+        class="btn-submit"
+        [disabled]="filmForm.invalid"
+      >
+        Ajouter la catégorie
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="fermer()"
+      >
+        Annuler
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
