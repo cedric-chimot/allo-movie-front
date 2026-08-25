@@ -3,27 +3,21 @@
   <!-- TITRE -->
   <div class="text-center mb-5">
     <h1>Films</h1>
-
     <p class="text-muted">
       Découvrez les films à l'affiche, les sorties récentes
       et les prochaines sorties.
     </p>
   </div>
 
-
   <!-- RECHERCHE -->
   <div class="card shadow-sm mb-5">
-
     <div class="card-header">
       <strong>Rechercher un film</strong>
     </div>
 
     <div class="card-body">
-
       <div class="row g-3">
-
         <div class="col-md-10">
-
           <input
             type="text"
             class="form-control"
@@ -31,233 +25,234 @@
             [(ngModel)]="searchTerm"
             (keyup.enter)="rechercher()"
           >
-
         </div>
 
         <div class="col-md-2">
-
           <button
             class="btn btn-primary w-100"
             (click)="rechercher()"
           >
             Rechercher
           </button>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 
 
-  <!-- ========================= -->
-  <!-- À L'AFFICHE -->
-  <!-- ========================= -->
+  @if (!searchTerm.trim()) {
 
-  <section class="mb-5">
+    <!-- ========================= -->
+    <!-- À L'AFFICHE -->
+    <!-- ========================= -->
 
-    <div class="section-header">
-      <h2>🎬 À l'affiche</h2>
-    </div>
+    <section class="mb-5">
+      <div class="section-header">
+        <h2>🎬 À l'affiche</h2>
+      </div>
 
-    <div class="row g-4">
+      <div class="row g-4">
 
-      @for (film of filmsAlaffiche; track film.id) {
+        @for (film of filmsAlaffiche; track film.id) {
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg">
+          <div class="col-12 col-sm-6 col-md-4 col-lg">
+            <div class="film-card card h-100 shadow-sm">
 
-          <div class="film-card card h-100 shadow-sm">
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
 
-            <img
-              [src]="film.image"
-              [alt]="'Affiche de ' + film.titre"
-              class="card-img-top film-image"
-            >
+              <div class="card-body">
 
-            <div class="card-body">
+                <div class="film-title">
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
 
-              <div class="film-title">
+                  <button
+                    class="favorite-button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  ></button>
+                </div>
 
-                <h5>
-                  {{ film.titre }}
-                </h5>
+                <p class="film-info">
+                  @if (film.noteMoyenne > 0) {
+                    ⭐ {{ film.noteMoyenne }}
+                  } @else {
+                    <span class="no-rating">
+                      Pas encore noté
+                    </span>
+                  }
 
-                <button
-                  class="favorite-button"
-                  (click)="toggleFavori(film.id!)"
-                  [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
-                  title="Ajouter aux favoris"
-                ></button>
+                  · {{ film.dateSortie | date:'yyyy' }}
+                </p>
+
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn btn-primary btn-sm"
+                >
+                  Détails
+                </a>
 
               </div>
-
-              <p class="film-info">
-                ⭐ {{ film.noteMoyenne }}
-                · {{ film.dateSortie | date:'yyyy' }}
-              </p>
-
-              <a
-                [routerLink]="['/films', film.id]"
-                class="btn btn-primary btn-sm"
-              >
-                Détails
-              </a>
-
             </div>
-
           </div>
 
-        </div>
+        }
 
-      }
-
-    </div>
-
-  </section>
+      </div>
+    </section>
 
 
-  <!-- ========================= -->
-  <!-- SORTIES RÉCENTES -->
-  <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- SORTIES RÉCENTES -->
+    <!-- ========================= -->
 
-  <section class="mb-5">
+    <section class="mb-5">
 
-    <div class="section-header">
-      <h2>🆕 Sorties récentes</h2>
-    </div>
+      <div class="section-header">
+        <h2>🆕 Sorties récentes</h2>
+      </div>
 
-    <div class="row g-4">
+      <div class="row g-4">
 
-      @for (film of sortiesRecentes; track film.id) {
+        @for (film of sortiesRecentes; track film.id) {
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg">
+          <div class="col-12 col-sm-6 col-md-4 col-lg">
+            <div class="film-card card h-100 shadow-sm">
 
-          <div class="film-card card h-100 shadow-sm">
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
 
-            <img
-              [src]="film.image"
-              [alt]="'Affiche de ' + film.titre"
-              class="card-img-top film-image"
-            >
+              <div class="card-body">
 
-            <div class="card-body">
+                <div class="film-title">
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
 
-              <div class="film-title">
+                  <button
+                    class="favorite-button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  ></button>
+                </div>
 
-                <h5>
-                  {{ film.titre }}
-                </h5>
+                <p class="film-info">
 
-                <button
-                  class="favorite-button"
-                  (click)="toggleFavori(film.id!)"
-                  [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
-                  title="Ajouter aux favoris"
-                ></button>
+                  @if (film.noteMoyenne > 0) {
+                    ⭐ {{ film.noteMoyenne }}
+                  } @else {
+                    <span class="no-rating">
+                      Pas encore noté
+                    </span>
+                  }
+
+                  · {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
+                </p>
+
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn btn-primary btn-sm"
+                >
+                  Détails
+                </a>
 
               </div>
-
-              <p class="film-info">
-                ⭐ {{ film.noteMoyenne }}
-                · {{ film.dateSortie | date:'dd/MM/yyyy' }}
-              </p>
-
-              <a
-                [routerLink]="['/films', film.id]"
-                class="btn btn-primary btn-sm"
-              >
-                Détails
-              </a>
-
             </div>
-
           </div>
 
-        </div>
+        }
 
-      }
-
-    </div>
-
-  </section>
+      </div>
+    </section>
 
 
-  <!-- ========================= -->
-  <!-- PROCHAINEMENT -->
-  <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- PROCHAINEMENT -->
+    <!-- ========================= -->
 
-  <section class="mb-5">
+    <section class="mb-5">
 
-    <div class="section-header">
-      <h2>🔜 Prochainement</h2>
-    </div>
+      <div class="section-header">
+        <h2>🔜 Prochainement</h2>
+      </div>
 
-    <div class="row g-4">
+      <div class="row g-4">
 
-      @for (film of filmsAVenir; track film.id) {
+        @for (film of filmsAVenir; track film.id) {
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg">
+          <div class="col-12 col-sm-6 col-md-4 col-lg">
+            <div class="film-card card h-100 shadow-sm">
 
-          <div class="film-card card h-100 shadow-sm">
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
 
-            <img
-              [src]="film.image"
-              [alt]="'Affiche de ' + film.titre"
-              class="card-img-top film-image"
-            >
+              <div class="card-body">
 
-            <div class="card-body">
+                <div class="film-title">
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
 
-              <div class="film-title">
+                  <button
+                    class="favorite-button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  ></button>
+                </div>
 
-                <h5>
-                  {{ film.titre }}
-                </h5>
+                <p class="film-info">
+                  Sortie :
+                  {{ film.dateSortie | date:'dd/MM/yyyy' }}
+                </p>
 
-                <button
-                  class="favorite-button"
-                  (click)="toggleFavori(film.id!)"
-                  [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
-                  title="Ajouter aux favoris"
-                ></button>
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn btn-primary btn-sm"
+                >
+                  Détails
+                </a>
 
               </div>
-
-              <p class="film-info">
-                Sortie :
-                {{ film.dateSortie | date:'dd/MM/yyyy' }}
-              </p>
-
-              <a
-                [routerLink]="['/films', film.id]"
-                class="btn btn-primary btn-sm"
-              >
-                Détails
-              </a>
-
             </div>
-
           </div>
 
-        </div>
+        }
 
-      }
+      </div>
+    </section>
 
-    </div>
-
-  </section>
+  }
 
 
   <!-- ========================= -->
-  <!-- TOUS LES FILMS -->
+  <!-- TOUS LES FILMS / RECHERCHE -->
   <!-- ========================= -->
 
   <section>
 
     <div class="section-header mb-4">
-      <h2>🎞️ Tous les films</h2>
+
+      @if (searchTerm.trim()) {
+        <h2>🔎 Résultats de recherche</h2>
+      } @else {
+        <h2>🎞️ Tous les films</h2>
+      }
+
     </div>
 
 
@@ -301,8 +296,17 @@
                 </div>
 
                 <p class="film-info">
-                  ⭐ {{ film.noteMoyenne }}
+
+                  @if (film.noteMoyenne > 0) {
+                    ⭐ {{ film.noteMoyenne }}
+                  } @else {
+                    <span class="no-rating">
+                      Pas encore noté
+                    </span>
+                  }
+
                   · {{ film.dateSortie | date:'yyyy' }}
+
                 </p>
 
                 <a
@@ -313,7 +317,6 @@
                 </a>
 
               </div>
-
             </div>
 
           </div>
@@ -346,7 +349,10 @@
             </li>
 
 
-            @for (page of [].constructor(nombrePages); track $index) {
+            @for (
+              page of [].constructor(nombrePages);
+              track $index
+            ) {
 
               <li
                 class="page-item"
