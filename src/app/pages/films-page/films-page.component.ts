@@ -73,7 +73,7 @@ export class FilmsPageComponent implements OnInit {
   return this.films
     .filter(film => film.dateSortie <= aujourdHui)
     .sort((a, b) => b.noteMoyenne - a.noteMoyenne)
-    .slice(0, 5);
+    .slice(0, 4);
 }
 
   get sortiesRecentes(): Films[] {
@@ -85,7 +85,7 @@ export class FilmsPageComponent implements OnInit {
         (a, b) =>
           b.dateSortie - a.dateSortie
       )
-      .slice(0, 5);
+      .slice(0, 4);
   }
 
   get filmsAVenir(): Films[] {
@@ -97,7 +97,7 @@ export class FilmsPageComponent implements OnInit {
         (a, b) =>
           a.dateSortie - b.dateSortie
       )
-      .slice(0, 5);
+      .slice(0, 4);
   }
 
   // =========================
