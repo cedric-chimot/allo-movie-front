@@ -67,14 +67,14 @@ export class FilmsPageComponent implements OnInit {
   // CATÉGORIES
   // =========================
 
-  get filmsAlaffiche(): Films[] {
-    const aujourdHui = Date.now();
+  get filmsMieuxNotes(): Films[] {
+  const aujourdHui = Date.now();
 
-    return this.films
-      .filter(film => film.dateSortie <= aujourdHui)
-      .sort((a, b) => b.noteMoyenne - a.noteMoyenne)
-      .slice(0, 5);
-  }
+  return this.films
+    .filter(film => film.dateSortie <= aujourdHui)
+    .sort((a, b) => b.noteMoyenne - a.noteMoyenne)
+    .slice(0, 5);
+}
 
   get sortiesRecentes(): Films[] {
     const aujourdHui = Date.now();
