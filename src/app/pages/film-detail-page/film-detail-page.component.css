@@ -107,6 +107,59 @@
 }
 
 
+/* ========================= */
+/* RÉALISATEUR */
+/* ========================= */
+
+.realisateur-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.realisateur-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.realisateur-content strong {
+  font-weight: bold;
+}
+
+
+/* ========================= */
+/* ACTEURS */
+/* ========================= */
+
+.acteur {
+  margin-bottom: 12px;
+}
+
+.acteur .role {
+  display: block;
+  margin-top: 3px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+
+/* ========================= */
+/* GENRES */
+/* ========================= */
+
+.genres-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.genre {
+  display: block;
+}
+
+
 /* =========================
    BOUTONS
    ========================= */

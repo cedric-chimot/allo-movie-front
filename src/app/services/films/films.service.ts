@@ -31,6 +31,11 @@ export class FilmsService {
     return this.http.get<Films[]>(`${this.apiUrl}/latest`);
   }
 
+  // Afficher les détails d'un film par son ID
+  getFilmDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}/detail`);
+  }
+
   // Mettre à jour un film
   updateFilms(film: Films): Observable<Films> {
     return this.http.put<Films>(`${this.apiUrl}/update`, film);

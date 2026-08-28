@@ -201,9 +201,7 @@
       <!-- ========================= -->
       <!-- DÉTAILS -->
       <!-- ========================= -->
-
       <section class="detail-section">
-
         <h2>Informations sur le film</h2>
 
         <div class="row g-4">
@@ -211,99 +209,78 @@
           <!-- ========================= -->
           <!-- RÉALISATEUR -->
           <!-- ========================= -->
-
           <div class="col-md-4">
+            <div class="information-card realisateur-card">
 
-            <div class="information-card">
-
-              <h3>🎬 Réalisateur</h3>
+              <h3>🎬 Réalisateur(s)</h3>
 
               @if (realisateur) {
-
-                <p>
-                  {{ realisateur }}
-                </p>
-
+                <div class="realisateur-content">
+                  <strong>{{ realisateur }}</strong>
+                </div>
               } @else {
-
-                <p>
-                  Information en cours de construction
-                </p>
-
+                <div class="realisateur-content">
+                  <p>
+                    Information en cours de construction
+                  </p>
+                </div>
               }
 
             </div>
-
           </div>
 
 
           <!-- ========================= -->
           <!-- ACTEURS -->
           <!-- ========================= -->
-
           <div class="col-md-4">
-
             <div class="information-card">
 
               <h3>🎭 Acteurs</h3>
 
               @if (acteurs.length > 0) {
-
                 @for (acteur of acteurs; track acteur) {
-
-                  <p>
-                    {{ acteur }}
+                  <p class="acteur">
+                    <strong>{{ acteur.prenom }} {{ acteur.nom }}</strong>
+                    <span class="role">{{ acteur.role }}</span>
                   </p>
-
                 }
-
               } @else {
-
                 <p>
                   Information en cours de construction
                 </p>
-
               }
 
             </div>
-
           </div>
 
 
           <!-- ========================= -->
           <!-- GENRES -->
           <!-- ========================= -->
-
           <div class="col-md-4">
-
             <div class="information-card">
 
               <h3>🎞️ Genres</h3>
 
               @if (categories.length > 0) {
-
-                @for (categorie of categories; track categorie) {
-
-                  <span class="genre">
-                    {{ categorie }}
-                  </span>
-
-                }
-
+                <div class="genres-list">
+                  @for (categorie of categories; track categorie) {
+                    <span class="genre">
+                      {{ categorie }}
+                    </span>
+                  }
+                </div>
               } @else {
-
                 <p>
                   Information en cours de construction
                 </p>
-
               }
 
             </div>
-
           </div>
 
         </div>
-
       </section>
 
     }
@@ -312,29 +289,24 @@
     <!-- ========================= -->
     <!-- SYNOPSIS DÉTAILLÉ -->
     <!-- ========================= -->
-
+     
     <section class="detail-section">
 
       <h2>Résumé</h2>
 
       <div class="synopsis-full">
 
-        <p>
-          {{ film.synopsis }}
-        </p>
+        @if (film.resumeLong) {
 
-        @if (ficheEnConstruction) {
-
-          <p class="construction-message">
-            🚧 Les informations complémentaires concernant ce film
-            sont encore en cours de construction.
+          <p>
+            {{ film.resumeLong }}
           </p>
 
         } @else {
 
-          <p>
-            Cette section pourra accueillir plus tard un résumé
-            beaucoup plus détaillé provenant de la base de données.
+          <p class="construction-message">
+            🚧 Le résumé détaillé de ce film est
+            actuellement en cours de construction.
           </p>
 
         }
@@ -342,6 +314,8 @@
       </div>
 
     </section>
+
+
 
 
     <!-- ========================= -->
