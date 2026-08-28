@@ -6,7 +6,8 @@ export class Films {
     public dateSortie: number,
     public synopsis: string,
     public image: string,
-    public noteMoyenne: number
+    public noteMoyenne: number,
+    public resumeLong: string,
   ) {}
 
 }
