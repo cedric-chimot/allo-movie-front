@@ -26,7 +26,8 @@ export class FilmFormComponent {
     synopsis: '',
     image: '',
     noteMoyenne: 0,
-    resumeLong: ''
+    resumeLong: '',
+    duree: 0
   };
 
   constructor(
@@ -47,7 +48,8 @@ export class FilmFormComponent {
       this.film.synopsis,
       this.film.image,
       this.film.noteMoyenne,
-      this.film.resumeLong
+      this.film.resumeLong,
+      this.film.duree
     );
 
     console.log('Film envoyé au backend :', filmAEnvoyer);

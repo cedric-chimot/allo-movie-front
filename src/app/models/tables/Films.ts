@@ -8,6 +8,7 @@ export class Films {
     public image: string,
     public noteMoyenne: number,
     public resumeLong: string,
+    public duree: number,
   ) {}
 
 }
