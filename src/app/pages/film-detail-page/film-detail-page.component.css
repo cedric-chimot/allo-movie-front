@@ -144,6 +144,11 @@
   opacity: 0.8;
 }
 
+.acteurs-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
 
 /* ========================= */
 /* GENRES */
@@ -151,7 +156,7 @@
 
 .genres-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
 }
 
@@ -357,6 +362,10 @@
 
   .film-actions .btn {
     width: 100%;
+  }
+
+  .acteurs-list {
+    grid-template-columns: 1fr;
   }
 
 }

@@ -85,5 +85,24 @@ export class FilmDetailPageComponent implements OnInit {
 
   }
 
+  formatDuree(duree: number | null | undefined): string {
+  if (!duree || duree <= 0) {
+    return 'À venir';
+  }
+
+  const heures = Math.floor(duree / 60);
+  const minutes = duree % 60;
+
+  if (heures === 0) {
+    return `${minutes} min`;
+  }
+
+  if (minutes === 0) {
+    return `${heures}h`;
+  }
+
+  return `${heures}h${minutes.toString().padStart(2, '0')}`;
+}
+
 }
 

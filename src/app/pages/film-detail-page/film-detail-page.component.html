@@ -39,7 +39,30 @@
 
                 <p class="film-year">
                   {{ film.dateSortie | date:'yyyy' }}
+                  •
+                  {{ formatDuree(film.duree) }}
                 </p>
+
+                <!-- ========================= -->
+                <!-- GENRES -->
+                <!-- ========================= -->
+                @if (categories.length > 0) {
+                  <div class="film-genres">
+                    <div class="genres-list">
+                      @for (categorie of categories; track categorie) {
+                        <span class="genre">
+                          {{ categorie }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                } @else {
+                  <div class="film-genres">
+                    <p>
+                      À venir
+                    </p>
+                  </div>
+                }
 
               </div>
 
@@ -104,39 +127,6 @@
 
 
             <!-- ========================= -->
-            <!-- INFORMATIONS -->
-            <!-- ========================= -->
-
-            <div class="film-information">
-
-              <div>
-
-                <strong>Date de sortie :</strong>
-
-                {{ film.dateSortie | date:'dd/MM/yyyy' }}
-
-              </div>
-
-              <div>
-
-                <strong>Note moyenne :</strong>
-
-                @if (film.noteMoyenne > 0) {
-
-                  ⭐ {{ film.noteMoyenne }} / 10
-
-                } @else {
-
-                  Aucun avis pour le moment
-
-                }
-
-              </div>
-
-            </div>
-
-
-            <!-- ========================= -->
             <!-- ACTIONS -->
             <!-- ========================= -->
 
@@ -188,7 +178,7 @@
           </p>
 
           <p>
-            Le réalisateur, le casting, les catégories et
+            Le réalisateur, le casting et
             d'autres informations seront bientôt disponibles.
           </p>
 
@@ -221,7 +211,7 @@
               } @else {
                 <div class="realisateur-content">
                   <p>
-                    Information en cours de construction
+                    À venir
                   </p>
                 </div>
               }
@@ -239,15 +229,17 @@
               <h3>🎭 Acteurs</h3>
 
               @if (acteurs.length > 0) {
-                @for (acteur of acteurs; track acteur) {
-                  <p class="acteur">
-                    <strong>{{ acteur.prenom }} {{ acteur.nom }}</strong>
-                    <span class="role">{{ acteur.role }}</span>
-                  </p>
-                }
+                <div class="acteurs-list">
+                  @for (acteur of acteurs; track acteur) {
+                    <p class="acteur">
+                      <strong>{{ acteur.prenom }} {{ acteur.nom }}</strong>
+                      <span class="role">{{ acteur.role }}</span>
+                    </p>
+                  }
+                </div>
               } @else {
                 <p>
-                  Information en cours de construction
+                  À venir
                 </p>
               }
 
@@ -256,27 +248,21 @@
 
 
           <!-- ========================= -->
-          <!-- GENRES -->
+          <!-- INFORMATIONS COMPLÉMENTAIRES -->
           <!-- ========================= -->
           <div class="col-md-4">
             <div class="information-card">
+              <h3>ℹ️ Informations complémentaires</h3>
 
-              <h3>🎞️ Genres</h3>
-
-              @if (categories.length > 0) {
-                <div class="genres-list">
-                  @for (categorie of categories; track categorie) {
-                    <span class="genre">
-                      {{ categorie }}
-                    </span>
-                  }
-                </div>
-              } @else {
+              <div class="construction-message">
                 <p>
-                  Information en cours de construction
+                  🚧 En cours de construction
                 </p>
-              }
-
+                <p>
+                  Le budget, la langue originale, les recettes
+                  et d'autres informations seront bientôt disponibles.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -289,7 +275,7 @@
     <!-- ========================= -->
     <!-- SYNOPSIS DÉTAILLÉ -->
     <!-- ========================= -->
-     
+
     <section class="detail-section">
 
       <h2>Résumé</h2>
