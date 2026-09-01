@@ -15,7 +15,7 @@ export class FilmDetailPageComponent implements OnInit {
 
   film: Films | undefined;
 
-  realisateur = '';
+  realisateurs: string[] = [];
 
   acteurs: any[] = [];
 
@@ -49,7 +49,7 @@ export class FilmDetailPageComponent implements OnInit {
 
         this.film = detail.film;
 
-        this.realisateur = detail.realisateur;
+        this.realisateurs = detail.realisateurs;
 
         this.acteurs = detail.acteurs;
 
@@ -61,7 +61,7 @@ export class FilmDetailPageComponent implements OnInit {
          * n'est encore renseignée.
          */
         if (
-          !this.realisateur &&
+          this.realisateurs.length === 0 &&
           this.acteurs.length === 0 &&
           this.categories.length === 0
         ) {
