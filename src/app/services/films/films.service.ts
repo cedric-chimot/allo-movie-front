@@ -13,7 +13,7 @@ export class FilmsService {
 
   // Ajouter un nouveau film
   createFilms(film: Films): Observable<Films> {
-    return this.http.post<Films>(`${this.apiUrl}/create`, film);
+    return this.http.post<Films>(`${this.apiUrl}/create`,film);
   }
 
   // Afficher la liste de tous les films

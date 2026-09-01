@@ -7,8 +7,8 @@ export class Films {
     public synopsis: string,
     public image: string,
     public noteMoyenne: number,
-    public resumeLong: string,
-    public duree: number,
+    public resumeLong: string | null,
+    public duree: number | null,
   ) {}
 
 }

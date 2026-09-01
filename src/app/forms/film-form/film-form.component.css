@@ -51,7 +51,8 @@
 }
 
 .btn-cancel,
-.btn-submit {
+.btn-submit,
+.btn-add-categorie {
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -66,7 +67,8 @@
   color: white;
 }
 
-.btn-submit {
+.btn-submit,
+.btn-add-categorie {
   background-color: #2C3E50 !important;
   color: white !important;
   border: none;
@@ -76,4 +78,63 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s ease;
+}
+
+/* Zone de sélection des catégories */
+.categorie-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.categorie-selection select {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Bouton Ajouter */
+.btn-add-categorie {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Catégories déjà sélectionnées */
+.categories-selectionnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Une catégorie */
+.categorie-selectionnee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 15px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Bouton X */
+.categorie-selectionnee button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
 }
