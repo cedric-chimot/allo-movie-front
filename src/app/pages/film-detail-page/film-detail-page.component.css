@@ -285,6 +285,10 @@
   text-align: justify;
 }
 
+.resume-long {
+  white-space: pre-line;
+  line-height: 1.8;
+}
 
 /* =========================
    NOTATION

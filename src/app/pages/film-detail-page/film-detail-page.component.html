@@ -38,7 +38,7 @@
                 </h1>
 
                 <p class="film-year">
-                  {{ film.dateSortie | date:'yyyy' }}
+                  {{ film.dateSortie | date:'dd/MM/yyyy' }}
                   •
                   {{ formatDuree(film.duree) }}
                 </p>
@@ -287,18 +287,14 @@
       <div class="synopsis-full">
 
         @if (film.resumeLong) {
-
-          <p>
+          <p class="resume-long">
             {{ film.resumeLong }}
           </p>
-
         } @else {
-
           <p class="construction-message">
             🚧 Le résumé détaillé de ce film est
             actuellement en cours de construction.
           </p>
-
         }
 
       </div>
