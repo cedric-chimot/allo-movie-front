@@ -204,7 +204,7 @@
 
               <h3>🎬 Réalisateur(s)</h3>
 
-              @if (realisateurs) {
+              @if (realisateurs.length > 0) {
                 <div class="realisateur-content">
                   @for (realisateur of realisateurs; track $index) {
                     <p class="realisateur">
