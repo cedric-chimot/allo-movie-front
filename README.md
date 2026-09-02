@@ -82,6 +82,12 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 _En cliquant sur le cœur, on ajoute le film en favori._
 
+#### _Page détails d'un film :_
+<img width="1918" height="803" alt="Capture d&#39;écran 2026-09-02 215336" src="https://github.com/user-attachments/assets/22f08d97-6849-4636-9fa1-6f478fdbd3a5" />
+<img width="1919" height="441" alt="Capture d&#39;écran 2026-09-02 215349" src="https://github.com/user-attachments/assets/391a0657-1cd9-4ded-a37c-05afd2eae543" />
+<img width="1919" height="708" alt="Capture d&#39;écran 2026-09-02 215404" src="https://github.com/user-attachments/assets/13ffc7b0-9376-43af-ae3b-813002a547d2" />
+<img width="1919" height="465" alt="Capture d&#39;écran 2026-09-02 215416" src="https://github.com/user-attachments/assets/6bfc14f2-bc73-4938-a515-0458d68e9e44" />
+
 #### _Dashboard Admin avec admin connecté :_
 
 <img width="1909" height="941" alt="Capture d&#39;écran 2026-09-02 215743" src="https://github.com/user-attachments/assets/b132f1a5-fd68-46e2-8b2e-c542bf619095" />
