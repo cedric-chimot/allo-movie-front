@@ -68,13 +68,18 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Page d'accueil(provisoire) une fois connecté :_
 
-![allomovie-home](https://github.com/user-attachments/assets/e813e3cd-131c-4844-8bf3-c5e5ef4b4ceb)
+<img width="1919" height="495" alt="Capture d&#39;écran 2026-09-02 212735" src="https://github.com/user-attachments/assets/05b852cc-800e-4558-b80b-c425d15704d7" />
+<img width="1919" height="733" alt="Capture d&#39;écran 2026-09-02 212755" src="https://github.com/user-attachments/assets/67391fbb-3b63-4245-a254-819a63dcc1f9" />
 
 _En cliquant sur le cœur, on ajoute le film en favori._
 
 #### _Dashboard Admin avec admin connecté :_
 
-![allomovie-dashboard](https://github.com/user-attachments/assets/e71d49eb-9b19-49b5-b802-59cef1616157)
+<img width="1909" height="941" alt="Capture d&#39;écran 2026-09-02 215743" src="https://github.com/user-attachments/assets/b132f1a5-fd68-46e2-8b2e-c542bf619095" />
+
+#### _Dashboard Admin avec admin connecté :_
+#### _Dashboard Admin avec admin connecté :_
+#### _Dashboard Admin avec admin connecté :_
 
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
