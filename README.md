@@ -77,9 +77,24 @@ _En cliquant sur le cœur, on ajoute le film en favori._
 
 <img width="1909" height="941" alt="Capture d&#39;écran 2026-09-02 215743" src="https://github.com/user-attachments/assets/b132f1a5-fd68-46e2-8b2e-c542bf619095" />
 
-#### _Dashboard Admin avec admin connecté :_
-#### _Dashboard Admin avec admin connecté :_
-#### _Dashboard Admin avec admin connecté :_
+#### _Dashboard Admin, gestion des films avec ajout de nouveaux films :_
+
+<img width="1919" height="826" alt="Capture d&#39;écran 2026-09-02 212821" src="https://github.com/user-attachments/assets/3ccf5b73-9409-4c76-8008-15f3c0a74f67" />
+<img width="1919" height="943" alt="Capture d&#39;écran 2026-09-02 212911" src="https://github.com/user-attachments/assets/1741f906-74fc-487e-b305-ef20ac15df05" />
+
+
+#### _Dashboard Admin, gestion des réalisateurs :_
+
+<img width="1919" height="767" alt="Capture d&#39;écran 2026-09-02 212833" src="https://github.com/user-attachments/assets/c47e1d16-dd71-4076-9e1d-9e251ed80327" />
+
+#### _Dashboard Admin, gestion des acteurs :_
+
+<img width="1918" height="805" alt="Capture d&#39;écran 2026-09-02 212843" src="https://github.com/user-attachments/assets/48945548-945c-42c8-9d4e-a4c8a7f91abc" />
+
+#### _Dashboard Admin, gestion des catégories :_
+
+<img width="1919" height="768" alt="Capture d&#39;écran 2026-09-02 212857" src="https://github.com/user-attachments/assets/b625a137-8dc7-4d08-b8d5-698e4e27a7af" />
+
 
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
