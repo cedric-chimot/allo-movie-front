@@ -4,7 +4,6 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Films } from '../../models/tables/Films';
 import { FilmsService } from '../../services/films/films.service';
 
-
 @Component({
   selector: 'app-film-detail-page',
   imports: [CommonModule, RouterModule],
@@ -23,6 +22,8 @@ export class FilmDetailPageComponent implements OnInit {
 
   ficheEnConstruction = false;
 
+  isCastingModalOpen = false;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -38,8 +39,11 @@ export class FilmDetailPageComponent implements OnInit {
 
 
     if (!id) {
+
       this.ficheEnConstruction = true;
+
       return;
+
     }
 
 
@@ -60,12 +64,15 @@ export class FilmDetailPageComponent implements OnInit {
          * Le film existe mais aucune relation
          * n'est encore renseignée.
          */
+
         if (
           this.realisateurs.length === 0 &&
           this.acteurs.length === 0 &&
           this.categories.length === 0
         ) {
+
           this.ficheEnConstruction = true;
+
         }
 
       },
@@ -79,30 +86,58 @@ export class FilmDetailPageComponent implements OnInit {
         );
 
         this.ficheEnConstruction = true;
+
       }
 
     });
 
   }
 
+
+  openCastingModal(): void {
+
+    this.isCastingModalOpen = true;
+
+  }
+
+
+  closeCastingModal(): void {
+
+    this.isCastingModalOpen = false;
+
+  }
+
+
   formatDuree(duree: number | null | undefined): string {
-  if (!duree || duree <= 0) {
-    return 'À venir';
+
+    if (!duree || duree <= 0) {
+
+      return 'À venir';
+
+    }
+
+
+    const heures = Math.floor(duree / 60);
+
+    const minutes = duree % 60;
+
+
+    if (heures === 0) {
+
+      return `${minutes} min`;
+
+    }
+
+
+    if (minutes === 0) {
+
+      return `${heures}h`;
+
+    }
+
+
+    return `${heures}h${minutes.toString().padStart(2, '0')}`;
+
   }
 
-  const heures = Math.floor(duree / 60);
-  const minutes = duree % 60;
-
-  if (heures === 0) {
-    return `${minutes} min`;
-  }
-
-  if (minutes === 0) {
-    return `${heures}h`;
-  }
-
-  return `${heures}h${minutes.toString().padStart(2, '0')}`;
 }
-
-}
-

@@ -107,9 +107,9 @@
 }
 
 
-/* ========================= */
-/* RÉALISATEUR */
-/* ========================= */
+/* =========================
+   RÉALISATEUR
+   ========================= */
 
 .realisateur-card {
   display: flex;
@@ -131,9 +131,9 @@
 }
 
 
-/* ========================= */
-/* ACTEURS */
-/* ========================= */
+/* =========================
+   ACTEURS
+   ========================= */
 
 .acteur {
   margin-bottom: 12px;
@@ -152,9 +152,23 @@
   gap: 10px 20px;
 }
 
-/* ========================= */
-/* GENRES */
-/* ========================= */
+.btn-casting {
+  background-color: #2C3E50;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+/* =========================
+   GENRES
+   ========================= */
 
 .genres-list {
   display: flex;
@@ -225,12 +239,9 @@
 .information-card {
   height: 100%;
   padding: 25px;
-
   border: 1px solid #2C3E50;
   border-radius: 5px;
-
   text-align: center;
-
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -253,15 +264,11 @@
 
 .genre {
   display: inline-block;
-
   background-color: #2C3E50;
   color: #ffffff;
-
   padding: 7px 12px;
   margin: 5px;
-
   border-radius: 4px;
-
   font-size: 0.9rem;
 }
 
@@ -272,9 +279,7 @@
 
 .synopsis-full {
   padding: 25px;
-
   border-left: 5px solid #2C3E50;
-
   background-color: #f8f9fa;
 }
 
@@ -290,6 +295,7 @@
   line-height: 1.8;
 }
 
+
 /* =========================
    NOTATION
    ========================= */
@@ -297,7 +303,6 @@
 .rating-box {
   padding: 30px;
   text-align: center;
-
   border: 1px solid #2C3E50;
 }
 
@@ -309,11 +314,8 @@
 .stars button {
   border: none;
   background: transparent;
-
   color: #2C3E50;
-
   font-size: 2.5rem;
-
   cursor: pointer;
 }
 
@@ -328,7 +330,6 @@
 
 .comment-box {
   padding: 25px;
-
   border: 1px solid #2C3E50;
 }
 
@@ -338,9 +339,79 @@
 
 .comment-box textarea:focus {
   border-color: #2C3E50;
-
   box-shadow:
     0 0 0 0.2rem rgba(44, 62, 80, 0.2);
+}
+
+
+/* =========================
+   MODAL CASTING
+   ========================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2C3E50;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  color: #2C3E50;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.modal-header .btn-close {
+  border: none;
+  background: transparent;
+  color: #2C3E50;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-header .btn-close:hover {
+  transform: scale(1.1);
+}
+
+.modal-body {
+  color: #2C3E50;
+}
+
+.modal-body .acteur {
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.modal-body .acteur:last-child {
+  border-bottom: none;
 }
 
 
@@ -372,6 +443,11 @@
 
   .acteurs-list {
     grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    max-height: 85vh;
   }
 
 }

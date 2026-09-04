@@ -38,33 +38,52 @@
                 </h1>
 
                 <p class="film-year">
+
                   {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
                   •
+
                   {{ formatDuree(film.duree) }}
+
                 </p>
+
 
                 <!-- ========================= -->
                 <!-- GENRES -->
                 <!-- ========================= -->
+
                 @if (categories.length > 0) {
+
                   <div class="film-genres">
+
                     <div class="genres-list">
+
                       @for (categorie of categories; track categorie) {
+
                         <span class="genre">
                           {{ categorie }}
                         </span>
+
                       }
+
                     </div>
+
                   </div>
+
                 } @else {
+
                   <div class="film-genres">
+
                     <p>
                       À venir
                     </p>
+
                   </div>
+
                 }
 
               </div>
+
 
               <button
                 class="favorite-button"
@@ -84,7 +103,9 @@
 
               <div class="film-rating">
 
-                <span class="star">⭐</span>
+                <span class="star">
+                  ⭐
+                </span>
 
                 <strong>
                   {{ film.noteMoyenne }}
@@ -100,7 +121,9 @@
 
               <div class="film-rating no-rating">
 
-                <span class="star">⭐</span>
+                <span class="star">
+                  ⭐
+                </span>
 
                 <span>
                   Ce film n'a pas encore reçu d'avis.
@@ -117,7 +140,9 @@
 
             <div class="film-synopsis">
 
-              <h2>Synopsis</h2>
+              <h2>
+                Synopsis
+              </h2>
 
               <p>
                 {{ film.synopsis }}
@@ -191,86 +216,157 @@
       <!-- ========================= -->
       <!-- DÉTAILS -->
       <!-- ========================= -->
+
       <section class="detail-section">
-        <h2>Informations sur le film</h2>
+
+        <h2>
+          Informations sur le film
+        </h2>
 
         <div class="row g-4">
+
 
           <!-- ========================= -->
           <!-- RÉALISATEUR -->
           <!-- ========================= -->
+
           <div class="col-md-4">
+
             <div class="information-card realisateur-card">
 
-              <h3>🎬 Réalisateur(s)</h3>
+              <h3>
+                🎬 Réalisateur(s)
+              </h3>
 
               @if (realisateurs.length > 0) {
+
                 <div class="realisateur-content">
+
                   @for (realisateur of realisateurs; track $index) {
+
                     <p class="realisateur">
-                      <strong>{{ realisateur }}</strong>
+
+                      <strong>
+                        {{ realisateur }}
+                      </strong>
+
                     </p>
+
                   }
+
                 </div>
+
               } @else {
+
                 <div class="realisateur-content">
+
                   <p>
                     À venir
                   </p>
+
                 </div>
+
               }
 
             </div>
+
           </div>
 
 
           <!-- ========================= -->
           <!-- ACTEURS -->
           <!-- ========================= -->
+
           <div class="col-md-4">
+
             <div class="information-card">
 
-              <h3>🎭 Acteurs</h3>
+              <h3>
+                🎭 Acteurs
+              </h3>
 
               @if (acteurs.length > 0) {
+
                 <div class="acteurs-list">
-                  @for (acteur of acteurs; track acteur) {
+
+                  @for (
+                    acteur of acteurs.slice(0, 5);
+                    track acteur
+                  ) {
+
                     <p class="acteur">
-                      <strong>{{ acteur.prenom }} {{ acteur.nom }}</strong>
-                      <span class="role">{{ acteur.role }}</span>
+
+                      <strong>
+                        {{ acteur.prenom }} {{ acteur.nom }}
+                      </strong>
+
+                      <span class="role">
+                        {{ acteur.role }}
+                      </span>
+
                     </p>
+
                   }
+
                 </div>
+
+
+                @if (acteurs.length > 5) {
+
+                  <button
+                    class="btn btn-casting btn-sm mt-2"
+                    type="button"
+                    (click)="openCastingModal()"
+                  >
+                    Afficher tout
+                  </button>
+
+                }
+
               } @else {
+
                 <p>
                   À venir
                 </p>
+
               }
 
             </div>
+
           </div>
 
 
           <!-- ========================= -->
           <!-- INFORMATIONS COMPLÉMENTAIRES -->
           <!-- ========================= -->
+
           <div class="col-md-4">
+
             <div class="information-card">
-              <h3>ℹ️ Informations complémentaires</h3>
+
+              <h3>
+                ℹ️ Informations complémentaires
+              </h3>
 
               <div class="construction-message">
+
                 <p>
                   🚧 En cours de construction
                 </p>
+
                 <p>
                   Le budget, la langue originale, les recettes
                   et d'autres informations seront bientôt disponibles.
                 </p>
+
               </div>
+
             </div>
+
           </div>
 
         </div>
+
       </section>
 
     }
@@ -282,26 +378,30 @@
 
     <section class="detail-section">
 
-      <h2>Résumé</h2>
+      <h2>
+        Résumé
+      </h2>
 
       <div class="synopsis-full">
 
         @if (film.resumeLong) {
+
           <p class="resume-long">
             {{ film.resumeLong }}
           </p>
+
         } @else {
+
           <p class="construction-message">
             🚧 Le résumé détaillé de ce film est
             actuellement en cours de construction.
           </p>
+
         }
 
       </div>
 
     </section>
-
-
 
 
     <!-- ========================= -->
@@ -310,7 +410,9 @@
 
     <section class="detail-section">
 
-      <h2>Votre avis</h2>
+      <h2>
+        Votre avis
+      </h2>
 
       <div class="rating-box">
 
@@ -327,9 +429,11 @@
           </p>
 
           <p>
+
             <strong>
               Soyez le premier à donner votre note !
             </strong>
+
           </p>
 
         }
@@ -339,11 +443,25 @@
 
         <div class="stars">
 
-          <button>☆</button>
-          <button>☆</button>
-          <button>☆</button>
-          <button>☆</button>
-          <button>☆</button>
+          <button>
+            ☆
+          </button>
+
+          <button>
+            ☆
+          </button>
+
+          <button>
+            ☆
+          </button>
+
+          <button>
+            ☆
+          </button>
+
+          <button>
+            ☆
+          </button>
 
         </div>
 
@@ -358,7 +476,9 @@
 
     <section class="detail-section">
 
-      <h2>Commentaires</h2>
+      <h2>
+        Commentaires
+      </h2>
 
       <div class="comment-box">
 
@@ -375,6 +495,60 @@
       </div>
 
     </section>
+
+
+    <!-- ========================= -->
+    <!-- MODAL CASTING -->
+    <!-- ========================= -->
+
+    @if (isCastingModalOpen) {
+
+      <div class="modal-overlay">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+
+            <h2>
+              🎭 Casting de {{ film.titre }}
+            </h2>
+
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closeCastingModal()"
+            >
+              ×
+            </button>
+
+          </div>
+
+
+          <div class="modal-body">
+
+            @for (acteur of acteurs; track acteur) {
+
+              <p class="acteur">
+
+                <strong>
+                  {{ acteur.prenom }} {{ acteur.nom }}
+                </strong>
+
+                <span class="role">
+                  {{ acteur.role }}
+                </span>
+
+              </p>
+
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
 
 
   } @else {
