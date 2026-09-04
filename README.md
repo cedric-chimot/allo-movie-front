@@ -66,15 +66,50 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 ![allomovie-register](https://github.com/user-attachments/assets/8bed1268-0445-4a83-bbd8-77092c821d40)
 
-#### _Page d'accueil(provisoire) une fois connecté :_
+#### _Page d'accueil une fois connecté :_
 
-![allomovie-home](https://github.com/user-attachments/assets/e813e3cd-131c-4844-8bf3-c5e5ef4b4ceb)
+<img width="1919" height="495" alt="Capture d&#39;écran 2026-09-02 212735" src="https://github.com/user-attachments/assets/05b852cc-800e-4558-b80b-c425d15704d7" />
+<img width="1919" height="733" alt="Capture d&#39;écran 2026-09-02 212755" src="https://github.com/user-attachments/assets/67391fbb-3b63-4245-a254-819a63dcc1f9" />
+
+#### _Page films :_
+
+<img width="1905" height="404" alt="Capture d&#39;écran 2026-09-02 215150" src="https://github.com/user-attachments/assets/35596a60-ffa8-4079-b574-7ec53110b013" />
+<img width="1918" height="709" alt="Capture d&#39;écran 2026-09-02 215208" src="https://github.com/user-attachments/assets/3492652f-f114-4467-81fa-fcedcd731d08" />
+<img width="1916" height="708" alt="Capture d&#39;écran 2026-09-02 215228" src="https://github.com/user-attachments/assets/b59977fe-bdec-4f09-a113-a51a35849beb" />
+<img width="1915" height="699" alt="Capture d&#39;écran 2026-09-02 215244" src="https://github.com/user-attachments/assets/d08dc551-ba81-4738-9c92-727406b7fbb2" />
+<img width="1919" height="692" alt="Capture d&#39;écran 2026-09-02 215300" src="https://github.com/user-attachments/assets/92e932dc-5907-4543-9dd6-29cb57ea4569" />
+<img width="1919" height="823" alt="Capture d&#39;écran 2026-09-02 215314" src="https://github.com/user-attachments/assets/2ae5e1bd-bae6-40d0-a5d4-2146086c0b7b" />
 
 _En cliquant sur le cœur, on ajoute le film en favori._
 
+#### _Page détails d'un film :_
+<img width="1918" height="803" alt="Capture d&#39;écran 2026-09-02 215336" src="https://github.com/user-attachments/assets/22f08d97-6849-4636-9fa1-6f478fdbd3a5" />
+<img width="1919" height="441" alt="Capture d&#39;écran 2026-09-02 215349" src="https://github.com/user-attachments/assets/391a0657-1cd9-4ded-a37c-05afd2eae543" />
+<img width="1919" height="708" alt="Capture d&#39;écran 2026-09-02 215404" src="https://github.com/user-attachments/assets/13ffc7b0-9376-43af-ae3b-813002a547d2" />
+<img width="1919" height="465" alt="Capture d&#39;écran 2026-09-02 215416" src="https://github.com/user-attachments/assets/6bfc14f2-bc73-4938-a515-0458d68e9e44" />
+
 #### _Dashboard Admin avec admin connecté :_
 
-![allomovie-dashboard](https://github.com/user-attachments/assets/e71d49eb-9b19-49b5-b802-59cef1616157)
+<img width="1909" height="941" alt="Capture d&#39;écran 2026-09-02 215743" src="https://github.com/user-attachments/assets/b132f1a5-fd68-46e2-8b2e-c542bf619095" />
+
+#### _Dashboard Admin, gestion des films avec ajout de nouveaux films :_
+
+<img width="1919" height="826" alt="Capture d&#39;écran 2026-09-02 212821" src="https://github.com/user-attachments/assets/3ccf5b73-9409-4c76-8008-15f3c0a74f67" />
+<img width="1919" height="943" alt="Capture d&#39;écran 2026-09-02 212911" src="https://github.com/user-attachments/assets/1741f906-74fc-487e-b305-ef20ac15df05" />
+
+
+#### _Dashboard Admin, gestion des réalisateurs :_
+
+<img width="1919" height="767" alt="Capture d&#39;écran 2026-09-02 212833" src="https://github.com/user-attachments/assets/c47e1d16-dd71-4076-9e1d-9e251ed80327" />
+
+#### _Dashboard Admin, gestion des acteurs :_
+
+<img width="1918" height="805" alt="Capture d&#39;écran 2026-09-02 212843" src="https://github.com/user-attachments/assets/48945548-945c-42c8-9d4e-a4c8a7f91abc" />
+
+#### _Dashboard Admin, gestion des catégories :_
+
+<img width="1919" height="768" alt="Capture d&#39;écran 2026-09-02 212857" src="https://github.com/user-attachments/assets/b625a137-8dc7-4d08-b8d5-698e4e27a7af" />
+
 
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
