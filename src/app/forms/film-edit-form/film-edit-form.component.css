@@ -1,0 +1,187 @@
+.form-container {
+  width: 100%;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2C3E50;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2C3E50;
+  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
+}
+
+
+/* ================================ */
+/* Boutons                          */
+/* ================================ */
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn-cancel,
+.btn-submit,
+.btn-add-categorie {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-cancel {
+  background-color: #f70101;
+  color: white;
+}
+
+.btn-submit,
+.btn-add-categorie {
+  background-color: #2C3E50 !important;
+  color: white !important;
+}
+
+
+/* ================================ */
+/* Zone de sélection                */
+/* ================================ */
+
+.categorie-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.categorie-selection select {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* ================================ */
+/* Bouton Ajouter                   */
+/* ================================ */
+
+.btn-add-categorie {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+
+/* ================================ */
+/* Éléments sélectionnés            */
+/* ================================ */
+
+.categories-selectionnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.categorie-selectionnee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 15px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+/* ================================ */
+/* Bouton X                         */
+/* ================================ */
+
+.categorie-selectionnee button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+}
+
+
+/* ================================ */
+/* Acteurs sélectionnés             */
+/* ================================ */
+
+.acteurs-selectionnes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.acteur-selectionne {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.acteur-selectionne input {
+  flex: 1;
+  min-width: 0;
+}
+
+.acteur-selectionne button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+}

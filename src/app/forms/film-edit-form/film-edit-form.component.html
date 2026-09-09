@@ -1,1 +1,354 @@
-<p>film-edit-form works!</p>
+<div class="form-container">
+
+  <h2 class="form-title">
+    Modifier le film
+  </h2>
+
+  <form (ngSubmit)="modifierFilm()" #filmForm="ngForm">
+
+    <!-- ================================ -->
+    <!-- INFORMATIONS DU FILM             -->
+    <!-- ================================ -->
+
+    <div class="form-group">
+      <label for="titre">Titre</label>
+
+      <input
+        type="text"
+        id="titre"
+        name="titre"
+        [(ngModel)]="film.titre"
+        required
+        placeholder="Titre du film"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="dateSortie">Date de sortie</label>
+
+      <input
+        type="date"
+        id="dateSortie"
+        name="dateSortie"
+        [(ngModel)]="film.dateSortie"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="synopsis">Synopsis</label>
+
+      <textarea
+        id="synopsis"
+        name="synopsis"
+        [(ngModel)]="film.synopsis"
+        required
+        rows="5"
+        placeholder="Synopsis du film"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="image">URL de l'affiche</label>
+
+      <input
+        type="text"
+        id="image"
+        name="image"
+        [(ngModel)]="film.image"
+        placeholder="https://..."
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="noteMoyenne">Note moyenne</label>
+
+      <input
+        type="number"
+        id="noteMoyenne"
+        name="noteMoyenne"
+        [(ngModel)]="film.noteMoyenne"
+        min="0"
+        max="10"
+        step="0.1"
+        placeholder="0 à 10"
+      >
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- CATÉGORIES                       -->
+    <!-- ================================ -->
+
+    <div class="form-group">
+
+      <label for="categorie">
+        Catégories
+      </label>
+
+      <div class="categorie-selection">
+
+        <select
+          id="categorie"
+          name="categorie"
+          [(ngModel)]="categorieSelectionnee"
+        >
+
+          <option [ngValue]="null">
+            -- Choisir une catégorie --
+          </option>
+
+          @for (categorie of categories; track categorie.id) {
+
+            <option [ngValue]="categorie">
+              {{ categorie.categorie }}
+            </option>
+
+          }
+
+        </select>
+
+        <button
+          type="button"
+          class="btn-add-categorie"
+          (click)="ajouterCategorie()"
+          [disabled]="!categorieSelectionnee"
+        >
+          Ajouter
+        </button>
+
+      </div>
+
+
+      <!-- Catégories déjà associées au film -->
+
+      @if (categoriesSelectionnees.length > 0) {
+
+        <div class="categories-selectionnees">
+
+          @for (
+            categorie of categoriesSelectionnees;
+            track categorie.id
+          ) {
+
+            <div class="categorie-selectionnee">
+
+              <span>
+                {{ categorie.categorie }}
+              </span>
+
+              <button
+                type="button"
+                (click)="retirerCategorie(categorie)"
+              >
+                ×
+              </button>
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- RÉALISATEURS                     -->
+    <!-- ================================ -->
+
+    <div class="form-group">
+
+      <label for="realisateur">
+        Réalisateurs
+      </label>
+
+      <div class="categorie-selection">
+
+        <select
+          id="realisateur"
+          name="realisateur"
+          [(ngModel)]="realisateurSelectionne"
+        >
+
+          <option [ngValue]="null">
+            -- Choisir un réalisateur --
+          </option>
+
+          @for (
+            realisateur of realisateurs;
+            track realisateur.id
+          ) {
+
+            <option [ngValue]="realisateur">
+              {{ realisateur.prenom }}
+              {{ realisateur.nom }}
+            </option>
+
+          }
+
+        </select>
+
+        <button
+          type="button"
+          class="btn-add-categorie"
+          (click)="ajouterRealisateur()"
+          [disabled]="!realisateurSelectionne"
+        >
+          Ajouter
+        </button>
+
+      </div>
+
+
+      <!-- Réalisateurs déjà associés -->
+
+      @if (realisateursSelectionnes.length > 0) {
+
+        <div class="categories-selectionnees">
+
+          @for (
+            realisateur of realisateursSelectionnes;
+            track realisateur.id
+          ) {
+
+            <div class="categorie-selectionnee">
+
+              <span>
+                {{ realisateur.prenom }}
+                {{ realisateur.nom }}
+              </span>
+
+              <button
+                type="button"
+                (click)="retirerRealisateur(realisateur)"
+              >
+                ×
+              </button>
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- ACTEURS                          -->
+    <!-- ================================ -->
+
+    <div class="form-group">
+
+      <label for="acteur">
+        Acteurs
+      </label>
+
+      <div class="categorie-selection">
+
+        <select
+          id="acteur"
+          name="acteur"
+          [(ngModel)]="acteurSelectionne"
+        >
+
+          <option [ngValue]="null">
+            -- Choisir un acteur --
+          </option>
+
+          @for (
+            acteur of acteurs;
+            track acteur.id
+          ) {
+
+            <option [ngValue]="acteur">
+              {{ acteur.prenom }}
+              {{ acteur.nom }}
+            </option>
+
+          }
+
+        </select>
+
+        <button
+          type="button"
+          class="btn-add-categorie"
+          (click)="ajouterActeur()"
+          [disabled]="!acteurSelectionne"
+        >
+          Ajouter
+        </button>
+
+      </div>
+
+
+      <!-- Acteurs déjà associés -->
+
+      @if (acteursSelectionnes.length > 0) {
+
+        <div class="acteurs-selectionnes">
+
+          @for (
+            acteur of acteursSelectionnes;
+            track acteur.acteurId
+          ) {
+
+            <div class="acteur-selectionne">
+
+              <input
+                type="text"
+                [(ngModel)]="acteur.role"
+                name="role-{{ acteur.acteurId }}"
+                placeholder="Rôle"
+              >
+
+              <button
+                type="button"
+                (click)="retirerActeur(acteur.acteurId)"
+              >
+                ×
+              </button>
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- BOUTONS                          -->
+    <!-- ================================ -->
+
+    <div class="form-actions">
+
+      <button
+        type="submit"
+        class="btn-submit"
+        [disabled]="filmForm.invalid"
+      >
+        Enregistrer les modifications
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="fermer()"
+      >
+        Annuler
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
