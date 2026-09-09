@@ -48,7 +48,7 @@
                   <td>
                     {{ (currentPage - 1) * filmsParPage + $index + 1 }}
                   </td>
-                  
+
                   <td>
                     <img
                       [src]="film.image"
@@ -84,6 +84,7 @@
                     <button
                       class="btn update btn-sm"
                       type="button"
+                      (click)="openEditModal(film.id!)"
                     >
                       <i class="fa-solid fa-pen-nib"></i>
                     </button>
@@ -181,6 +182,25 @@
         (filmCreated)="filmAjoute()"
       >
       </app-film-form>
+
+    </div>
+
+  </div>
+
+}
+
+@if (isEditModalOpen) {
+
+  <div class="modal-overlay">
+
+    <div class="modal-content">
+
+      <app-film-edit-form
+        [filmId]="filmIdSelectionne"
+        (close)="closeEditModal()"
+        (filmUpdated)="filmModifie()"
+      >
+      </app-film-edit-form>
 
     </div>
 
