@@ -155,3 +155,10 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
 }
+
+.modal-edit .modal-content {
+  width: 96%;
+  max-width: 1500px;
+  padding: 25px 35px;
+  box-sizing: border-box;
+}

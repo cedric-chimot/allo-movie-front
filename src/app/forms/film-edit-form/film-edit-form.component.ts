@@ -14,7 +14,10 @@ import { RealisateursService } from '../../services/realisateurs/realisateurs.se
 
 @Component({
   selector: 'app-film-edit-form',
-  imports: [ CommonModule, FormsModule ],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './film-edit-form.component.html',
   styleUrls: ['./film-edit-form.component.css']
 })
@@ -25,7 +28,11 @@ export class FilmEditFormComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
   @Output() filmUpdated = new EventEmitter<void>();
 
-  // Données utilisées par le formulaire
+
+  // =================================
+  // Données du film
+  // =================================
+
   film = {
     id: null as number | null,
     titre: '',
@@ -37,47 +44,59 @@ export class FilmEditFormComponent implements OnInit {
     duree: 0
   };
 
-  // --------------------------------
-  // Catégories
-  // --------------------------------
 
-  // Toutes les catégories disponibles
+  // =================================
+  // Catégories
+  // =================================
+
   categories: Categorie[] = [];
 
-  // Catégorie actuellement sélectionnée
   categorieSelectionnee: Categorie | null = null;
 
-  // Catégories déjà sélectionnées pour le film
   categoriesSelectionnees: Categorie[] = [];
 
-  // --------------------------------
+
+  // =================================
   // Réalisateurs
-  // --------------------------------
+  // =================================
 
   // Tous les réalisateurs disponibles
   realisateurs: Realisateurs[] = [];
 
-  // Réalisateur actuellement sélectionné
+  // Réalisateur choisi dans la liste déroulante
   realisateurSelectionne: Realisateurs | null = null;
 
-  // Réalisateurs sélectionnés pour le film
-  realisateursSelectionnes: Realisateurs[] = [];
+  // Réalisateurs déjà associés au film
+  realisateursExistants: Realisateurs[] = [];
 
-  // --------------------------------
+  // Réalisateurs ajoutés pendant la modification
+  nouveauxRealisateurs: Realisateurs[] = [];
+
+
+  // =================================
   // Acteurs
-  // --------------------------------
+  // =================================
 
   // Tous les acteurs disponibles
   acteurs: Acteurs[] = [];
 
-  // Acteur actuellement sélectionné
+  // Acteur choisi dans la liste déroulante
   acteurSelectionne: Acteurs | null = null;
 
-  // Acteurs sélectionnés + leur rôle
-  acteursSelectionnes: {
+  // Acteurs déjà associés au film + leur rôle
+  acteursExistants: {
+    id: number;
+    nom: string;
+    prenom: string;
+    role: string;
+  }[] = [];
+
+  // Nouveaux acteurs ajoutés + leur rôle
+  nouveauxActeurs: {
     acteurId: number;
     role: string;
   }[] = [];
+
 
   constructor(
     private filmsService: FilmsService,
@@ -86,6 +105,11 @@ export class FilmEditFormComponent implements OnInit {
     private realisateursService: RealisateursService
   ) {}
 
+
+  // =================================
+  // Initialisation
+  // =================================
+
   ngOnInit(): void {
     this.chargerFilm();
     this.chargerCategories();
@@ -93,14 +117,15 @@ export class FilmEditFormComponent implements OnInit {
     this.chargerActeurs();
   }
 
-  // --------------------------------
-  // Film
-  // --------------------------------
 
-  // Récupérer le film à modifier
+  // =================================
+  // Film
+  // =================================
+
   chargerFilm(): void {
 
     this.filmsService.getFilmDetail(this.filmId).subscribe({
+
       next: (detail) => {
 
         this.film = {
@@ -114,35 +139,61 @@ export class FilmEditFormComponent implements OnInit {
           duree: detail.film.duree
         };
 
-        // Acteurs déjà associés au film
+
+        // -----------------------------
+        // Acteurs déjà associés
+        // -----------------------------
+
         if (detail.acteurs) {
 
-          this.acteursSelectionnes = detail.acteurs.map(
+          this.acteursExistants = detail.acteurs.map(
             (acteur: any) => ({
-              acteurId: acteur.id,
+              id: acteur.id,
+              nom: acteur.nom,
+              prenom: acteur.prenom,
               role: acteur.role
             })
           );
 
         }
 
-        // Les catégories et réalisateurs seront associés
-        // après avoir récupéré leurs listes complètes.
-        this.chargerCategoriesSelectionnees(detail.categories);
-        this.chargerRealisateursSelectionnes(detail.realisateurs);
+
+        // -----------------------------
+        // Catégories
+        // -----------------------------
+
+        this.chargerCategoriesSelectionnees(
+          detail.categories
+        );
+
+
+        // -----------------------------
+        // Réalisateurs
+        // -----------------------------
+
+        this.chargerRealisateursSelectionnes(
+          detail.realisateurs
+        );
+
       },
 
       error: (erreur) => {
+
         console.error(
           'Erreur lors du chargement du film :',
           erreur
         );
+
       }
+
     });
+
   }
 
-  // Convertir le timestamp du backend en date utilisable
-  // par un input type="date"
+
+  // Convertir le timestamp du backend
+  // en date pour input type="date"
+
   convertirDate(timestamp: number): string {
 
     if (!timestamp) {
@@ -154,14 +205,15 @@ export class FilmEditFormComponent implements OnInit {
     return date.toISOString().split('T')[0];
   }
 
-  // --------------------------------
-  // Catégories
-  // --------------------------------
 
-  // Récupérer toutes les catégories
+  // =================================
+  // Catégories
+  // =================================
+
   chargerCategories(): void {
 
     this.categorieService.getAllCategorie().subscribe({
+
       next: (categories: Categorie[]) => {
 
         this.categories = categories;
@@ -169,15 +221,19 @@ export class FilmEditFormComponent implements OnInit {
       },
 
       error: (erreur) => {
+
         console.error(
           'Erreur lors du chargement des catégories :',
           erreur
         );
+
       }
+
     });
+
   }
 
-  // Retrouver les catégories déjà associées au film
+
   chargerCategoriesSelectionnees(
     categoriesFilm: string[]
   ): void {
@@ -191,9 +247,10 @@ export class FilmEditFormComponent implements OnInit {
         categorie =>
           categoriesFilm.includes(categorie.categorie)
       );
+
   }
 
-  // Ajouter une catégorie
+
   ajouterCategorie(): void {
 
     if (
@@ -207,44 +264,61 @@ export class FilmEditFormComponent implements OnInit {
       this.categoriesSelectionnees.push(
         this.categorieSelectionnee
       );
+
     }
 
     this.categorieSelectionnee = null;
   }
 
-  // Retirer une catégorie
+
   retirerCategorie(categorie: Categorie): void {
 
     this.categoriesSelectionnees =
       this.categoriesSelectionnees.filter(
         c => c.id !== categorie.id
       );
+
   }
 
-  // --------------------------------
-  // Réalisateurs
-  // --------------------------------
 
-  // Récupérer tous les réalisateurs
+  // =================================
+  // Réalisateurs
+  // =================================
+
   chargerRealisateurs(): void {
 
     this.realisateursService.getAllRealisateurs().subscribe({
+
       next: (realisateurs: Realisateurs[]) => {
 
         this.realisateurs = realisateurs;
 
+        // On recharge les réalisateurs existants
+        // une fois la liste complète récupérée.
+        this.chargerRealisateursSelectionnes(
+          this.realisateursFilm
+        );
+
       },
 
       error: (erreur) => {
+
         console.error(
           'Erreur lors du chargement des réalisateurs :',
           erreur
         );
+
       }
+
     });
+
   }
 
-  // Retrouver les réalisateurs déjà associés au film
+
+  // Réalisateurs renvoyés par le détail du film
+  realisateursFilm: string[] = [];
+
+
   chargerRealisateursSelectionnes(
     realisateursFilm: string[]
   ): void {
@@ -253,51 +327,99 @@ export class FilmEditFormComponent implements OnInit {
       return;
     }
 
-    this.realisateursSelectionnes =
+    this.realisateursFilm = realisateursFilm;
+
+    if (this.realisateurs.length === 0) {
+      return;
+    }
+
+    this.realisateursExistants =
       this.realisateurs.filter(
         realisateur =>
           realisateursFilm.includes(
             realisateur.prenom + ' ' + realisateur.nom
           )
       );
+
   }
 
-  // Ajouter un réalisateur
+
   ajouterRealisateur(): void {
 
-    if (
-      this.realisateurSelectionne &&
-      !this.realisateursSelectionnes.some(
-        realisateur =>
-          realisateur.id === this.realisateurSelectionne!.id
-      )
-    ) {
-
-      this.realisateursSelectionnes.push(
-        this.realisateurSelectionne
-      );
+    if (!this.realisateurSelectionne) {
+      return;
     }
 
-    this.realisateurSelectionne = null;
-  }
 
-  // Retirer un réalisateur
-  retirerRealisateur(realisateur: Realisateurs): void {
+    const id =
+      this.realisateurSelectionne.id;
 
-    this.realisateursSelectionnes =
-      this.realisateursSelectionnes.filter(
-        r => r.id !== realisateur.id
+
+    // Vérifie s'il existe déjà
+    // parmi les réalisateurs existants
+    const existeDeja =
+      this.realisateursExistants.some(
+        realisateur =>
+          realisateur.id === id
       );
+
+
+    // Vérifie également les nouveaux
+    const dejaAjoute =
+      this.nouveauxRealisateurs.some(
+        realisateur =>
+          realisateur.id === id
+      );
+
+
+    if (!existeDeja && !dejaAjoute) {
+
+      this.nouveauxRealisateurs.push(
+        this.realisateurSelectionne
+      );
+
+    }
+
+
+    this.realisateurSelectionne = null;
+
   }
 
-  // --------------------------------
-  // Acteurs
-  // --------------------------------
 
-  // Récupérer tous les acteurs
+  retirerRealisateurExistant(
+    realisateurId: number
+  ): void {
+
+    this.realisateursExistants =
+      this.realisateursExistants.filter(
+        realisateur =>
+          realisateur.id !== realisateurId
+      );
+
+  }
+
+
+  retirerNouveauRealisateur(
+    realisateurId: number
+  ): void {
+
+    this.nouveauxRealisateurs =
+      this.nouveauxRealisateurs.filter(
+        realisateur =>
+          realisateur.id !== realisateurId
+      );
+
+  }
+
+
+  // =================================
+  // Acteurs
+  // =================================
+
   chargerActeurs(): void {
 
     this.acteursService.getAllActeurs().subscribe({
+
       next: (acteurs: Acteurs[]) => {
 
         this.acteurs = acteurs;
@@ -305,100 +427,241 @@ export class FilmEditFormComponent implements OnInit {
       },
 
       error: (erreur) => {
+
         console.error(
           'Erreur lors du chargement des acteurs :',
           erreur
         );
+
       }
+
     });
+
   }
 
-  // Ajouter un acteur à la relation
+
   ajouterActeur(): void {
 
-    if (
-      this.acteurSelectionne &&
-      !this.acteursSelectionnes.some(
-        acteur =>
-          acteur.acteurId === this.acteurSelectionne!.id
-      )
-    ) {
-
-      this.acteursSelectionnes.push({
-        acteurId: this.acteurSelectionne.id!,
-        role: ''
-      });
+    if (!this.acteurSelectionne) {
+      return;
     }
 
+
+    const acteurId =
+      this.acteurSelectionne.id!;
+
+
+    // Vérifier s'il est déjà présent
+    // dans les acteurs existants
+    const existeDeja =
+      this.acteursExistants.some(
+        acteur =>
+          acteur.id === acteurId
+      );
+
+
+    // Vérifier s'il vient déjà
+    // d'être ajouté
+    const dejaAjoute =
+      this.nouveauxActeurs.some(
+        acteur =>
+          acteur.acteurId === acteurId
+      );
+
+
+    if (!existeDeja && !dejaAjoute) {
+
+      this.nouveauxActeurs.push({
+
+        acteurId: acteurId,
+
+        role: ''
+
+      });
+
+    }
+
+
     this.acteurSelectionne = null;
+
   }
 
-  // Retirer une relation acteur/film
-  retirerActeur(acteurId: number): void {
 
-    this.acteursSelectionnes =
-      this.acteursSelectionnes.filter(
+  retirerActeurExistant(
+    acteurId: number
+  ): void {
+
+    this.acteursExistants =
+      this.acteursExistants.filter(
+        acteur =>
+          acteur.id !== acteurId
+      );
+
+  }
+
+
+  retirerNouvelActeur(
+    acteurId: number
+  ): void {
+
+    this.nouveauxActeurs =
+      this.nouveauxActeurs.filter(
         acteur =>
           acteur.acteurId !== acteurId
       );
+
   }
 
-  // --------------------------------
+
+  getNomActeur(
+    acteurId: number
+  ): string {
+
+    const acteur =
+      this.acteurs.find(
+        a => a.id === acteurId
+      );
+
+    if (!acteur) {
+      return '';
+    }
+
+    return acteur.prenom + ' ' + acteur.nom;
+
+  }
+
+
+  // =================================
   // Modification du film
-  // --------------------------------
+  // =================================
 
   modifierFilm(): void {
 
-    const dateSortie = new Date(
-      this.film.dateSortie
-    ).getTime();
+    const dateSortie =
+      new Date(
+        this.film.dateSortie
+      ).getTime();
+
+
+    // -----------------------------
+    // Données du film
+    // -----------------------------
 
     const film = new Films(
+
       this.film.id,
+
       this.film.titre,
+
       dateSortie,
+
       this.film.synopsis,
+
       this.film.image,
+
       this.film.noteMoyenne,
+
       this.film.resumeLong,
+
       this.film.duree
+
     );
 
-    // Récupérer uniquement les IDs des catégories
+
+    // -----------------------------
+    // Catégories
+    // -----------------------------
+
     const categories =
       this.categoriesSelectionnees.map(
-        categorie => categorie.id
+        categorie =>
+          categorie.id
       );
 
-    // Récupérer uniquement les IDs des réalisateurs
+
+    // -----------------------------
+    // Réalisateurs
+    // -----------------------------
+
+    const tousLesRealisateurs = [
+
+      ...this.realisateursExistants,
+
+      ...this.nouveauxRealisateurs
+
+    ];
+
+
     const realisateurs =
-      this.realisateursSelectionnes.map(
-        realisateur => realisateur.id
+      tousLesRealisateurs.map(
+        realisateur =>
+          realisateur.id
       );
 
-    // Acteurs + rôles
-    const acteurs =
-      this.acteursSelectionnes.map(
+
+    // -----------------------------
+    // Acteurs
+    // -----------------------------
+
+    const acteursExistants =
+      this.acteursExistants.map(
         acteur => ({
-          acteurId: acteur.acteurId,
+
+          acteurId: acteur.id,
+
           role: acteur.role
+
         })
       );
 
+
+    const nouveauxActeurs =
+      this.nouveauxActeurs.map(
+        acteur => ({
+
+          acteurId: acteur.acteurId,
+
+          role: acteur.role
+
+        })
+      );
+
+
+    const acteurs = [
+
+      ...acteursExistants,
+
+      ...nouveauxActeurs
+
+    ];
+
+
+    // -----------------------------
     // Données envoyées au backend
+    // -----------------------------
+
     const donnees = {
+
       film: film,
+
       categories: categories,
+
       realisateurs: realisateurs,
+
       acteurs: acteurs
+
     };
+
 
     console.log(
       'Film modifié envoyé au backend :',
       donnees
     );
 
-    this.filmsService.updateFilms(donnees as any).subscribe({
+
+    this.filmsService.updateFilms(
+      donnees as any
+    ).subscribe({
 
       next: () => {
 
@@ -414,11 +677,20 @@ export class FilmEditFormComponent implements OnInit {
         );
 
       }
+
     });
+
   }
 
-  // Fermer le formulaire
+
+  // =================================
+  // Fermer
+  // =================================
+
   fermer(): void {
+
     this.close.emit();
+
   }
+
 }

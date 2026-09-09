@@ -191,19 +191,15 @@
 
 @if (isEditModalOpen) {
 
-  <div class="modal-overlay">
-
+  <div class="modal-overlay modal-edit">
     <div class="modal-content">
-
       <app-film-edit-form
         [filmId]="filmIdSelectionne"
         (close)="closeEditModal()"
         (filmUpdated)="filmModifie()"
       >
       </app-film-edit-form>
-
     </div>
-
   </div>
-
+  
 }

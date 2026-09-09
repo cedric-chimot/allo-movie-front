@@ -6,143 +6,178 @@
 
   <form (ngSubmit)="modifierFilm()" #filmForm="ngForm">
 
-    <!-- ================================ -->
-    <!-- INFORMATIONS DU FILM             -->
-    <!-- ================================ -->
+    <div class="form-columns">
 
-    <div class="form-group">
-      <label for="titre">Titre</label>
+      <!-- ================================= -->
+      <!-- COLONNE GAUCHE : FILM             -->
+      <!-- ================================= -->
 
-      <input
-        type="text"
-        id="titre"
-        name="titre"
-        [(ngModel)]="film.titre"
-        required
-        placeholder="Titre du film"
-      >
-    </div>
+      <div class="form-column">
 
-    <div class="form-group">
-      <label for="dateSortie">Date de sortie</label>
+        <h3 class="column-title">
+          Informations du film
+        </h3>
 
-      <input
-        type="date"
-        id="dateSortie"
-        name="dateSortie"
-        [(ngModel)]="film.dateSortie"
-        required
-      >
-    </div>
+        <div class="form-group">
+          <label for="titre">Titre</label>
 
-    <div class="form-group">
-      <label for="synopsis">Synopsis</label>
+          <input
+            type="text"
+            id="titre"
+            name="titre"
+            [(ngModel)]="film.titre"
+            required
+            placeholder="Titre du film"
+          >
+        </div>
 
-      <textarea
-        id="synopsis"
-        name="synopsis"
-        [(ngModel)]="film.synopsis"
-        required
-        rows="5"
-        placeholder="Synopsis du film"
-      ></textarea>
-    </div>
+        <div class="form-group">
+          <label for="dateSortie">Date de sortie</label>
 
-    <div class="form-group">
-      <label for="image">URL de l'affiche</label>
+          <input
+            type="date"
+            id="dateSortie"
+            name="dateSortie"
+            [(ngModel)]="film.dateSortie"
+            required
+          >
+        </div>
 
-      <input
-        type="text"
-        id="image"
-        name="image"
-        [(ngModel)]="film.image"
-        placeholder="https://..."
-      >
-    </div>
+        <div class="form-group">
+          <label for="synopsis">Synopsis</label>
 
-    <div class="form-group">
-      <label for="noteMoyenne">Note moyenne</label>
+          <textarea
+            id="synopsis"
+            name="synopsis"
+            [(ngModel)]="film.synopsis"
+            required
+            rows="3"
+            placeholder="Synopsis du film"
+          ></textarea>
+        </div>
 
-      <input
-        type="number"
-        id="noteMoyenne"
-        name="noteMoyenne"
-        [(ngModel)]="film.noteMoyenne"
-        min="0"
-        max="10"
-        step="0.1"
-        placeholder="0 à 10"
-      >
-    </div>
+        <div class="form-group">
+          <label for="resumeLong">Résumé long</label>
 
+          <textarea
+            id="resumeLong"
+            name="resumeLong"
+            [(ngModel)]="film.resumeLong"
+            rows="4"
+            placeholder="Ajouter le résumé long du film..."
+          ></textarea>
+        </div>
 
-    <!-- ================================ -->
-    <!-- CATÉGORIES                       -->
-    <!-- ================================ -->
+        <div class="form-group">
+          <label for="image">URL de l'affiche</label>
 
-    <div class="form-group">
+          <input
+            type="text"
+            id="image"
+            name="image"
+            [(ngModel)]="film.image"
+            placeholder="https://..."
+          >
+        </div>
 
-      <label for="categorie">
-        Catégories
-      </label>
+        <div class="form-group">
+          <label for="noteMoyenne">Note moyenne</label>
 
-      <div class="categorie-selection">
-
-        <select
-          id="categorie"
-          name="categorie"
-          [(ngModel)]="categorieSelectionnee"
-        >
-
-          <option [ngValue]="null">
-            -- Choisir une catégorie --
-          </option>
-
-          @for (categorie of categories; track categorie.id) {
-
-            <option [ngValue]="categorie">
-              {{ categorie.categorie }}
-            </option>
-
-          }
-
-        </select>
-
-        <button
-          type="button"
-          class="btn-add-categorie"
-          (click)="ajouterCategorie()"
-          [disabled]="!categorieSelectionnee"
-        >
-          Ajouter
-        </button>
+          <input
+            type="number"
+            id="noteMoyenne"
+            name="noteMoyenne"
+            [(ngModel)]="film.noteMoyenne"
+            min="0"
+            max="10"
+            step="0.1"
+            placeholder="0 à 10"
+          >
+        </div>
 
       </div>
 
 
-      <!-- Catégories déjà associées au film -->
+      <!-- ================================= -->
+      <!-- COLONNE DROITE : RELATIONS        -->
+      <!-- ================================= -->
 
-      @if (categoriesSelectionnees.length > 0) {
+      <div class="form-column">
 
-        <div class="categories-selectionnees">
+        <h3 class="column-title">
+          Relations
+        </h3>
 
-          @for (
-            categorie of categoriesSelectionnees;
-            track categorie.id
-          ) {
 
-            <div class="categorie-selectionnee">
+        <!-- ================================= -->
+        <!-- CATÉGORIES                        -->
+        <!-- ================================= -->
 
-              <span>
-                {{ categorie.categorie }}
-              </span>
+        <div class="form-group">
 
-              <button
-                type="button"
-                (click)="retirerCategorie(categorie)"
-              >
-                ×
-              </button>
+          <label for="categorie">
+            Catégories
+          </label>
+
+          <div class="categorie-selection">
+
+            <select
+              id="categorie"
+              name="categorie"
+              [(ngModel)]="categorieSelectionnee"
+            >
+
+              <option [ngValue]="null">
+                -- Choisir une catégorie --
+              </option>
+
+              @for (categorie of categories; track categorie.id) {
+
+                <option [ngValue]="categorie">
+                  {{ categorie.categorie }}
+                </option>
+
+              }
+
+            </select>
+
+            <button
+              type="button"
+              class="btn-add-categorie"
+              (click)="ajouterCategorie()"
+              [disabled]="!categorieSelectionnee"
+            >
+              Ajouter
+            </button>
+
+          </div>
+
+
+          @if (categoriesSelectionnees.length > 0) {
+
+            <div class="categories-selectionnees">
+
+              @for (
+                categorie of categoriesSelectionnees;
+                track categorie.id
+              ) {
+
+                <div class="categorie-selectionnee">
+
+                  <span>
+                    {{ categorie.categorie }}
+                  </span>
+
+                  <button
+                    type="button"
+                    (click)="retirerCategorie(categorie)"
+                  >
+                    ×
+                  </button>
+
+                </div>
+
+              }
 
             </div>
 
@@ -150,83 +185,120 @@
 
         </div>
 
-      }
 
-    </div>
+        <!-- ================================= -->
+        <!-- RÉALISATEURS                      -->
+        <!-- ================================= -->
+
+        <div class="form-group">
+
+          <label>
+            Réalisateur(s)
+          </label>
 
 
-    <!-- ================================ -->
-    <!-- RÉALISATEURS                     -->
-    <!-- ================================ -->
+          @if (realisateursExistants.length > 0) {
 
-    <div class="form-group">
+            <div class="relation-section">
 
-      <label for="realisateur">
-        Réalisateurs
-      </label>
+              @for (
+                realisateur of realisateursExistants;
+                track realisateur.id
+              ) {
 
-      <div class="categorie-selection">
+                <div class="relation-row">
 
-        <select
-          id="realisateur"
-          name="realisateur"
-          [(ngModel)]="realisateurSelectionne"
-        >
+                  <span class="relation-name">
+                    {{ realisateur.prenom }}
+                    {{ realisateur.nom }}
+                  </span>
 
-          <option [ngValue]="null">
-            -- Choisir un réalisateur --
-          </option>
+                  <button
+                    type="button"
+                    class="btn-remove-relation"
+                    (click)="retirerRealisateurExistant(realisateur.id!)"
+                  >
+                    ×
+                  </button>
 
-          @for (
-            realisateur of realisateurs;
-            track realisateur.id
-          ) {
+                </div>
 
-            <option [ngValue]="realisateur">
-              {{ realisateur.prenom }}
-              {{ realisateur.nom }}
-            </option>
+              }
+
+            </div>
 
           }
 
-        </select>
 
-        <button
-          type="button"
-          class="btn-add-categorie"
-          (click)="ajouterRealisateur()"
-          [disabled]="!realisateurSelectionne"
-        >
-          Ajouter
-        </button>
+          <div class="relation-add">
 
-      </div>
+            <select
+              id="realisateur"
+              name="realisateur"
+              [(ngModel)]="realisateurSelectionne"
+            >
+
+              <option [ngValue]="null">
+                -- Ajouter un réalisateur --
+              </option>
+
+              @for (
+                realisateur of realisateurs;
+                track realisateur.id
+              ) {
+
+                <option [ngValue]="realisateur">
+                  {{ realisateur.prenom }}
+                  {{ realisateur.nom }}
+                </option>
+
+              }
+
+            </select>
+
+            <button
+              type="button"
+              class="btn-add-categorie"
+              (click)="ajouterRealisateur()"
+              [disabled]="!realisateurSelectionne"
+            >
+              Ajouter
+            </button>
+
+          </div>
 
 
-      <!-- Réalisateurs déjà associés -->
+          @if (nouveauxRealisateurs.length > 0) {
 
-      @if (realisateursSelectionnes.length > 0) {
+            <div class="relation-section">
 
-        <div class="categories-selectionnees">
+              <div class="relation-title">
+                Nouveaux réalisateur(s)
+              </div>
 
-          @for (
-            realisateur of realisateursSelectionnes;
-            track realisateur.id
-          ) {
+              @for (
+                realisateur of nouveauxRealisateurs;
+                track realisateur.id
+              ) {
 
-            <div class="categorie-selectionnee">
+                <div class="relation-row">
 
-              <span>
-                {{ realisateur.prenom }}
-                {{ realisateur.nom }}
-              </span>
+                  <span class="relation-name">
+                    {{ realisateur.prenom }}
+                    {{ realisateur.nom }}
+                  </span>
 
-              <button
-                type="button"
-                (click)="retirerRealisateur(realisateur)"
-              >
-                ×
-              </button>
+                  <button
+                    type="button"
+                    class="btn-remove-relation"
+                    (click)="retirerNouveauRealisateur(realisateur.id!)"
+                  >
+                    ×
+                  </button>
+
+                </div>
+
+              }
 
             </div>
 
@@ -234,85 +306,142 @@
 
         </div>
 
-      }
 
-    </div>
+        <!-- ================================= -->
+        <!-- ACTEURS                           -->
+        <!-- ================================= -->
+
+        <div class="form-group">
+
+          <label>
+            Acteur(s)
+          </label>
 
 
-    <!-- ================================ -->
-    <!-- ACTEURS                          -->
-    <!-- ================================ -->
+          <!-- ACTEURS DÉJÀ ASSOCIÉS -->
 
-    <div class="form-group">
+          @if (acteursExistants.length > 0) {
 
-      <label for="acteur">
-        Acteurs
-      </label>
+            <div class="relation-section">
 
-      <div class="categorie-selection">
+              <div class="acteurs-associes">
 
-        <select
-          id="acteur"
-          name="acteur"
-          [(ngModel)]="acteurSelectionne"
-        >
+                @for (
+                  acteur of acteursExistants;
+                  track acteur.id
+                ) {
 
-          <option [ngValue]="null">
-            -- Choisir un acteur --
-          </option>
+                  <div class="acteur-row">
 
-          @for (
-            acteur of acteurs;
-            track acteur.id
-          ) {
+                    <span class="relation-name">
 
-            <option [ngValue]="acteur">
-              {{ acteur.prenom }}
-              {{ acteur.nom }}
-            </option>
+                      {{ acteur.prenom }}
+                      {{ acteur.nom }}
+
+                      <span class="acteur-role">
+                        — {{ acteur.role }}
+                      </span>
+
+                    </span>
+
+                    <button
+                      type="button"
+                      class="btn-remove-relation"
+                      (click)="retirerActeurExistant(acteur.id)"
+                    >
+                      ×
+                    </button>
+
+                  </div>
+
+                }
+
+              </div>
+
+            </div>
 
           }
 
-        </select>
 
-        <button
-          type="button"
-          class="btn-add-categorie"
-          (click)="ajouterActeur()"
-          [disabled]="!acteurSelectionne"
-        >
-          Ajouter
-        </button>
+          <!-- AJOUTER UN ACTEUR -->
 
-      </div>
+          <div class="relation-add">
+
+            <select
+              id="acteur"
+              name="acteur"
+              [(ngModel)]="acteurSelectionne"
+            >
+
+              <option [ngValue]="null">
+                -- Ajouter un acteur --
+              </option>
+
+              @for (
+                acteur of acteurs;
+                track acteur.id
+              ) {
+
+                <option [ngValue]="acteur">
+                  {{ acteur.prenom }}
+                  {{ acteur.nom }}
+                </option>
+
+              }
+
+            </select>
+
+            <button
+              type="button"
+              class="btn-add-categorie"
+              (click)="ajouterActeur()"
+              [disabled]="!acteurSelectionne"
+            >
+              Ajouter
+            </button>
+
+          </div>
 
 
-      <!-- Acteurs déjà associés -->
+          <!-- NOUVEAUX ACTEURS -->
 
-      @if (acteursSelectionnes.length > 0) {
+          @if (nouveauxActeurs.length > 0) {
 
-        <div class="acteurs-selectionnes">
+            <div class="relation-section">
 
-          @for (
-            acteur of acteursSelectionnes;
-            track acteur.acteurId
-          ) {
+              <div class="relation-title">
+                Nouveaux acteurs
+              </div>
 
-            <div class="acteur-selectionne">
+              @for (
+                acteur of nouveauxActeurs;
+                track acteur.acteurId
+              ) {
 
-              <input
-                type="text"
-                [(ngModel)]="acteur.role"
-                name="role-{{ acteur.acteurId }}"
-                placeholder="Rôle"
-              >
+                <div class="acteur-row">
 
-              <button
-                type="button"
-                (click)="retirerActeur(acteur.acteurId)"
-              >
-                ×
-              </button>
+                  <span class="relation-name">
+                    {{ getNomActeur(acteur.acteurId) }}
+                  </span>
+
+                  <input
+                    type="text"
+                    [(ngModel)]="acteur.role"
+                    name="role-nouveau-{{ acteur.acteurId }}"
+                    placeholder="Rôle"
+                  >
+
+                  <button
+                    type="button"
+                    class="btn-remove-relation"
+                    (click)="retirerNouvelActeur(acteur.acteurId)"
+                  >
+                    ×
+                  </button>
+
+                </div>
+
+              }
 
             </div>
 
@@ -320,14 +449,14 @@
 
         </div>
 
-      }
+      </div>
 
     </div>
 
 
-    <!-- ================================ -->
-    <!-- BOUTONS                          -->
-    <!-- ================================ -->
+    <!-- ================================= -->
+    <!-- BOUTONS                            -->
+    <!-- ================================= -->
 
     <div class="form-actions">
 

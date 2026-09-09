@@ -4,20 +4,44 @@
 
 .form-title {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 12px;
   color: #2C3E50;
   text-transform: uppercase;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
+
+.form-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+}
+
+.form-column {
+  min-width: 0;
+}
+
+.column-title {
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #2C3E50;
+  color: #2C3E50;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+
+
+/* ================================ */
+/* CHAMPS DU FORMULAIRE             */
+/* ================================ */
 
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-bottom: 9px;
 }
 
 .form-group label {
-  margin-bottom: 7px;
+  margin-bottom: 4px;
   font-weight: bold;
   color: #2C3E50;
 }
@@ -26,10 +50,10 @@
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 7px 9px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   box-sizing: border-box;
 }
 
@@ -47,26 +71,213 @@
 
 
 /* ================================ */
-/* Boutons                          */
+/* AJOUT RELATION                    */
+/* ================================ */
+
+.categorie-selection,
+.relation-add {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+}
+
+.categorie-selection select,
+.relation-add select {
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-add-categorie {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2C3E50 !important;
+  color: white !important;
+  cursor: pointer;
+}
+
+.btn-add-categorie:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ================================ */
+/* CATÉGORIES                        */
+/* ================================ */
+
+.categories-selectionnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.categorie-selectionnee {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: #e9ecef;
+}
+
+.categorie-selectionnee button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 17px;
+  height: 17px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+
+/* ================================ */
+/* RELATIONS                         */
+/* ================================ */
+
+.relation-section {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.relation-title {
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.relation-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 4px;
+  padding: 5px 8px;
+
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.relation-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.88rem;
+}
+
+.acteur-role {
+  color: #666;
+  font-size: 0.84rem;
+}
+
+
+/* ================================ */
+/* ACTEURS                           */
+/* ================================ */
+
+.acteurs-associes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.acteurs-associes .acteur-row {
+  margin-bottom: 0;
+}
+
+.acteur-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.acteur-row .relation-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.acteur-role {
+  color: #666;
+  font-size: 0.84rem;
+}
+
+.acteur-row input {
+  width: 125px;
+  padding: 6px 8px;
+  font-size: 0.88rem;
+}
+
+
+/* ================================ */
+/* BOUTON SUPPRIMER                  */
+/* ================================ */
+
+.btn-remove-relation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 21px;
+  height: 21px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #f70101;
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1;
+}
+
+.btn-remove-relation:hover {
+  opacity: 0.8;
+}
+
+
+/* ================================ */
+/* BOUTONS DU FORMULAIRE             */
 /* ================================ */
 
 .form-actions {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 25px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .btn-cancel,
-.btn-submit,
-.btn-add-categorie {
+.btn-submit {
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 0.95rem;
+
+  padding: 9px 18px;
+
+  font-size: 0.9rem;
   text-transform: uppercase;
+
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .btn-cancel {
@@ -74,114 +285,12 @@
   color: white;
 }
 
-.btn-submit,
-.btn-add-categorie {
+.btn-submit {
   background-color: #2C3E50 !important;
   color: white !important;
 }
 
-
-/* ================================ */
-/* Zone de sélection                */
-/* ================================ */
-
-.categorie-selection {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.categorie-selection select {
-  flex: 1;
-  min-width: 0;
-}
-
-
-/* ================================ */
-/* Bouton Ajouter                   */
-/* ================================ */
-
-.btn-add-categorie {
-  flex-shrink: 0;
-  padding: 8px 14px;
-  border-radius: 6px;
-}
-
-
-/* ================================ */
-/* Éléments sélectionnés            */
-/* ================================ */
-
-.categories-selectionnees {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.categorie-selectionnee {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 9px;
-  border-radius: 15px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-
-/* ================================ */
-/* Bouton X                         */
-/* ================================ */
-
-.categorie-selectionnee button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 15px;
-  line-height: 1;
-}
-
-
-/* ================================ */
-/* Acteurs sélectionnés             */
-/* ================================ */
-
-.acteurs-selectionnes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.acteur-selectionne {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.acteur-selectionne input {
-  flex: 1;
-  min-width: 0;
-}
-
-.acteur-selectionne button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 15px;
-  line-height: 1;
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
