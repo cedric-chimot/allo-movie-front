@@ -108,4 +108,5 @@ export class ActeursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerActeurs();
   }
+  
 }

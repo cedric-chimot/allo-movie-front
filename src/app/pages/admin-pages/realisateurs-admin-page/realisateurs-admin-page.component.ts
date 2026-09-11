@@ -5,21 +5,22 @@ import { RouterModule } from '@angular/router';
 import { RealisateursService } from '../../../services/realisateurs/realisateurs.service';
 import { Realisateurs } from '../../../models/tables/Realisateurs';
 import { RealisateurFormComponent } from "../../../forms/realisateur-form/realisateur-form.component";
+import { RealisateurEditFormComponent } from '../../../forms/realisateur-edit-form/realisateur-edit-form.component';
 
 @Component({
   selector: 'app-realisateurs-admin',
-  imports: [
-    CommonModule,
-    RouterModule,
-    RealisateurFormComponent  
-],
+  imports: [ CommonModule, RouterModule, RealisateurFormComponent, RealisateurEditFormComponent ],
   templateUrl: './realisateurs-admin-page.component.html',
   styleUrls: ['./realisateurs-admin-page.component.css']
 })
 export class RealisateursAdminPageComponent implements OnInit {
 
   realisateurs: Realisateurs[] = [];
+
   isAddModalOpen = false;
+  isEditModalOpen = false;
+
+  realisateurIdSelectionne!: number;
 
   // Pagination
   currentPage = 1;
@@ -77,4 +78,20 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerRealisateurs();
   }
+
+  openEditModal(realisateurId: number): void {
+    this.realisateurIdSelectionne = realisateurId;
+    this.isEditModalOpen = true;
+  }
+
+  closeEditModal(): void {
+    this.isEditModalOpen = false;
+  }
+
+  realisateurModifie(): void {
+    this.closeEditModal();
+    this.currentPage = 1;
+    this.chargerRealisateurs();
+  }
+
 }
