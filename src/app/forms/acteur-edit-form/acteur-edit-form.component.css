@@ -49,27 +49,32 @@
 
 .form-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 12px;
 }
 
 .btn-cancel,
 .btn-submit {
   border: none;
+  border-radius: 8px;
+
   padding: 9px 18px;
-  border-radius: 6px;
+
+  font-size: 0.9rem;
+  text-transform: uppercase;
+
   cursor: pointer;
-  font-size: 0.95rem;
 }
 
 .btn-cancel {
-  background-color: #ddd;
+  background-color: #f70101;
+  color: white;
 }
 
 .btn-submit {
-  background-color: #198754;
-  color: white;
+  background-color: #2C3E50 !important;
+  color: white !important;
 }
 
 .btn-submit:disabled {

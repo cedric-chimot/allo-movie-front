@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilmAdminPageComponent } from './film-admin-page.component';
+import { FilmsAdminPageComponent } from './film-admin-page.component';
 
 describe('FilmAdminPageComponent', () => {
-  let component: FilmAdminPageComponent;
-  let fixture: ComponentFixture<FilmAdminPageComponent>;
+  let component: FilmsAdminPageComponent;
+  let fixture: ComponentFixture<FilmsAdminPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FilmAdminPageComponent]
+      imports: [FilmsAdminPageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FilmAdminPageComponent);
+    fixture = TestBed.createComponent(FilmsAdminPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

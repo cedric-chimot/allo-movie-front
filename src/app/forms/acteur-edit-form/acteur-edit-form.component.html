@@ -56,19 +56,19 @@
     <div class="form-actions">
 
       <button
-        type="button"
-        class="btn-cancel"
-        (click)="fermer()"
-      >
-        Annuler
-      </button>
-
-      <button
         type="submit"
         class="btn-submit"
         [disabled]="acteurForm.invalid"
       >
         Modifier
+      </button>
+
+      <button
+        type="button"
+        class="btn-cancel"
+        (click)="fermer()"
+      >
+        Annuler
       </button>
 
     </div>

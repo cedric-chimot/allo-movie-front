@@ -60,6 +60,7 @@
                     <button
                       class="btn update btn-sm"
                       type="button"
+                      (click)="openEditModal(acteur.id!)"
                     >
                       <i class="fa-solid fa-pen-nib"></i>
                     </button>
@@ -161,4 +162,21 @@
 
   </div>
 
+}
+
+@if (isEditModalOpen) {
+  <div class="modal-overlay">
+
+    <div class="modal-content">
+
+      <app-acteur-edit-form
+        [acteurId]="acteurIdSelectionne"
+        (close)="closeEditModal()"
+        (acteurUpdated)="acteurModifie()"
+      >
+      </app-acteur-edit-form>
+
+    </div>
+
+  </div>
 }

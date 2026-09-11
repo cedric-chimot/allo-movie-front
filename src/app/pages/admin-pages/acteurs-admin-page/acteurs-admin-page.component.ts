@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { ActeursService } from '../../../services/acteurs/acteurs.service';
 import { Acteurs } from '../../../models/tables/Acteurs';
-import { ActeurFormComponent } from "../../../forms/acteur-form/acteur-form.component";
+
+import { ActeurFormComponent } from '../../../forms/acteur-form/acteur-form.component';
+import { ActeurEditFormComponent } from '../../../forms/acteur-edit-form/acteur-edit-form.component';
 
 @Component({
   selector: 'app-acteurs-admin-page',
   imports: [
     CommonModule,
     RouterModule,
-    ActeurFormComponent
+    ActeurFormComponent,
+    ActeurEditFormComponent
   ],
   templateUrl: './acteurs-admin-page.component.html',
   styleUrls: ['./acteurs-admin-page.component.css']
@@ -19,7 +23,11 @@ import { ActeurFormComponent } from "../../../forms/acteur-form/acteur-form.comp
 export class ActeursAdminPageComponent implements OnInit {
 
   acteurs: Acteurs[] = [];
+
   isAddModalOpen = false;
+  isEditModalOpen = false;
+
+  acteurIdSelectionne!: number;
 
   // Pagination
   currentPage = 1;
@@ -48,18 +56,26 @@ export class ActeursAdminPageComponent implements OnInit {
   }
 
   get acteursPagines(): Acteurs[] {
-    const debut = (this.currentPage - 1) * this.acteursParPage;
-    const fin = debut + this.acteursParPage;
+    const debut =
+      (this.currentPage - 1) * this.acteursParPage;
+
+    const fin =
+      debut + this.acteursParPage;
 
     return this.acteurs.slice(debut, fin);
   }
 
   get nombrePages(): number {
-    return Math.ceil(this.acteurs.length / this.acteursParPage);
+    return Math.ceil(
+      this.acteurs.length / this.acteursParPage
+    );
   }
 
   changerPage(page: number): void {
-    if (page >= 1 && page <= this.nombrePages) {
+    if (
+      page >= 1 &&
+      page <= this.nombrePages
+    ) {
       this.currentPage = page;
     }
   }
@@ -74,6 +90,21 @@ export class ActeursAdminPageComponent implements OnInit {
 
   acteurAjoute(): void {
     this.closeModal();
+    this.currentPage = 1;
+    this.chargerActeurs();
+  }
+
+  openEditModal(acteurId: number): void {
+    this.acteurIdSelectionne = acteurId;
+    this.isEditModalOpen = true;
+  }
+
+  closeEditModal(): void {
+    this.isEditModalOpen = false;
+  }
+
+  acteurModifie(): void {
+    this.closeEditModal();
     this.currentPage = 1;
     this.chargerActeurs();
   }
