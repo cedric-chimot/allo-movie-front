@@ -1,0 +1,83 @@
+.edit-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.btn-close {
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-cancel,
+.btn-submit {
+  border: none;
+  border-radius: 8px;
+
+  padding: 9px 18px;
+
+  font-size: 0.9rem;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #f70101;
+  color: white;
+}
+
+.btn-submit {
+  background-color: #2C3E50 !important;
+  color: white !important;
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

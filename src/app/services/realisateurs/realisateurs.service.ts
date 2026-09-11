@@ -22,17 +22,17 @@ export class RealisateursService {
   }
 
   // Trouver un réalisateur par son ID
-  getRealisateursById(id: number): Observable<Realisateurs> {
+  getRealisateurById(id: number): Observable<Realisateurs> {
     return this.http.get<Realisateurs>(`${this.apiUrl}/${id}`);
   }
 
   // Mettre à jour un réalisateur
-  updateRealisateurs(realisateur: Realisateurs): Observable<Realisateurs> {
+  updateRealisateur(realisateur: Realisateurs): Observable<Realisateurs> {
     return this.http.put<Realisateurs>(`${this.apiUrl}/update`, realisateur);
   }
 
   // Supprimer un réalisateur par son ID
-  deleteRealisateursById(id: number): Observable<Realisateurs> {
+  deleteRealisateurById(id: number): Observable<Realisateurs> {
     return this.http.delete<Realisateurs>(`${this.apiUrl}/delete/${id}`);
   }
 
