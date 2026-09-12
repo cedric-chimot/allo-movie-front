@@ -97,6 +97,10 @@ _En cliquant sur le cœur, on ajoute le film en favori._
 <img width="1919" height="826" alt="Capture d&#39;écran 2026-09-02 212821" src="https://github.com/user-attachments/assets/3ccf5b73-9409-4c76-8008-15f3c0a74f67" />
 <img width="1919" height="943" alt="Capture d&#39;écran 2026-09-02 212911" src="https://github.com/user-attachments/assets/1741f906-74fc-487e-b305-ef20ac15df05" />
 
+#### _Dashboard Admin, gestion des films avec modification des films :_
+
+<img width="1919" height="943" alt="Capture d&#39;écran 2026-09-12 023833" src="https://github.com/user-attachments/assets/2761ceb7-a008-42a4-bd14-c8537ed2811b" />
+
 
 #### _Dashboard Admin, gestion des réalisateurs :_
 
