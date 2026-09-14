@@ -5,16 +5,11 @@
 }
 
 .footer {
-  width: calc(100% + 24px);
-  margin-left: -12px;
-
+  width: 100%;
   background-color: #2C3E50;
   color: #F1C40F;
-
   padding: 15px 0;
-
   text-align: center;
-
   border-top: 1px solid #e6ebf6;
   box-sizing: border-box;
 }
@@ -23,11 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
-
   margin: 0;
 }
 
@@ -40,4 +33,3 @@
   color: #F1C40F;
   vertical-align: middle;
 }
-
