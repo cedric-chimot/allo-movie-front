@@ -5,21 +5,22 @@ import { RouterModule } from '@angular/router';
 import { CategorieService } from '../../../services/categorie/categorie.service';
 import { Categorie } from '../../../models/tables/Categorie';
 import { CategorieFormComponent } from "../../../forms/categorie-form/categorie-form.component";
+import { CategorieEditFormComponent } from '../../../forms/categorie-edit-form/categorie-edit-form.component';
 
 @Component({
   selector: 'app-categories-admin-page',
-  imports: [
-    CommonModule,
-    RouterModule,
-    CategorieFormComponent
-  ],
+  imports: [CommonModule, RouterModule, CategorieFormComponent, CategorieEditFormComponent],
   templateUrl: './categories-admin-page.component.html',
-  styleUrl: './categories-admin-page.component.css'
+  styleUrls: ['./categories-admin-page.component.css']
 })
 export class CategoriesAdminPageComponent implements OnInit {
 
   categorie: Categorie[] = [];
+
   isAddModalOpen = false;
+  isEditModalOpen = false;
+
+  categorieIdSelectionne!: number;
 
   // Pagination
   currentPage = 1;
@@ -77,4 +78,21 @@ export class CategoriesAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerCategorie();
   }
+
+
+  openEditModal(categorieId: number): void {
+    this.categorieIdSelectionne = categorieId;
+    this.isEditModalOpen = true;
+  }
+
+  closeEditModal(): void {
+    this.isEditModalOpen = false;
+  }
+
+  categorieModifie(): void {
+    this.closeEditModal();
+    this.currentPage = 1;
+    this.chargerCategorie();
+  }
+
 }
