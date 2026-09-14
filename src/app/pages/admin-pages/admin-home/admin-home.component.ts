@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FilmsService } from '../../../services/films/films.service';
+import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -12,15 +13,18 @@ import { FilmsService } from '../../../services/films/films.service';
 export class AdminHomeComponent implements OnInit {
 
   nombreFilms = 0;
+  nombreUsers = 0;
 
   constructor(
     private router: Router,
-    private filmsService: FilmsService
+    private filmsService: FilmsService,
+    private usersService: UsersService
   ) {}
 
   ngOnInit(): void {
     this.checkAccess();
     this.chargerNombreFilms();
+    this.chargerNombreUsers();
   }
 
   private checkAccess(): void {
@@ -55,4 +59,19 @@ export class AdminHomeComponent implements OnInit {
       }
     });
   }
+
+  private chargerNombreUsers(): void {
+    this.usersService.getAllUsers().subscribe({
+      next: (users) => {
+        this.nombreUsers = users.length;
+      },
+      error: (erreur) => {
+        console.error(
+          'Erreur lors du chargement du nombre dutilisateurs :',
+          erreur
+        );
+      }
+    });
+  }
 }
+
