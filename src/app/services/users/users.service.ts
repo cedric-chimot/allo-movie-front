@@ -26,6 +26,10 @@ export class UsersService {
     return this.http.get<Users[]>(`${this.apiUrl}/all`);
   }
 
+  getAllUsersNonAdmin(): Observable<Users[]> {
+    return this.http.get<Users[]>(`${this.apiUrl}/all/non-admin`);
+  }
+
   // Trouver un utilisateur par son ID
   getUserById(id: number): Observable<Users> {
     return this.http.get<Users>(`${this.apiUrl}/${id}`);

@@ -10,6 +10,7 @@ import { FilmsAdminPageComponent } from './pages/admin-pages/film-admin-page/fil
 import { RealisateursAdminPageComponent } from './pages/admin-pages/realisateurs-admin-page/realisateurs-admin-page.component';
 import { ActeursAdminPageComponent } from './pages/admin-pages/acteurs-admin-page/acteurs-admin-page.component';
 import { CategoriesAdminPageComponent } from './pages/admin-pages/categories-admin-page/categories-admin-page.component';
+import { UsersAdminPageComponent } from './pages/admin-pages/users-admin-page/users-admin-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'admin-directors', component: RealisateursAdminPageComponent },
   { path: 'admin-actors', component: ActeursAdminPageComponent },
   { path: 'admin-categories', component: CategoriesAdminPageComponent },
+  { path: 'admin-users', component: UsersAdminPageComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'films', component: FilmsPageComponent },
   { path: 'films/:id', component: FilmDetailPageComponent }
