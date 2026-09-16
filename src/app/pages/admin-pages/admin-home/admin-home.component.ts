@@ -61,9 +61,9 @@ export class AdminHomeComponent implements OnInit {
   }
 
   private chargerNombreUsers(): void {
-    this.usersService.getAllUsers().subscribe({
+    this.usersService.getNbUsers().subscribe({
       next: (users) => {
-        this.nombreUsers = users.length;
+        this.nombreUsers = users;
       },
       error: (erreur) => {
         console.error(
