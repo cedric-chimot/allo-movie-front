@@ -110,8 +110,7 @@
   margin-right: 6px;
 }
 
-.update,
-.confirm {
+.update {
   background-color: #2C3E50;
   color: #ffffff;
 }
@@ -174,6 +173,18 @@
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #2C3E50;
+}
+
+.confirm {
+  text-transform: uppercase;
+  background-color: #2C3E50;
+  color: #ffffff;
+}
+
+.danger {
+  text-transform: uppercase;
+  background-color: #e74c3c;
+  color: #ffffff;
 }
 
 .confirmation-message {

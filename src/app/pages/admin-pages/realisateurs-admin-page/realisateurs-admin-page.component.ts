@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { RealisateursService } from '../../../services/realisateurs/realisateurs.service';
 import { Realisateurs } from '../../../models/tables/Realisateurs';
-import { RealisateurFormComponent } from "../../../forms/realisateur-form/realisateur-form.component";
+
+import { RealisateurFormComponent } from '../../../forms/realisateur-form/realisateur-form.component';
 import { RealisateurEditFormComponent } from '../../../forms/realisateur-edit-form/realisateur-edit-form.component';
 
 @Component({
@@ -19,8 +20,11 @@ export class RealisateursAdminPageComponent implements OnInit {
 
   isAddModalOpen = false;
   isEditModalOpen = false;
+  isDeleteModalOpen = false;
 
   realisateurIdSelectionne!: number;
+
+  realisateurSelectionnePourSuppression: Realisateurs | null = null;
 
   // Pagination
   currentPage = 1;
@@ -49,14 +53,18 @@ export class RealisateursAdminPageComponent implements OnInit {
   }
 
   get realisateursPagines(): Realisateurs[] {
-    const debut = (this.currentPage - 1) * this.realisateursParPage;
+    const debut =
+      (this.currentPage - 1) * this.realisateursParPage;
+
     const fin = debut + this.realisateursParPage;
 
     return this.realisateurs.slice(debut, fin);
   }
 
   get nombrePages(): number {
-    return Math.ceil(this.realisateurs.length / this.realisateursParPage);
+    return Math.ceil(
+      this.realisateurs.length / this.realisateursParPage
+    );
   }
 
   changerPage(page: number): void {
@@ -64,6 +72,10 @@ export class RealisateursAdminPageComponent implements OnInit {
       this.currentPage = page;
     }
   }
+
+  // =========================
+  // AJOUT
+  // =========================
 
   openAddModal(): void {
     this.isAddModalOpen = true;
@@ -78,6 +90,10 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerRealisateurs();
   }
+
+  // =========================
+  // MODIFICATION
+  // =========================
 
   openEditModal(realisateurId: number): void {
     this.realisateurIdSelectionne = realisateurId;
@@ -94,4 +110,63 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.chargerRealisateurs();
   }
 
+  // =========================
+  // SUPPRESSION
+  // =========================
+
+  openDeleteModal(realisateur: Realisateurs): void {
+    this.realisateurSelectionnePourSuppression = realisateur;
+    this.isDeleteModalOpen = true;
+  }
+
+  closeDeleteModal(): void {
+    this.isDeleteModalOpen = false;
+    this.realisateurSelectionnePourSuppression = null;
+  }
+
+  confirmDeleteRealisateur(): void {
+
+    if (
+      this.realisateurSelectionnePourSuppression &&
+      this.realisateurSelectionnePourSuppression.id
+    ) {
+
+      this.realisateursService
+        .deleteRealisateurById(
+          this.realisateurSelectionnePourSuppression.id
+        )
+        .subscribe({
+
+          next: () => {
+
+            this.closeDeleteModal();
+
+            this.chargerRealisateurs();
+
+            // Si la suppression vide la dernière page
+            if (
+              this.currentPage > this.nombrePages &&
+              this.nombrePages > 0
+            ) {
+              this.currentPage = this.nombrePages;
+            }
+          },
+
+          error: (erreur) => {
+            console.error(
+              'Erreur lors de la suppression du réalisateur :',
+              erreur
+            );
+          }
+
+        });
+
+    } else {
+
+      console.error(
+        'Aucun réalisateur sélectionné pour suppression'
+      );
+
+    }
+  }
 }
