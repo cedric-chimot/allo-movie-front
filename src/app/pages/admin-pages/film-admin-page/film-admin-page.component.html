@@ -5,13 +5,23 @@
       Gestion des films
     </h1>
 
-    <button
-      class="btn-add-film"
-      type="button"
-      (click)="openAddModal()"
-    >
-      Ajouter un film
-    </button>
+    <div class="header-actions">
+      <button
+        class="btn-add-film"
+        type="button"
+        (click)="openAddModal()"
+      >
+        Ajouter un film
+      </button>
+
+      <button
+        class="btn-delete-film"
+        type="button"
+      >
+        Supprimer tous les films
+      </button>
+    </div>
+
   </div>
 
   @if (films.length > 0) {

@@ -27,13 +27,32 @@
   margin: 0;
 }
 
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 
 /* ========================= */
-/* BOUTON AJOUTER UN FILM */
+/* BOUTONS AJOUTER/SUPPRIMER */
 /* ========================= */
 
 .btn-add-film {
   background-color: #2C3E50;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-film {
+  background-color: #e74c3c;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -51,7 +70,14 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-add-film:active {
+.btn-delete-film:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-film:active,
+.btn-delete-film:active {
   transform: translateY(0);
 }
 

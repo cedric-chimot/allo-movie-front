@@ -27,8 +27,15 @@
   margin: 0;
 }
 
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
 /* ========================= */
-/* BOUTON AJOUTER */
+/* BOUTONS AJOUTER/SUPPRIMER */
 /* ========================= */
 
 .btn-add-realisateur {
@@ -36,7 +43,20 @@
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  padding: 12px 22px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-realisateur {
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -50,9 +70,17 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-add-realisateur:active {
+.btn-delete-realisateur:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-realisateur:active,
+.btn-delete-realisateur:active {
   transform: translateY(0);
 }
+
 
 /* ========================= */
 /* TABLEAU */

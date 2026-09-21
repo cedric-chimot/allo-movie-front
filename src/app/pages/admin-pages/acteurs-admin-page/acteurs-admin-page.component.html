@@ -5,13 +5,23 @@
       Gestion des acteurs
     </h1>
 
-    <button
-      class="btn-add-acteur"
-      type="button"
-      (click)="openAddModal()"
-    >
-      Ajouter un acteur
-    </button>
+    <div class="header-actions">
+      <button
+        class="btn-add-acteur"
+        type="button"
+        (click)="openAddModal()"
+      >
+        Ajouter un acteur
+      </button>
+
+      <button
+        class="btn-delete-acteur"
+        type="button"
+      >
+        Supprimer tous les acteurs
+      </button>
+    </div>
+
   </div>
 
   @if (acteurs.length > 0) {

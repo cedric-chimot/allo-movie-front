@@ -5,13 +5,22 @@
       Gestion des catégories
     </h1>
 
-    <button
-      class="btn-add-categorie"
-      type="button"
-      (click)="openAddModal()"
-    >
-      Ajouter une catégorie
-    </button>
+    <div class="header-actions">
+      <button
+        class="btn-add-categorie"
+        type="button"
+        (click)="openAddModal()"
+      >
+        Ajouter une catégorie
+      </button>
+
+      <button
+        class="btn-delete-categorie"
+        type="button"
+      >
+        Supprimer toutes les catégories
+      </button>
+    </div>
   </div>
 
   @if (categorie.length > 0) {

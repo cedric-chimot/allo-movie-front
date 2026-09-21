@@ -5,13 +5,22 @@
       Gestion des réalisateurs
     </h1>
 
-    <button
-      class="btn-add-realisateur"
-      type="button"
-      (click)="openAddModal()"
-    >
-      Ajouter un réalisateur
-    </button>
+    <div class="header-actions">
+      <button
+        class="btn-add-realisateur"
+        type="button"
+        (click)="openAddModal()"
+      >
+        Ajouter un realisateur
+      </button>
+
+      <button
+        class="btn-delete-realisateur"
+        type="button"
+      >
+        Supprimer tous les réalisateurs
+      </button>
+    </div>
   </div>
 
   @if (realisateurs.length > 0) {
