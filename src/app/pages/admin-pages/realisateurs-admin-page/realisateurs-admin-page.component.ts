@@ -73,6 +73,7 @@ export class RealisateursAdminPageComponent implements OnInit {
     }
   }
 
+
   // =========================
   // AJOUT
   // =========================
@@ -90,6 +91,7 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerRealisateurs();
   }
+
 
   // =========================
   // MODIFICATION
@@ -110,6 +112,7 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.chargerRealisateurs();
   }
 
+  
   // =========================
   // SUPPRESSION
   // =========================

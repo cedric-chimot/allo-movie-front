@@ -26,8 +26,11 @@ export class ActeursAdminPageComponent implements OnInit {
 
   isAddModalOpen = false;
   isEditModalOpen = false;
+  isDeleteModalOpen = false;
 
   acteurIdSelectionne!: number;
+
+  acteurSelectionnePourSuppression: Acteurs | null = null;
 
   // Pagination
   currentPage = 1;
@@ -80,6 +83,10 @@ export class ActeursAdminPageComponent implements OnInit {
     }
   }
 
+  // =========================
+  // AJOUT
+  // =========================
+
   openAddModal(): void {
     this.isAddModalOpen = true;
   }
@@ -93,6 +100,11 @@ export class ActeursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerActeurs();
   }
+
+
+  // =========================
+  // MODIFICATION
+  // =========================
 
   openEditModal(acteurId: number): void {
     this.acteurIdSelectionne = acteurId;
@@ -108,5 +120,65 @@ export class ActeursAdminPageComponent implements OnInit {
     this.currentPage = 1;
     this.chargerActeurs();
   }
-  
+
+
+  // =========================
+  // SUPPRESSION
+  // =========================
+
+  openDeleteModal(acteur: Acteurs): void {
+    this.acteurSelectionnePourSuppression = acteur;
+    this.isDeleteModalOpen = true;
+  }
+
+  closeDeleteModal(): void {
+    this.isDeleteModalOpen = false;
+    this.acteurSelectionnePourSuppression = null;
+  }
+
+  confirmDeleteActeur(): void {
+
+    if (
+      this.acteurSelectionnePourSuppression &&
+      this.acteurSelectionnePourSuppression.id
+    ) {
+
+      this.acteursService
+        .deleteActeurById(
+          this.acteurSelectionnePourSuppression.id
+        )
+        .subscribe({
+
+          next: () => {
+
+            this.closeDeleteModal();
+
+            this.chargerActeurs();
+
+            // Si la suppression vide la dernière page
+            if (
+              this.currentPage > this.nombrePages &&
+              this.nombrePages > 0
+            ) {
+              this.currentPage = this.nombrePages;
+            }
+          },
+
+          error: (erreur) => {
+            console.error(
+              'Erreur lors de la suppression du réalisateur :',
+              erreur
+            );
+          }
+
+        });
+
+    } else {
+
+      console.error(
+        'Aucun réalisateur sélectionné pour suppression'
+      );
+
+    }
+  }
 }

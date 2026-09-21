@@ -68,6 +68,7 @@
                     <button
                       class="btn btn-danger btn-sm"
                       type="button"
+                      (click)="openDeleteModal(acteur)"
                     >
                       <i class="fa-solid fa-trash"></i>
                     </button>
@@ -179,4 +180,49 @@
     </div>
 
   </div>
+}
+
+@if (isDeleteModalOpen) {
+
+  <div class="modal-overlay">
+
+    <div class="modal-content delete-modal">
+
+      <h3 class="titre-confirm">Confirmation de suppression</h3>
+
+      <p class="confirmation-message">
+        Êtes-vous sûr de vouloir supprimer l'acteur
+        <strong>
+          {{ acteurSelectionnePourSuppression?.prenom }} {{ acteurSelectionnePourSuppression?.nom }}
+        </strong> ?
+      </p>
+
+      <p class="text-danger">
+        Cette action est irréversible.
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="btn confirm"
+          (click)="confirmDeleteActeur()"
+        >
+          Confirmer
+        </button>
+
+        <button
+          type="button"
+          class="btn danger"
+          (click)="closeDeleteModal()"
+        >
+          Annuler
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 }
