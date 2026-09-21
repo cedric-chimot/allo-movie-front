@@ -166,7 +166,7 @@ export class ActeursAdminPageComponent implements OnInit {
 
           error: (erreur) => {
             console.error(
-              'Erreur lors de la suppression du réalisateur :',
+              'Erreur lors de la suppression de l\'acteur :',
               erreur
             );
           }
@@ -176,7 +176,7 @@ export class ActeursAdminPageComponent implements OnInit {
     } else {
 
       console.error(
-        'Aucun réalisateur sélectionné pour suppression'
+        'Aucun acteur sélectionné pour suppression'
       );
 
     }

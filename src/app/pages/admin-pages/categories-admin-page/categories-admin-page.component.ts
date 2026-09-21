@@ -19,8 +19,11 @@ export class CategoriesAdminPageComponent implements OnInit {
 
   isAddModalOpen = false;
   isEditModalOpen = false;
+  isDeleteModalOpen = false;
 
   categorieIdSelectionne!: number;
+
+  categorieSelectionneePourSuppression: Categorie | null = null;
 
   // Pagination
   currentPage = 1;
@@ -65,6 +68,11 @@ export class CategoriesAdminPageComponent implements OnInit {
     }
   }
 
+
+  // =========================
+  // AJOUT
+  // =========================
+
   openAddModal(): void {
     this.isAddModalOpen = true;
   }
@@ -79,6 +87,10 @@ export class CategoriesAdminPageComponent implements OnInit {
     this.chargerCategorie();
   }
 
+
+  // =========================
+  // MODIFICATION
+  // =========================
 
   openEditModal(categorieId: number): void {
     this.categorieIdSelectionne = categorieId;
@@ -95,4 +107,64 @@ export class CategoriesAdminPageComponent implements OnInit {
     this.chargerCategorie();
   }
 
+
+  // =========================
+  // SUPPRESSION
+  // =========================
+
+  openDeleteModal(categorie: Categorie): void {
+    this.categorieSelectionneePourSuppression = categorie;
+    this.isDeleteModalOpen = true;
+  }
+
+  closeDeleteModal(): void {
+    this.isDeleteModalOpen = false;
+    this.categorieSelectionneePourSuppression = null;
+  }
+
+  confirmDeleteCategorie(): void {
+
+    if (
+      this.categorieSelectionneePourSuppression &&
+      this.categorieSelectionneePourSuppression.id
+    ) {
+
+      this.categorieService
+        .deleteCategorieById(
+          this.categorieSelectionneePourSuppression.id
+        )
+        .subscribe({
+
+          next: () => {
+
+            this.closeDeleteModal();
+
+            this.chargerCategorie();
+
+            // Si la suppression vide la dernière page
+            if (
+              this.currentPage > this.nombrePages &&
+              this.nombrePages > 0
+            ) {
+              this.currentPage = this.nombrePages;
+            }
+          },
+
+          error: (erreur) => {
+            console.error(
+              'Erreur lors de la suppression de la catégorie :',
+              erreur
+            );
+          }
+
+        });
+
+    } else {
+
+      console.error(
+        'Aucune catégorie sélectionnée pour suppression'
+      );
+
+    }
+  }
 }
