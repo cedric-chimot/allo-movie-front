@@ -42,7 +42,7 @@ export class FilmsService {
   }
 
   // Supprimer un film par son ID
-  deleteFilmsById(id: number): Observable<Films> {
+  deleteFilmById(id: number): Observable<Films> {
     return this.http.delete<Films>(`${this.apiUrl}/delete/${id}`);
   }
 
