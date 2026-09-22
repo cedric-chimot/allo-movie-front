@@ -8,7 +8,7 @@
 
     <div class="col-lg-12 mb-4">
 
-      <div class="information shadow border m-1 px-3">
+      <div class="information shadow border mt-2 px-3">
 
         <div class="projet text-center">
 
@@ -45,183 +45,78 @@
 
 
     <!-- ========================= -->
-    <!-- RECHERCHE -->
+    <!-- MIEUX NOTÉS -->
     <!-- ========================= -->
 
-    <div class="col-12 mb-4">
-
-      <div class="card shadow w-100">
-
-        <div class="card-header">
-          Recherche de films
-        </div>
-
-        <div class="card-body py-3">
-
-          <form class="container-fluid">
-
-            <div class="row g-3">
-
-              <div class="col-md-3">
-
-                <label class="form-label">
-                  Titre
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Titre"
-                >
-
-              </div>
-
-
-              <div class="col-md-2">
-
-                <label class="form-label">
-                  Année
-                </label>
-
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Année"
-                >
-
-              </div>
-
-
-              <div class="col-md-3">
-
-                <label class="form-label">
-                  Réalisateur
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Réalisateur"
-                >
-
-              </div>
-
-
-              <div class="col-md-2">
-
-                <label class="form-label">
-                  Acteur
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Acteur"
-                >
-
-              </div>
-
-
-              <div class="col-md-2">
-
-                <label class="form-label">
-                  Genre
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Genre"
-                >
-
-              </div>
-
-            </div>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ========================= -->
-    <!-- FILMS RÉCENTS -->
-    <!-- ========================= -->
-
-    <div class="col-12">
+    <div class="col-12 mb-5">
 
       <div class="section-header mb-4">
 
         <h2>
-          🎬 Films récents
+          ⭐ Mieux notés
         </h2>
 
       </div>
 
+      <div class="row g-4">
 
-      <div class="col-12">
+        @for (film of filmsMieuxNotes; track film.id) {
 
-      <div class="film-list">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
-        @for (film of films; track film.id) {
+            <div class="film-card card h-100 shadow-sm">
 
-          <div class="film-card card">
-
-            <div class="card-header d-flex justify-content-between align-items-center">
-
-              <span>
-                {{ film.titre }}
-              </span>
-
-              <button
-                class="btn btn-sm p-0 border-0 bg-transparent text-white"
-                (click)="toggleFavorite(film.id!)"
-                [innerHTML]="isFavorite(film.id!) ? '❤️' : '🤍'"
-                title="Ajouter aux favoris"
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
               >
-              </button>
 
-            </div>
+              <div class="card-body">
 
-            <img
-              [src]="film.image"
-              class="card-img-top film-image"
-              [alt]="'Affiche ' + film.titre"
-            >
+                <div class="film-title">
 
-            <div class="card-body">
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
 
-              <div class="film-info">
+                  <button
+                    class="favorite-button"
+                    type="button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  >
+                  </button>
 
-                <p>
-                  <strong>Année :</strong>
-                  {{ film.dateSortie | date:'yyyy' }}
-                </p>
+                </div>
 
-                <p>
-                  <strong>Note :</strong>
+                <p class="film-info">
 
                   @if (film.noteMoyenne > 0) {
+
                     ⭐ {{ film.noteMoyenne }} / 10
+
                   } @else {
+
                     <span class="no-rating">
                       Pas encore noté
                     </span>
+
                   }
+
+                  · {{ film.dateSortie | date:'yyyy' }}
 
                 </p>
 
-              </div>
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn film-details btn-sm"
+                >
+                  Détails
+                </a>
 
-              <a
-                [routerLink]="['/films', film.id]"
-                class="btn btn-primary film-details"
-              >
-                Détails
-              </a>
+              </div>
 
             </div>
 
@@ -232,6 +127,163 @@
       </div>
 
     </div>
+
+
+    <!-- ========================= -->
+    <!-- À L'AFFICHE -->
+    <!-- ========================= -->
+
+    <div class="col-12 mb-5">
+
+      <div class="section-header mb-4">
+
+        <h2>
+          🎬 À l'affiche
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        @for (film of filmsAffiche; track film.id) {
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="film-card card h-100 shadow-sm">
+
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
+
+              <div class="card-body">
+
+                <div class="film-title">
+
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
+
+                  <button
+                    class="favorite-button"
+                    type="button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  >
+                  </button>
+
+                </div>
+
+                <p class="film-info">
+
+                  @if (film.noteMoyenne > 0) {
+
+                    ⭐ {{ film.noteMoyenne }} / 10
+
+                  } @else {
+
+                    <span class="no-rating">
+                      Pas encore noté
+                    </span>
+
+                  }
+
+                  · {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
+                </p>
+
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn film-details btn-sm"
+                >
+                  Détails
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- À VENIR -->
+    <!-- ========================= -->
+
+    <div class="col-12 mb-5">
+
+      <div class="section-header mb-4">
+
+        <h2>
+          🔜 À venir
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        @for (film of filmsAVenir; track film.id) {
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="film-card card h-100 shadow-sm">
+
+              <img
+                [src]="film.image"
+                [alt]="'Affiche de ' + film.titre"
+                class="card-img-top film-image"
+              >
+
+              <div class="card-body">
+
+                <div class="film-title">
+
+                  <h5>
+                    {{ film.titre }}
+                  </h5>
+
+                  <button
+                    class="favorite-button"
+                    type="button"
+                    (click)="toggleFavori(film.id!)"
+                    [innerHTML]="estFavori(film.id!) ? '❤️' : '🤍'"
+                    title="Ajouter aux favoris"
+                  >
+                  </button>
+
+                </div>
+
+                <p class="film-info">
+
+                  Sortie :
+                  {{ film.dateSortie | date:'dd/MM/yyyy' }}
+
+                </p>
+
+                <a
+                  [routerLink]="['/films', film.id]"
+                  class="btn film-details btn-sm"
+                >
+                  Détails
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
 
     </div>
 
