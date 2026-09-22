@@ -4,7 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { AdminHomeComponent } from './pages/admin-pages/admin-home/admin-home.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import { FilmsPageComponent } from './pages/films-page/films-page.component';
+import { SearchFilmsPageComponent } from './pages/search-films-page/search-films-page.component';
 import { FilmDetailPageComponent } from './pages/film-detail-page/film-detail-page.component';
 import { FilmsAdminPageComponent } from './pages/admin-pages/film-admin-page/film-admin-page.component';
 import { RealisateursAdminPageComponent } from './pages/admin-pages/realisateurs-admin-page/realisateurs-admin-page.component';
@@ -24,6 +24,6 @@ export const routes: Routes = [
   { path: 'admin-categories', component: CategoriesAdminPageComponent },
   { path: 'admin-users', component: UsersAdminPageComponent },
   { path: 'user-profile', component: UserProfileComponent },
-  { path: 'films', component: FilmsPageComponent },
+  { path: 'search', component: SearchFilmsPageComponent },
   { path: 'films/:id', component: FilmDetailPageComponent }
 ];
