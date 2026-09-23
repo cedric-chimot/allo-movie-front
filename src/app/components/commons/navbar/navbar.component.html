@@ -24,7 +24,7 @@
         <li class="nav-item">
           <a class="nav-link text-white me-1" routerLink="/search" routerLinkActive="active">Recherche</a>
         </li>
-        @if (isLoggedIn && !isAdmin) {
+        @if (!isAdmin) {
           <li class="nav-item">
             <a class="nav-link text-white me-1" routerLink="/message" routerLinkActive="active">Contact</a>
           </li>
