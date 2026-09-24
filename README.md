@@ -101,7 +101,6 @@ _En cliquant sur le cœur, on ajoute le film en favori._
 
 <img width="1919" height="943" alt="Capture d&#39;écran 2026-09-12 023833" src="https://github.com/user-attachments/assets/2761ceb7-a008-42a4-bd14-c8537ed2811b" />
 
-
 #### _Dashboard Admin, gestion des réalisateurs :_
 
 <img width="1919" height="767" alt="Capture d&#39;écran 2026-09-02 212833" src="https://github.com/user-attachments/assets/c47e1d16-dd71-4076-9e1d-9e251ed80327" />
