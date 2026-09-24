@@ -113,7 +113,6 @@ _En cliquant sur le cœur, on ajoute le film en favori._
 
 <img width="1919" height="768" alt="Capture d&#39;écran 2026-09-02 212857" src="https://github.com/user-attachments/assets/b625a137-8dc7-4d08-b8d5-698e4e27a7af" />
 
-
 #### _Page de profil d'un utilisateur(présentation provisoire)_
 
 ![allomovie-userProfile](https://github.com/user-attachments/assets/f5a1763b-fdfb-4109-a361-51e6f5478cf6)
