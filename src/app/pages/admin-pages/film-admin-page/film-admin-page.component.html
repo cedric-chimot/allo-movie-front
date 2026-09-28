@@ -259,3 +259,55 @@
   </div>
 
 }
+
+@if (isDeleteAllModalOpen) {
+
+  <div
+    class="modal-overlay"
+    (click)="closeDeleteAllModal()"
+  >
+
+    <div
+      class="modal-content delete-modal"
+      (click)="$event.stopPropagation()"
+    >
+
+      <h2 class="titre-confirm">
+        Supprimer tous les films
+      </h2>
+
+      <p class="confirmation-message">
+        Êtes-vous sûr de vouloir supprimer
+        <strong>tous les films</strong> ?
+      </p>
+
+      <p class="text-danger">
+        Cette action supprimera définitivement
+        tous les films de la base de données.
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="btn confirm"
+          (click)="closeDeleteAllModal()"
+        >
+          Annuler
+        </button>
+
+        <button
+          type="button"
+          class="btn danger"
+          (click)="confirmDeleteAllFilms()"
+        >
+          Supprimer tout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
