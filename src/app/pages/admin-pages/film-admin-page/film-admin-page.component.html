@@ -17,6 +17,7 @@
       <button
         class="btn-delete-film"
         type="button"
+        (click)="openDeleteAllModal()"
       >
         Supprimer tous les films
       </button>
@@ -287,7 +288,7 @@
 
         <button
           type="button"
-          class="btn danger"
+          class="btn confirm"
           (click)="confirmDeleteAllFilms()"
         >
           Confirmer
@@ -295,7 +296,7 @@
 
         <button
           type="button"
-          class="btn confirm"
+          class="btn danger"
           (click)="closeDeleteAllModal()"
         >
           Annuler

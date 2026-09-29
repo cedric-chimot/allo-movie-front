@@ -17,6 +17,7 @@
       <button
         class="btn-delete-categorie"
         type="button"
+        (click)="openDeleteAllModal()"
       >
         Supprimer toutes les catégories
       </button>
@@ -260,7 +261,7 @@
 
         <button
           type="button"
-          class="btn danger"
+          class="btn confirm"
           (click)="confirmDeleteAllCategories()"
         >
           Confirmer
@@ -268,7 +269,7 @@
 
         <button
           type="button"
-          class="btn confirm"
+          class="btn danger"
           (click)="closeDeleteAllModal()"
         >
           Annuler

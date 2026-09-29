@@ -17,6 +17,7 @@
       <button
         class="btn-delete-realisateur"
         type="button"
+        (click)="openDeleteAllModal()"
       >
         Supprimer tous les réalisateurs
       </button>
@@ -263,7 +264,7 @@
 
         <button
           type="button"
-          class="btn danger"
+          class="btn confirm"
           (click)="confirmDeleteAllRealisateurs()"
         >
           Confirmer
@@ -271,7 +272,7 @@
 
         <button
           type="button"
-          class="btn confirm"
+          class="btn danger"
           (click)="closeDeleteAllModal()"
         >
           Annuler

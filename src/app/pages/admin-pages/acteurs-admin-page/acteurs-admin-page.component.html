@@ -17,6 +17,7 @@
       <button
         class="btn-delete-acteur"
         type="button"
+        (click)="openDeleteAllModal()"
       >
         Supprimer tous les acteurs
       </button>
@@ -264,7 +265,7 @@
 
         <button
           type="button"
-          class="btn danger"
+          class="btn confirm"
           (click)="confirmDeleteAllActeurs()"
         >
           Confirmer
@@ -272,7 +273,7 @@
 
         <button
           type="button"
-          class="btn confirm"
+          class="btn danger"
           (click)="closeDeleteAllModal()"
         >
           Annuler
