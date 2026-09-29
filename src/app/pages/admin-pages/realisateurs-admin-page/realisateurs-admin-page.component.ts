@@ -21,6 +21,7 @@ export class RealisateursAdminPageComponent implements OnInit {
   isAddModalOpen = false;
   isEditModalOpen = false;
   isDeleteModalOpen = false;
+  isDeleteAllModalOpen = false;
 
   realisateurIdSelectionne!: number;
 
@@ -112,7 +113,7 @@ export class RealisateursAdminPageComponent implements OnInit {
     this.chargerRealisateurs();
   }
 
-  
+
   // =========================
   // SUPPRESSION
   // =========================
@@ -172,4 +173,43 @@ export class RealisateursAdminPageComponent implements OnInit {
 
     }
   }
+
+  // =========================
+  // SUPPRESSION DE TOUS LES RÉALISATEURS
+  // =========================
+
+  openDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = true;
+  }
+
+  closeDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = false;
+  }
+
+  confirmDeleteAllRealisateurs(): void {
+
+    this.realisateursService.deleteAllRealisateurs().subscribe({
+
+      next: () => {
+
+        this.closeDeleteAllModal();
+
+        this.realisateurs = [];
+
+        this.currentPage = 1;
+
+      },
+
+      error: (erreur) => {
+
+        console.error(
+          'Erreur lors de la suppression de tous les réalisateurs :',
+          erreur
+        );
+
+      }
+
+    });
+  }
+
 }
