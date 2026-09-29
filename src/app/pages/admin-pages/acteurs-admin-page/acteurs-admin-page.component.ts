@@ -27,6 +27,7 @@ export class ActeursAdminPageComponent implements OnInit {
   isAddModalOpen = false;
   isEditModalOpen = false;
   isDeleteModalOpen = false;
+  isDeleteAllModalOpen = false;
 
   acteurIdSelectionne!: number;
 
@@ -180,5 +181,43 @@ export class ActeursAdminPageComponent implements OnInit {
       );
 
     }
+  }
+
+  // =========================
+  // SUPPRESSION DE TOUS LES ACTEURS
+  // =========================
+
+  openDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = true;
+  }
+
+  closeDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = false;
+  }
+
+  confirmDeleteAllActeurs(): void {
+
+    this.acteursService.deleteAllActeurs().subscribe({
+
+      next: () => {
+
+        this.closeDeleteAllModal();
+
+        this.acteurs = [];
+
+        this.currentPage = 1;
+
+      },
+
+      error: (erreur) => {
+
+        console.error(
+          'Erreur lors de la suppression de tous les acteurs :',
+          erreur
+        );
+
+      }
+
+    });
   }
 }
