@@ -15,11 +15,12 @@ import { CategorieEditFormComponent } from '../../../forms/categorie-edit-form/c
 })
 export class CategoriesAdminPageComponent implements OnInit {
 
-  categorie: Categorie[] = [];
+  categories: Categorie[] = [];
 
   isAddModalOpen = false;
   isEditModalOpen = false;
   isDeleteModalOpen = false;
+  isDeleteAllModalOpen = false;
 
   categorieIdSelectionne!: number;
 
@@ -40,7 +41,7 @@ export class CategoriesAdminPageComponent implements OnInit {
   chargerCategorie(): void {
     this.categorieService.getAllCategorie().subscribe({
       next: (categorie) => {
-        this.categorie = categorie;
+        this.categories = categorie;
       },
       error: (erreur) => {
         console.error(
@@ -55,11 +56,11 @@ export class CategoriesAdminPageComponent implements OnInit {
     const debut = (this.currentPage - 1) * this.categorieParPage;
     const fin = debut + this.categorieParPage;
 
-    return this.categorie.slice(debut, fin);
+    return this.categories.slice(debut, fin);
   }
 
   get nombrePages(): number {
-    return Math.ceil(this.categorie.length / this.categorieParPage);
+    return Math.ceil(this.categories.length / this.categorieParPage);
   }
 
   changerPage(page: number): void {
@@ -167,4 +168,43 @@ export class CategoriesAdminPageComponent implements OnInit {
 
     }
   }
+
+  // =========================
+  // SUPPRESSION DE TOUTES LES CATÉGORIES
+  // =========================
+
+  openDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = true;
+  }
+
+  closeDeleteAllModal(): void {
+    this.isDeleteAllModalOpen = false;
+  }
+
+  confirmDeleteAllCategories(): void {
+
+    this.categorieService.deleteAllCategories().subscribe({
+
+      next: () => {
+
+        this.closeDeleteAllModal();
+
+        this.categories = [];
+
+        this.currentPage = 1;
+
+      },
+
+      error: (erreur) => {
+
+        console.error(
+          'Erreur lors de la suppression de toutes les catégorie :',
+          erreur
+        );
+
+      }
+
+    });
+  }
+
 }

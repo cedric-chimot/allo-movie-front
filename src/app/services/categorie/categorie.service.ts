@@ -37,7 +37,7 @@ export class CategorieService {
   }
 
   // Supprimer toutes les catégories
-  deleteAllCategorie(): Observable<void> {
+  deleteAllCategories(): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/all`);
   }
 

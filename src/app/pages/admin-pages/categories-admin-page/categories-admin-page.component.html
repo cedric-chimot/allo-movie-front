@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  @if (categorie.length > 0) {
+  @if (categories.length > 0) {
 
     <div class="card shadow">
 
@@ -221,6 +221,55 @@
           type="button"
           class="btn danger"
           (click)="closeDeleteModal()"
+        >
+          Annuler
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+@if (isDeleteAllModalOpen) {
+
+  <div
+    class="modal-overlay"
+    (click)="closeDeleteAllModal()"
+  >
+
+    <div class="modal-content delete-modal">
+
+      <h2 class="titre-confirm">
+        Supprimer toutes les catégories
+      </h2>
+
+      <p class="confirmation-message">
+        Êtes-vous sûr de vouloir supprimer
+        <strong>toutes les catégories</strong> ?
+      </p>
+
+      <p class="text-danger">
+        Cette action supprimera définitivement
+        toutes les catégories de la base de données.
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="btn danger"
+          (click)="confirmDeleteAllCategories()"
+        >
+          Confirmer
+        </button>
+
+        <button
+          type="button"
+          class="btn confirm"
+          (click)="closeDeleteAllModal()"
         >
           Annuler
         </button>
