@@ -80,7 +80,7 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Dashboard Admin avec admin connecté :_
 
-<img width="1909" height="941" alt="Capture d&#39;écran 2026-09-02 215743" src="https://github.com/user-attachments/assets/b132f1a5-fd68-46e2-8b2e-c542bf619095" />
+<img width="1908" height="945" alt="allomovieDashboard" src="https://github.com/user-attachments/assets/34deb18b-1681-4164-a312-5a628bd996d0" />
 
 #### _Dashboard Admin, gestion des films avec ajout de nouveaux films :_
 
