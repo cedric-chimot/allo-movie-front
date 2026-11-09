@@ -68,8 +68,9 @@ o Champs de recherche : permettant de rechercher des films via l’API
 
 #### _Page d'accueil une fois connecté :_
 
-<img width="1919" height="495" alt="Capture d&#39;écran 2026-09-02 212735" src="https://github.com/user-attachments/assets/05b852cc-800e-4558-b80b-c425d15704d7" />
-<img width="1919" height="733" alt="Capture d&#39;écran 2026-09-02 212755" src="https://github.com/user-attachments/assets/67391fbb-3b63-4245-a254-819a63dcc1f9" />
+<img width="1913" height="941" alt="allomovieHome" src="https://github.com/user-attachments/assets/990506e2-661d-4ae9-8f7f-c426e0dcfb49" />
+<img width="1915" height="672" alt="allomovieHome1" src="https://github.com/user-attachments/assets/98a51642-33bd-47be-ab68-fc0de8ff02f2" />
+<img width="1916" height="806" alt="allomovieHome2" src="https://github.com/user-attachments/assets/53060090-d809-4a65-87a8-9d5fef14ab9d" />
 
 #### _Page films :_
 
